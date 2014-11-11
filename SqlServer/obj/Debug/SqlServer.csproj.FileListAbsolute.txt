@@ -1,0 +1,6 @@
+E:\Test\LZC\LZC\SqlServer\obj\Debug\ResolveAssemblyReference.cache
+E:\Test\LZC\LZC\SqlServer\bin\Debug\SqlServer.dll
+E:\Test\LZC\LZC\SqlServer\bin\Debug\SqlServer.pdb
+E:\Test\LZC\LZC\SqlServer\obj\Debug\SqlServer.dll
+E:\Test\LZC\LZC\SqlServer\obj\Debug\SqlServer.pdb
+E:\Test\LZC\LZC\SqlServer\bin\Debug\Interop.SQLDMO.dll

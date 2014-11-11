@@ -1,0 +1,7 @@
+E:\Test\LZC\Warehouse\Warehouse\Warehouse\bin\Debug\Warehouse.exe
+E:\Test\LZC\Warehouse\Warehouse\Warehouse\bin\Debug\Warehouse.pdb
+E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\ResolveAssemblyReference.cache
+E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.Properties.Resources.resources
+E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.csproj.GenerateResource.Cache
+E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.exe
+E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.pdb
