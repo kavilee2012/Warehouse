@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C0739823-13DD-4D65-9820-DEB3352F0A2C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -39,16 +39,72 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Index.cs">
+    <Compile Include="frmAgentNorm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Index.Designer.cs">
-      <DependentUpon>Index.cs</DependentUpon>
+    <Compile Include="frmAgentNorm.Designer.cs">
+      <DependentUpon>frmAgentNorm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomer.Designer.cs">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGoodsIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGoodsIn.Designer.cs">
+      <DependentUpon>frmGoodsIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGoodsNorm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGoodsNorm.Designer.cs">
+      <DependentUpon>frmGoodsNorm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGoodsOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGoodsOut.Designer.cs">
+      <DependentUpon>frmGoodsOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIndex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIndex.Designer.cs">
+      <DependentUpon>frmIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGoodsSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGoodsSearch.Designer.cs">
+      <DependentUpon>frmGoodsSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUser.Designer.cs">
+      <DependentUpon>frmUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Index.resx">
-      <DependentUpon>Index.cs</DependentUpon>
+    <EmbeddedResource Include="frmCustomer.resx">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIndex.resx">
+      <DependentUpon>frmIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUser.resx">
+      <DependentUpon>frmUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -13,3 +13,6 @@ E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\ResolveAssemblyReference.cache
 E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.Index.resources
 E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.Properties.Resources.resources
 E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.csproj.GenerateResource.Cache
+E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.frmCustomer.resources
+E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.frmIndex.resources
+E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.frmUser.resources

@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Warehouse
 {
-    public partial class Index : Form
+    public partial class frmCustomer : Form
     {
-        public Index()
+        public frmCustomer()
         {
             InitializeComponent();
         }
