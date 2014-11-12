@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Net;
 using System.IO;
 using System.IO.Compression;
+using System.Data;
 
 namespace Common
 {
@@ -109,6 +109,28 @@ namespace Common
             {
                 return null;
             }
+        }
+
+        public static DataTable GeneralDataTable()
+        {
+            DataTable tblDatas = new DataTable("Datas");
+            tblDatas.Columns.Add("ID", Type.GetType("System.Int32"));
+            tblDatas.Columns[0].AutoIncrement = true;
+            tblDatas.Columns[0].AutoIncrementSeed = 1;
+            tblDatas.Columns[0].AutoIncrementStep = 1;
+
+            tblDatas.Columns.Add("列一", Type.GetType("System.String"));
+            tblDatas.Columns.Add("列二", Type.GetType("System.String"));
+            tblDatas.Columns.Add("列三", Type.GetType("System.String"));
+
+            tblDatas.Rows.Add(new object[] { null, "a", "b", "c" });
+            tblDatas.Rows.Add(new object[] { null, "a", "b", "c" });
+            tblDatas.Rows.Add(new object[] { null, "a", "b", "c" });
+            tblDatas.Rows.Add(new object[] { null, "a", "b", "c" });
+            tblDatas.Rows.Add(new object[] { null, "a", "b", "c" });
+
+            return tblDatas;
+
         }
 
     }

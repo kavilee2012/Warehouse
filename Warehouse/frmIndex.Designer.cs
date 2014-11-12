@@ -40,7 +40,9 @@
             this.代理商级别维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStatus_Time = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -112,12 +114,14 @@
             this.成品规格维护ToolStripMenuItem.Name = "成品规格维护ToolStripMenuItem";
             this.成品规格维护ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.成品规格维护ToolStripMenuItem.Text = "成品规格维护";
+            this.成品规格维护ToolStripMenuItem.Click += new System.EventHandler(this.成品规格维护ToolStripMenuItem_Click);
             // 
             // 代理商级别维护ToolStripMenuItem
             // 
             this.代理商级别维护ToolStripMenuItem.Name = "代理商级别维护ToolStripMenuItem";
             this.代理商级别维护ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.代理商级别维护ToolStripMenuItem.Text = "代理商级别维护";
+            this.代理商级别维护ToolStripMenuItem.Click += new System.EventHandler(this.代理商级别维护ToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -128,14 +132,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(812, 438);
             this.panel1.TabIndex = 1;
+
             // 
             // statusStrip1
             // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStatus_Time});
             this.statusStrip1.Location = new System.Drawing.Point(0, 467);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(812, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStatus_Time
+            // 
+            this.toolStatus_Time.Name = "toolStatus_Time";
+            this.toolStatus_Time.Size = new System.Drawing.Size(0, 17);
             // 
             // frmIndex
             // 
@@ -151,8 +163,11 @@
             this.Text = "成品仓管理系统";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmIndex_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmIndex_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,5 +187,6 @@
         private System.Windows.Forms.ToolStripMenuItem 用户管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 成品规格维护ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 代理商级别维护ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel toolStatus_Time;
     }
 }

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C0739823-13DD-4D65-9820-DEB3352F0A2C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IrisSkin2, Version=2006.3.22.45, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dll\IrisSkin2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -95,12 +99,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAgentNorm.resx">
+      <DependentUpon>frmAgentNorm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGoodsNorm.resx">
+      <DependentUpon>frmGoodsNorm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
@@ -124,6 +137,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{3275A144-2508-4BBA-8A1D-DB77C126E66F}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlServer\SqlServer.csproj">
+      <Project>{EEE559A0-1751-4AA7-9B40-B16E8BFB5687}</Project>
+      <Name>SqlServer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

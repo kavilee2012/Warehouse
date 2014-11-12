@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Common;
 
 namespace Warehouse
 {
@@ -13,6 +14,12 @@ namespace Warehouse
         public frmAgentNorm()
         {
             InitializeComponent();
+        }
+
+        private void frmAgentNorm_Load(object sender, EventArgs e)
+        {
+            DataTable dt = CommonService.GeneralDataTable();
+            dataGridView1.DataSource = dt;
         }
     }
 }

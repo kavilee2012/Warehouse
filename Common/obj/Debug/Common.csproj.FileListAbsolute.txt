@@ -16,3 +16,4 @@ E:\WorkFile\LZC\Warehouse\Common\bin\Debug\NPOI.dll
 E:\WorkFile\LZC\Warehouse\Common\obj\Debug\ResolveAssemblyReference.cache
 E:\WorkFile\LZC\Warehouse\Common\obj\Debug\Common.dll
 E:\WorkFile\LZC\Warehouse\Common\obj\Debug\Common.pdb
+E:\WorkFile\LZC\Warehouse\Common\bin\Debug\Common.dll.config
