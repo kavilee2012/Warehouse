@@ -56,6 +56,21 @@ namespace Warehouse
             ShowFrom(new frmAgentNorm());
         }
 
+        private void 成品入仓ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowFrom(new frmGoodsIn());
+        }
+
+        private void 成品出仓ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowFrom(new frmGoodsOut());
+        }
+
+        private void 查询ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ShowFrom(new frmGoodsSearch());
+        }
+
 
 
 

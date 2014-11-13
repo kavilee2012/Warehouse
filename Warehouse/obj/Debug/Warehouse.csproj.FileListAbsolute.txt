@@ -27,3 +27,9 @@ E:\WorkFile\LZC\Warehouse\Warehouse\bin\Debug\SqlServer.dll
 E:\WorkFile\LZC\Warehouse\Warehouse\bin\Debug\Interop.SQLDMO.dll
 E:\WorkFile\LZC\Warehouse\Warehouse\bin\Debug\SqlServer.pdb
 E:\WorkFile\LZC\Warehouse\Warehouse\bin\Debug\Common.pdb
+E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.frmGoodsIn.resources
+E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.frmGoodsOut.resources
+E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.frmGoodsSearch.resources
+E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.frmOutDetail.resources
+E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.frmInDetail.resources
+E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.frmStartScan.resources

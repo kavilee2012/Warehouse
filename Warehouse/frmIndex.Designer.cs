@@ -70,20 +70,23 @@
             // 成品入仓ToolStripMenuItem
             // 
             this.成品入仓ToolStripMenuItem.Name = "成品入仓ToolStripMenuItem";
-            this.成品入仓ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.成品入仓ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.成品入仓ToolStripMenuItem.Text = "成品入仓";
+            this.成品入仓ToolStripMenuItem.Click += new System.EventHandler(this.成品入仓ToolStripMenuItem_Click);
             // 
             // 成品出仓ToolStripMenuItem
             // 
             this.成品出仓ToolStripMenuItem.Name = "成品出仓ToolStripMenuItem";
-            this.成品出仓ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.成品出仓ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.成品出仓ToolStripMenuItem.Text = "成品出仓";
+            this.成品出仓ToolStripMenuItem.Click += new System.EventHandler(this.成品出仓ToolStripMenuItem_Click);
             // 
             // 查询ToolStripMenuItem1
             // 
             this.查询ToolStripMenuItem1.Name = "查询ToolStripMenuItem1";
-            this.查询ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
+            this.查询ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.查询ToolStripMenuItem1.Text = "查询出仓情况";
+            this.查询ToolStripMenuItem1.Click += new System.EventHandler(this.查询ToolStripMenuItem1_Click);
             // 
             // 客户管理ToolStripMenuItem
             // 
@@ -132,7 +135,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(812, 438);
             this.panel1.TabIndex = 1;
-
             // 
             // statusStrip1
             // 

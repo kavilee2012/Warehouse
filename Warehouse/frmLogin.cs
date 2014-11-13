@@ -32,8 +32,9 @@ namespace Warehouse
         private void btn_Login_Click(object sender, EventArgs e)
         {
             frmIndex f = new frmIndex();
-            f.ShowDialog();
             this.Hide();
+            f.ShowDialog();
+            
         }
     }
 }
