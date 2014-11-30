@@ -33,3 +33,4 @@ E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.frmGoodsSearch.resources
 E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.frmOutDetail.resources
 E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.frmInDetail.resources
 E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.frmStartScan.resources
+E:\WorkFile\LZC\Warehouse\Warehouse\bin\Debug\Warehouse.exe.config
