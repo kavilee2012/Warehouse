@@ -136,28 +136,30 @@ namespace Warehouse
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public void Add()
+		public int Add()
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into [Agent] (");
-			strSql.Append("ID,Name,Contact,Phone,Address,Level)");
+			strSql.Append("Name,Contact,Phone,Address,Level)");
 			strSql.Append(" values (");
-			strSql.Append("@ID,@Name,@Contact,@Phone,@Address,@Level)");
+			strSql.Append("@Name,@Contact,@Phone,@Address,@Level)");
+            strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
-					new SqlParameter("@ID", SqlDbType.Int,4),
-					new SqlParameter("@Name", SqlDbType.VarChar,50),
-					new SqlParameter("@Contact", SqlDbType.VarChar,50),
-					new SqlParameter("@Phone", SqlDbType.VarChar,50),
-					new SqlParameter("@Address", SqlDbType.VarChar,200),
-					new SqlParameter("@Level", SqlDbType.Int,4)};
-			parameters[0].Value = ID;
-			parameters[1].Value = Name;
-			parameters[2].Value = Contact;
-			parameters[3].Value = Phone;
-			parameters[4].Value = Address;
-			parameters[5].Value = Level;
+					new SqlParameter("@Name", Name),
+					new SqlParameter("@Contact", Contact),
+					new SqlParameter("@Phone", Phone),
+					new SqlParameter("@Address", Address),
+					new SqlParameter("@Level",Level)};
 
-			DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+            object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
+            if (obj == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
 		}
 		/// <summary>
 		/// 更新一条数据
@@ -271,7 +273,7 @@ namespace Warehouse
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select * ");
-			strSql.Append(" FROM [Agent] ");
+			strSql.Append(" FROM [Agent] A JOIN Level L ON A.Level=L.LevelID ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);

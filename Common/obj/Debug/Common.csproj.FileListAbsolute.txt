@@ -17,3 +17,10 @@ E:\WorkFile\LZC\Warehouse\Common\obj\Debug\ResolveAssemblyReference.cache
 E:\WorkFile\LZC\Warehouse\Common\obj\Debug\Common.dll
 E:\WorkFile\LZC\Warehouse\Common\obj\Debug\Common.pdb
 E:\WorkFile\LZC\Warehouse\Common\bin\Debug\Common.dll.config
+E:\Test\LZC\Warehouse\Warehouse\Common\bin\Debug\Common.dll.config
+E:\Test\LZC\Warehouse\Warehouse\Common\bin\Debug\Common.dll
+E:\Test\LZC\Warehouse\Warehouse\Common\bin\Debug\Common.pdb
+E:\Test\LZC\Warehouse\Warehouse\Common\bin\Debug\NPOI.dll
+E:\Test\LZC\Warehouse\Warehouse\Common\obj\Debug\ResolveAssemblyReference.cache
+E:\Test\LZC\Warehouse\Warehouse\Common\obj\Debug\Common.dll
+E:\Test\LZC\Warehouse\Warehouse\Common\obj\Debug\Common.pdb

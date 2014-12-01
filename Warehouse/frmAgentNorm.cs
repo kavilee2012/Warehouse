@@ -71,5 +71,50 @@ namespace Warehouse
                 e.Value = " 删除";
             }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView1.Columns["cDel"].Index)
+            {
+                if (MessageBox.Show(this, "确定要删除吗?", "警告", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    object v = dataGridView1.Rows[e.RowIndex].Cells["cID"].Value;
+                    if (ValidateService.IsNumber(v))
+                    {
+                        Level no = new Level();
+                        bool re = no.Delete((int)v);
+                        if (re)
+                        {
+                            MessageBox.Show("删除成功!");
+                            BindDGV();
+                        }
+                        else
+                        {
+                            MessageBox.Show("删除失败!");
+                        }
+                    }
+                }
+            }
+            else if (e.ColumnIndex == dataGridView1.Columns["cModity"].Index)
+            {
+                object v = dataGridView1.Rows[e.RowIndex].Cells["cID"].Value;
+                if (ValidateService.IsNumber(v))
+                {
+                    Level no = new Level();
+                    no.GetModel((int)v);
+                    frmAgentNormUpdate f = new frmAgentNormUpdate(no);
+                    f.ShowDialog();
+                    if (f._isTrue)
+                    {
+                        BindDGV();
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            DataGridViewService.VisibleRowOrder(dataGridView1, e);
+        }
     }
 }

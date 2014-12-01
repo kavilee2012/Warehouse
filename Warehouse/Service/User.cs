@@ -108,6 +108,22 @@ namespace Warehouse
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
 		}
 
+        /// <summary>
+        /// 是否存在该记录
+        /// </summary>
+        public bool Login(string UserName,string userPwd)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) from [User]");
+            strSql.Append(" where UserName=@UserName AND UserPwd = @userPwd");
+
+            SqlParameter[] parameters = {
+					new SqlParameter("@UserName", UserName),
+                    new SqlParameter("@userPwd", userPwd)};
+
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+        }
+
 
 		/// <summary>
 		/// 增加一条数据
@@ -147,16 +163,14 @@ namespace Warehouse
 			strSql.Append("update [User] set ");
 			strSql.Append("UserPwd=@UserPwd,");
 			strSql.Append("Position=@Position");
-			strSql.Append(" where UserName=@UserName and UserID=@UserID ");
+			strSql.Append(" where UserName=@UserName");
 			SqlParameter[] parameters = {
 					new SqlParameter("@UserPwd", SqlDbType.VarChar,50),
 					new SqlParameter("@Position", SqlDbType.VarChar,50),
-					new SqlParameter("@UserID", SqlDbType.Int,4),
 					new SqlParameter("@UserName", SqlDbType.VarChar,50)};
 			parameters[0].Value = UserPwd;
 			parameters[1].Value = Position;
-			parameters[2].Value = UserID;
-			parameters[3].Value = UserName;
+			parameters[2].Value = UserName;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -172,16 +186,14 @@ namespace Warehouse
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int UserID)
+		public bool Delete(string  name)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from [User] ");
-			strSql.Append(" where UserName=@UserName and UserID=@UserID ");
+			strSql.Append(" where UserName=@UserName");
 			SqlParameter[] parameters = {
-					new SqlParameter("@UserName", SqlDbType.VarChar,-1),
-					new SqlParameter("@UserID", SqlDbType.Int,4)};
+					new SqlParameter("@UserName", SqlDbType.VarChar,-1)};
 			parameters[0].Value = UserName;
-			parameters[1].Value = UserID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -198,36 +210,34 @@ namespace Warehouse
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public void GetModel(int UserID)
+		public void GetModel(string name)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select UserID,UserName,UserPwd,Position ");
 			strSql.Append(" FROM [User] ");
-			strSql.Append(" where UserName=@UserName and UserID=@UserID ");
+			strSql.Append(" where UserName=@UserName");
 			SqlParameter[] parameters = {
-					new SqlParameter("@UserName", SqlDbType.VarChar,-1),
-					new SqlParameter("@UserID", SqlDbType.Int,4)};
-			parameters[0].Value = UserName;
-			parameters[1].Value = UserID;
+					new SqlParameter("@UserName", SqlDbType.VarChar,-1)};
+			parameters[0].Value = name;
 
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
 			{
 				if(ds.Tables[0].Rows[0]["UserID"]!=null && ds.Tables[0].Rows[0]["UserID"].ToString()!="")
 				{
-					this.UserID=int.Parse(ds.Tables[0].Rows[0]["UserID"].ToString());
+                    this.UserID = int.Parse(ds.Tables[0].Rows[0]["UserID"].ToString());
 				}
 				if(ds.Tables[0].Rows[0]["UserName"]!=null )
 				{
-					this.UserName=ds.Tables[0].Rows[0]["UserName"].ToString();
+                    this.UserName = ds.Tables[0].Rows[0]["UserName"].ToString();
 				}
 				if(ds.Tables[0].Rows[0]["UserPwd"]!=null )
 				{
-					this.UserPwd=ds.Tables[0].Rows[0]["UserPwd"].ToString();
+                    this.UserPwd = ds.Tables[0].Rows[0]["UserPwd"].ToString();
 				}
 				if(ds.Tables[0].Rows[0]["Position"]!=null )
 				{
-					this.Position=ds.Tables[0].Rows[0]["Position"].ToString();
+                    this.Position = ds.Tables[0].Rows[0]["Position"].ToString();
 				}
 			}
 		}

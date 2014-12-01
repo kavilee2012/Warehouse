@@ -71,6 +71,12 @@ namespace Warehouse
             ShowFrom(new frmGoodsSearch());
         }
 
+        private void 修改个人密码ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+             frmUpdatePwd f = new frmUpdatePwd();
+             f.ShowDialog();
+        }
+
 
 
 

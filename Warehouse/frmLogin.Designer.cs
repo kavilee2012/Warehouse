@@ -90,7 +90,7 @@
             this.txt_UserPwd.Name = "txt_UserPwd";
             this.txt_UserPwd.Size = new System.Drawing.Size(131, 21);
             this.txt_UserPwd.TabIndex = 5;
-            this.txt_UserPwd.Text = "******";
+            this.txt_UserPwd.Text = "123";
             // 
             // panel1
             // 

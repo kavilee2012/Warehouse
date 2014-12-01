@@ -38,12 +38,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.cUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cModity = new System.Windows.Forms.DataGridViewLinkColumn();
             this.cDel = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -74,6 +74,7 @@
             this.btn_Search.TabIndex = 11;
             this.btn_Search.Text = "查询";
             this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
             // btn_Add
             // 
@@ -144,28 +145,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(720, 364);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(8, 103);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(726, 424);
-            this.panel1.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 383);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(215, 12);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "共 500 条记录，每页 50 条，共 10 页";
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // cUserName
             // 
@@ -210,6 +190,28 @@
             this.cDel.ReadOnly = true;
             this.cDel.VisitedLinkColor = System.Drawing.Color.Blue;
             this.cDel.Width = 60;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Location = new System.Drawing.Point(8, 103);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(726, 424);
+            this.panel1.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 383);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(215, 12);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "共 500 条记录，每页 50 条，共 10 页";
             // 
             // frmUser
             // 

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Common;
 
 namespace Warehouse
 {
@@ -31,10 +32,21 @@ namespace Warehouse
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            frmIndex f = new frmIndex();
-            this.Hide();
-            f.ShowDialog();
-            
+            string _name = txt_UserName.Text.Trim();
+            string _pwd = txt_UserPwd.Text.Trim();
+            User user = new User();
+            if (user.Login(_name, _pwd))
+            {
+                Global.userName = _name;
+                frmIndex f = new frmIndex();
+                this.Hide();
+                f.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("登录失败，用户名或者密码错误!");
+                return;
+            }
         }
     }
 }

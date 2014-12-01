@@ -77,5 +77,70 @@ namespace Warehouse
                 e.Value = " 删除";
             }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView1.Columns["cDel"].Index)
+            {
+                if (MessageBox.Show(this, "确定要删除吗?", "警告", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    object v = dataGridView1.Rows[e.RowIndex].Cells["cUserName"].Value;
+                    if (v!=null)
+                    {
+                        User no = new User();
+                        bool re = no.Delete(v.ToString());
+                        if (re)
+                        {
+                            MessageBox.Show("删除成功!");
+                            BindDGV();
+                        }
+                        else
+                        {
+                            MessageBox.Show("删除失败!");
+                        }
+                    }
+                }
+            }
+            else if (e.ColumnIndex == dataGridView1.Columns["cModity"].Index)
+            {
+                object v = dataGridView1.Rows[e.RowIndex].Cells["cUserName"].Value;
+                if (v!=null)
+                {
+                    User no = new User();
+                    no.GetModel(v.ToString());
+                    frmUserUpdate f = new frmUserUpdate(no);
+                    f.ShowDialog();
+                    if (f._isTrue)
+                    {
+                        BindDGV();
+                    }
+                }
+            }
+        }
+
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+            string _name = txt_Name.Text.Trim();
+            string _position = cbx_Position.SelectedItem.ToString();
+            string sql = "";
+            if (_position != "不限")
+            {
+                sql += " Position = '" + _position + "' AND";
+            }
+            if (_name != string.Empty)
+            {
+                sql += " UserName LIKE'%" + _name + "%' AND";
+            }
+            if (sql.Trim() != string.Empty)
+            {
+                sql = sql.Substring(0, sql.Length - 3);
+            }
+            DataSet ds = new User().GetList(sql);
+            if (ds != null)
+            {
+                dataGridView1.DataSource = ds.Tables[0];
+            }
+
+        }
     }
 }

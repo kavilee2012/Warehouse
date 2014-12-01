@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C0739823-13DD-4D65-9820-DEB3352F0A2C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -49,6 +49,12 @@
     <Compile Include="frmAgentNorm.Designer.cs">
       <DependentUpon>frmAgentNorm.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAgentNormUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgentNormUpdate.Designer.cs">
+      <DependentUpon>frmAgentNormUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,12 @@
     </Compile>
     <Compile Include="frmGoodsNorm.Designer.cs">
       <DependentUpon>frmGoodsNorm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGoodsNormUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGoodsNormUpdate.Designer.cs">
+      <DependentUpon>frmGoodsNormUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="frmGoodsOut.cs">
       <SubType>Form</SubType>
@@ -109,16 +121,32 @@
     <Compile Include="frmStartScan.Designer.cs">
       <DependentUpon>frmStartScan.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUpdatePwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdatePwd.Designer.cs">
+      <DependentUpon>frmUpdatePwd.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmUser.Designer.cs">
       <DependentUpon>frmUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUserUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserUpdate.Designer.cs">
+      <DependentUpon>frmUserUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAgentNorm.resx">
       <DependentUpon>frmAgentNorm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgentNormUpdate.resx">
+      <DependentUpon>frmAgentNormUpdate.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
@@ -129,6 +157,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGoodsNorm.resx">
       <DependentUpon>frmGoodsNorm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGoodsNormUpdate.resx">
+      <DependentUpon>frmGoodsNormUpdate.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGoodsOut.resx">
       <DependentUpon>frmGoodsOut.cs</DependentUpon>
@@ -151,8 +183,16 @@
     <EmbeddedResource Include="frmStartScan.resx">
       <DependentUpon>frmStartScan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdatePwd.resx">
+      <DependentUpon>frmUpdatePwd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserUpdate.resx">
+      <DependentUpon>frmUserUpdate.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
