@@ -54,3 +54,7 @@ E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.frmUpdatePwd.resou
 E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.frmAgentNormUpdate.resources
 E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.frmGoodsNormUpdate.resources
 E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.frmUserUpdate.resources
+E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.frmAgentNormUpdate.resources
+E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.frmGoodsNormUpdate.resources
+E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.frmUpdatePwd.resources
+E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.frmUserUpdate.resources

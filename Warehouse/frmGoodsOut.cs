@@ -11,6 +11,7 @@ namespace Warehouse
 {
     public partial class frmGoodsOut : Form
     {
+        IList<InW> allOut = new List<InW>();
         public frmGoodsOut()
         {
             InitializeComponent();
@@ -19,11 +20,9 @@ namespace Warehouse
         private void frmGoodsOut_Load(object sender, EventArgs e)
         {
             dataGridView1.AutoGenerateColumns = false;
-            DataTable dt = GeneralDataTable();
-            dataGridView1.DataSource = dt;
 
-            button1.Visible = false;
-            button3.Visible = false;
+            btn_GenNo.Visible = false;
+            btn_KeepScan.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -57,20 +56,43 @@ namespace Warehouse
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frmStartScan f = new frmStartScan();
+            frmStartScan f = new frmStartScan(this);
             f.ShowDialog();
-            button1.Visible = true;
-            button3.Visible = true;
+            btn_GenNo.Visible = true;
+            btn_KeepScan.Visible = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            button1.Visible = false;
-            button3.Visible = false;
+            btn_GenNo.Visible = false;
+            btn_KeepScan.Visible = false;
             frmStartScan f = new frmStartScan();
             f.ShowDialog();
-            button1.Visible = true;
-            button3.Visible = true;
+            btn_GenNo.Visible = true;
+            btn_KeepScan.Visible = true;
+        }
+
+        public void AddDGV(string barcode)
+        {
+            InW m = new InW().GetModelByBarcode(barcode);
+            if (m != null)
+            {
+                allOut.Add(m);
+                BindDGV();
+            }
+        }
+        
+        public void BindDGV()
+        {
+            dataGridView1.DataSource = allOut;
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView1.Columns["cDel"].Index)
+            {
+                e.Value = "移除";
+            }
         }
     }
 }

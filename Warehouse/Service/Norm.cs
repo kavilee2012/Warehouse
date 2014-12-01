@@ -203,6 +203,7 @@ namespace Warehouse
 			{
 				strSql.Append(" where "+strWhere);
 			}
+            strSql.Append(" ORDER BY NormName ASC");
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 

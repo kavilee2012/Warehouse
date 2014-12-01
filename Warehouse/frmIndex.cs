@@ -20,7 +20,7 @@ namespace Warehouse
             toolStatus_Time.Text = "当前用户：admin      2014年11月20日 星期四";
         }
 
-        private void ShowFrom(Form fm)
+        public void ShowFrom(Form fm)
         {
             panel1.Controls.Clear();
             fm.MdiParent = this;
