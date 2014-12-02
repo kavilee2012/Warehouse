@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Common;
 
 namespace Warehouse
 {
@@ -26,26 +27,26 @@ namespace Warehouse
 
         private void frmAgentNormUpdate_Load(object sender, EventArgs e)
         {
-            lab_ID.Text = _model.LevelID.ToString();
-            txt_Name.Text = _model.LevelName;
+            lab_ID.Text = _model.LevelName.ToString();
+            txt_Price.Text = _model.Price.ToString("0.00");
         }
 
         private void btn_Modity_Click(object sender, EventArgs e)
         {
-            string _name = txt_Name.Text.Trim();
-            if (string.IsNullOrEmpty(_name))
+            string _price = txt_Price.Text.Trim();
+            if (!ValidateService.IsNumber(_price))
             {
-                MessageBox.Show("名称不能为空!");
-                txt_Name.Focus();
+                MessageBox.Show("价格格式错误!");
+                txt_Price.Focus();
                 return;
             }
-            if (_model.Exists(_name))
-            {
-                MessageBox.Show("该名称已存在!");
-                txt_Name.Focus();
-                return;
-            }
-            _model.LevelName = _name;
+            //if (_model.Exists(_name))
+            //{
+            //    MessageBox.Show("该名称已存在!");
+            //    txt_Price.Focus();
+            //    return;
+            //}
+            _model.Price = decimal.Parse(_price);
             bool re = _model.Update();
             if (re)
             {

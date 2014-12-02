@@ -1,0 +1,15 @@
+2014-12-02 18:39:45 : System.Exception: 违反了 PRIMARY KEY 约束 'PK_InW'。不能在对象 'dbo.InW' 中插入重复键。
+语句已终止。
+   在 SqlServerDAL.DbHelperSQL.GetSingle(String SQLString, SqlParameter[] cmdParms) 位置 E:\WorkFile\LZC\Warehouse\SqlServer\DbHelperSQL.cs:行号 354
+   在 Warehouse.InW.Add() 位置 E:\Test\LZC\Warehouse\Warehouse\Warehouse\Service\InW.cs:行号 179
+   在 Warehouse.frmGoodsIn.btn_Add_Click(Object sender, EventArgs e) 位置 E:\Test\LZC\Warehouse\Warehouse\Warehouse\frmGoodsIn.cs:行号 118
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)

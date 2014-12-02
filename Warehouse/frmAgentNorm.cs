@@ -39,7 +39,16 @@ namespace Warehouse
                 txt_Name.Focus();
                 return;
             }
+            string _price = txt_Price.Text.Trim();
+            if (!ValidateService.IsNumber(_price))
+            {
+                MessageBox.Show("价格格式不正确!");
+                txt_Price.Focus();
+                return;
+            }
+
             user.LevelName = _name;
+            user.Price = decimal.Parse(_price);
             int re = user.Add();
             if (re > 0)
             {
@@ -64,12 +73,16 @@ namespace Warehouse
         {
             if (e.ColumnIndex == dataGridView1.Columns["cModity"].Index)
             {
-                e.Value = "修改";
+                e.Value = "修改价格";
             }
             else if (e.ColumnIndex == dataGridView1.Columns["cDel"].Index)
             {
-                e.Value = " 删除";
+                e.Value = "删除";
             }
+            //else if (e.ColumnIndex == dataGridView1.Columns["cPrice"].Index)
+            //{
+            //    e.Value = e.Value + "元";
+            //}
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -97,11 +110,11 @@ namespace Warehouse
             }
             else if (e.ColumnIndex == dataGridView1.Columns["cModity"].Index)
             {
-                object v = dataGridView1.Rows[e.RowIndex].Cells["cID"].Value;
-                if (ValidateService.IsNumber(v))
+                object v = dataGridView1.Rows[e.RowIndex].Cells["cName"].Value;
+                if (ValidateService.IsNotEmpty(v))
                 {
                     Level no = new Level();
-                    no.GetModel((int)v);
+                    no.GetModel(v.ToString());
                     frmAgentNormUpdate f = new frmAgentNormUpdate(no);
                     f.ShowDialog();
                     if (f._isTrue)

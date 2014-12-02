@@ -42,7 +42,7 @@ namespace Warehouse
                 return;
             }
             model.Name = _name;
-            model.Level = (int)cbx_Level.SelectedValue;
+            model.LevelName = cbx_Level.SelectedValue.ToString();
             model.Contact = txt_Contact.Text.Trim();
             model.Phone = txt_Phone.Text.Trim();
             model.Address = txt_Address.Text.Trim();
@@ -74,7 +74,7 @@ namespace Warehouse
         {
             DataSet ds = new Level().GetList("");
             cbx_Level.DataSource = ds.Tables[0];
-            cbx_Level.ValueMember = "LevelID";
+            cbx_Level.ValueMember = "LevelName";
             cbx_Level.DisplayMember = "LevelName";
         }
 

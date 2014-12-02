@@ -16,6 +16,13 @@ namespace Warehouse
 		#region Model
 		private int _levelid;
 		private string _levelname;
+        private decimal _price;
+
+        public decimal Price
+        {
+            get { return _price; }
+            set { _price = value; }
+        }
 		/// <summary>
 		/// 
 		/// </summary>
@@ -96,13 +103,13 @@ namespace Warehouse
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into [Level] (");
-			strSql.Append("LevelName)");
+			strSql.Append("LevelName,Price)");
 			strSql.Append(" values (");
-			strSql.Append("@LevelName)");
+            strSql.Append("@LevelName,@Price)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
-					new SqlParameter("@LevelName", SqlDbType.VarChar,50)};
-			parameters[0].Value = LevelName;
+					new SqlParameter("@LevelName", LevelName),
+                    new SqlParameter("@Price", Price)};
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -121,13 +128,11 @@ namespace Warehouse
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update [Level] set ");
-			strSql.Append("LevelName=@LevelName");
-			strSql.Append(" where LevelID=@LevelID ");
+            strSql.Append("Price=@Price");
+            strSql.Append(" where LevelName=@LevelName ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@LevelName", SqlDbType.VarChar,50),
-					new SqlParameter("@LevelID", SqlDbType.Int,4)};
-			parameters[0].Value = LevelName;
-			parameters[1].Value = LevelID;
+					new SqlParameter("@LevelName", LevelName),
+					new SqlParameter("@Price", Price)};
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -167,15 +172,14 @@ namespace Warehouse
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public void GetModel(int LevelID)
+		public void GetModel(string name)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select LevelID,LevelName ");
+			strSql.Append("select * ");
 			strSql.Append(" FROM [Level] ");
-			strSql.Append(" where LevelID=@LevelID ");
+            strSql.Append(" where LevelName=@LevelName ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@LevelID", SqlDbType.Int,4)};
-			parameters[0].Value = LevelID;
+					new SqlParameter("@LevelName", name)};
 
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
@@ -188,6 +192,10 @@ namespace Warehouse
 				{
 					this.LevelName=ds.Tables[0].Rows[0]["LevelName"].ToString();
 				}
+                if (ds.Tables[0].Rows[0]["Price"] != null)
+                {
+                    this.Price = decimal.Parse(ds.Tables[0].Rows[0]["Price"].ToString());
+                }
 			}
 		}
 

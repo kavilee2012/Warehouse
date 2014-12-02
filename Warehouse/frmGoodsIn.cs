@@ -25,6 +25,7 @@ namespace Warehouse
             //dataGridView1.DataSource = dt;
             BindNorm();
             BindDGV();
+            txt_Operator.Text = Global.userName;
         }
 
         public static DataTable GeneralDataTable()
@@ -74,12 +75,31 @@ namespace Warehouse
                 frmInDetail f = new frmInDetail();
                 f.ShowDialog();
             }
+            else if (e.ColumnIndex == dataGridView1.Columns["cDel"].Index)
+            {
+                if (MessageBox.Show(this, "删除后数据不能恢复，是否继续删除?", "警告", MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    object v = dataGridView1.Rows[e.RowIndex].Cells["cBatch"].Value;
+                    if (v!=null)
+                    {
+                        InW no = new InW();
+                        bool re = no.Delete(v.ToString());
+                        if (re)
+                        {
+                            MessageBox.Show("删除成功!");
+                            BindDGV();
+                        }
+                        else
+                        {
+                            MessageBox.Show("删除失败!");
+                        }
+                    }
+                }
+            }
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            InW m = new InW();
-            m.NormID = (int)cbx_Norm.SelectedValue;
             string cntStr = txt_Cnt.Text.Trim();
             if (!ValidateService.IsNumber(cntStr))
             {
@@ -87,9 +107,14 @@ namespace Warehouse
                 txt_Cnt.Focus();
                 return;
             }
+
+            InW m = new InW();
+            m.NormID = (int)cbx_Norm.SelectedValue;
             m.Cnt = int.Parse(cntStr);
             m.Batch = GenBatchNO();
             m.Barcode = GenBarcode();
+            m.Operator = Global.userName;
+            m.InTime = dtp_InTime.Value;
             int re = m.Add();
             if (re > 0)
             {

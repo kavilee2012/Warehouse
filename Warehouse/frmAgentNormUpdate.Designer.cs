@@ -31,8 +31,9 @@
             this.lab_ID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Modity = new System.Windows.Forms.Button();
-            this.txt_Name = new System.Windows.Forms.TextBox();
+            this.txt_Price = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lab_ID
@@ -48,15 +49,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(126, 52);
+            this.label2.Location = new System.Drawing.Point(115, 105);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.Size = new System.Drawing.Size(77, 12);
             this.label2.TabIndex = 19;
-            this.label2.Text = "级别编号：";
+            this.label2.Text = "每平米价格：";
             // 
             // btn_Modity
             // 
-            this.btn_Modity.Location = new System.Drawing.Point(185, 154);
+            this.btn_Modity.Location = new System.Drawing.Point(175, 165);
             this.btn_Modity.Name = "btn_Modity";
             this.btn_Modity.Size = new System.Drawing.Size(75, 23);
             this.btn_Modity.TabIndex = 18;
@@ -64,31 +65,41 @@
             this.btn_Modity.UseVisualStyleBackColor = true;
             this.btn_Modity.Click += new System.EventHandler(this.btn_Modity_Click);
             // 
-            // txt_Name
+            // txt_Price
             // 
-            this.txt_Name.Location = new System.Drawing.Point(197, 102);
-            this.txt_Name.Name = "txt_Name";
-            this.txt_Name.Size = new System.Drawing.Size(93, 21);
-            this.txt_Name.TabIndex = 17;
+            this.txt_Price.Location = new System.Drawing.Point(197, 102);
+            this.txt_Price.Name = "txt_Price";
+            this.txt_Price.Size = new System.Drawing.Size(63, 21);
+            this.txt_Price.TabIndex = 17;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(126, 105);
+            this.label1.Location = new System.Drawing.Point(127, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 16;
             this.label1.Text = "级别名称：";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(264, 107);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 12);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "（单位：元）";
             // 
             // frmAgentNormUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(416, 255);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lab_ID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_Modity);
-            this.Controls.Add(this.txt_Name);
+            this.Controls.Add(this.txt_Price);
             this.Controls.Add(this.label1);
             this.Name = "frmAgentNormUpdate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -104,8 +115,9 @@
         private System.Windows.Forms.Label lab_ID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_Modity;
-        private System.Windows.Forms.TextBox txt_Name;
+        private System.Windows.Forms.TextBox txt_Price;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
 
     }
 }

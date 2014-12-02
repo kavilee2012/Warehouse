@@ -27,15 +27,15 @@ namespace Warehouse
             Norm user = new Norm();
 
             string _name = txt_Name.Text.Trim();
-            if (string.IsNullOrEmpty(_name))
+            if (!ValidateService.IsNumber(_name))
             {
-                MessageBox.Show("名称不能为空!");
+                MessageBox.Show("必须为数字!");
                 txt_Name.Focus();
                 return;
             }
             if (user.Exists(_name))
             {
-                MessageBox.Show("该名称已存在!");
+                MessageBox.Show("该规格已存在!");
                 txt_Name.Focus();
                 return;
             }
@@ -69,6 +69,10 @@ namespace Warehouse
             else if (e.ColumnIndex == dataGridView1.Columns["cDel"].Index)
             {
                 e.Value = " 删除";
+            }
+            else if (e.ColumnIndex == dataGridView1.Columns["cName"].Index)
+            {
+                e.Value = e.Value + "米";
             }
         }
 

@@ -12,6 +12,7 @@ namespace Warehouse
     public partial class frmGoodsOut : Form
     {
         IList<InW> allOut = new List<InW>();
+        public decimal _price = 0;
         public frmGoodsOut()
         {
             InitializeComponent();
@@ -20,9 +21,31 @@ namespace Warehouse
         private void frmGoodsOut_Load(object sender, EventArgs e)
         {
             dataGridView1.AutoGenerateColumns = false;
+            txt_Operator.Text = Global.userName;
+            BindCBX();
+            cbx_Agent.SelectedIndex = -1;
+        }
 
-            btn_GenNo.Visible = false;
-            btn_KeepScan.Visible = false;
+        private void BindCBX()
+        {
+
+            DataSet ds = new Agent().GetCbxList("");
+            DataTable dt = ds.Tables[0];
+            if (dt.Rows.Count >0 )
+            {
+                //DataRow dr = dt.NewRow();
+                //dr["Name"] = "请选择";
+                //dt.Rows.InsertAt(dr,0);
+                cbx_Agent.DataSource = dt;
+                cbx_Agent.DisplayMember = "Name";
+                cbx_Agent.ValueMember = "Name";
+            }
+            else
+            {
+                MessageBox.Show("请先添加客户资料！");
+                
+                return;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -56,20 +79,23 @@ namespace Warehouse
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frmStartScan f = new frmStartScan(this);
-            f.ShowDialog();
-            btn_GenNo.Visible = true;
-            btn_KeepScan.Visible = true;
+            //frmStartScan f = new frmStartScan(this);
+            //f.ShowDialog();
+            //btn_GenNo.Visible = true;
+            InW w = new InW().GetModelByBarcode(txt_Barcode.Text);
+            if (w != null)
+            {
+                allOut.Add(w);
+                BindDGV();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             btn_GenNo.Visible = false;
-            btn_KeepScan.Visible = false;
             frmStartScan f = new frmStartScan();
             f.ShowDialog();
             btn_GenNo.Visible = true;
-            btn_KeepScan.Visible = true;
         }
 
         public void AddDGV(string barcode)
@@ -84,6 +110,10 @@ namespace Warehouse
         
         public void BindDGV()
         {
+            foreach (InW w in allOut)
+            {
+                w.SumPrice =decimal.Parse(w.NormName) * 100 * _price;
+            }
             dataGridView1.DataSource = allOut;
         }
 
@@ -92,6 +122,20 @@ namespace Warehouse
             if (e.ColumnIndex == dataGridView1.Columns["cDel"].Index)
             {
                 e.Value = "移除";
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbx_Agent.SelectedValue != null)
+            {
+                string _name = cbx_Agent.SelectedValue.ToString();
+                Agent m = new Agent(_name);
+                if (!string.IsNullOrEmpty(m.LevelName))
+                {
+                    _price = m.Price;
+                    txt_Price.Text = m.Price.ToString("0.00");
+                }
             }
         }
     }

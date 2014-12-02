@@ -19,7 +19,14 @@ namespace Warehouse
 		private string _contact;
 		private string _phone;
 		private string _address;
-		private int? _level;
+		private string _level;
+        private decimal _price;
+
+        public decimal Price
+        {
+            get { return _price; }
+            set { _price = value; }
+        }
 		/// <summary>
 		/// 
 		/// </summary>
@@ -63,7 +70,7 @@ namespace Warehouse
 		/// <summary>
 		/// 
 		/// </summary>
-		public int? Level
+		public string LevelName
 		{
 			set{ _level=value;}
 			get{return _level;}
@@ -79,8 +86,8 @@ namespace Warehouse
 		public Agent(string Name)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,Name,Contact,Phone,Address,Level ");
-			strSql.Append(" FROM [Agent] ");
+			strSql.Append("select A.*,B.Price ");
+            strSql.Append(" FROM [Agent] A JOIN Level B ON A.LevelName = B.LevelName ");
 			strSql.Append(" where Name=@Name ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Name", SqlDbType.VarChar,-1)};
@@ -109,10 +116,14 @@ namespace Warehouse
 				{
 					this.Address=ds.Tables[0].Rows[0]["Address"].ToString();
 				}
-				if(ds.Tables[0].Rows[0]["Level"]!=null && ds.Tables[0].Rows[0]["Level"].ToString()!="")
-				{
-					this.Level=int.Parse(ds.Tables[0].Rows[0]["Level"].ToString());
-				}
+                if (ds.Tables[0].Rows[0]["LevelName"] != null && ds.Tables[0].Rows[0]["LevelName"].ToString() != "")
+                {
+                    this.LevelName = ds.Tables[0].Rows[0]["LevelName"].ToString();
+                }
+                if (ds.Tables[0].Rows[0]["Price"] != null && ds.Tables[0].Rows[0]["Price"].ToString() != "")
+                {
+                    this.Price = decimal.Parse(ds.Tables[0].Rows[0]["Price"].ToString());
+                }
 			}
 		}
 
@@ -140,16 +151,16 @@ namespace Warehouse
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into [Agent] (");
-			strSql.Append("Name,Contact,Phone,Address,Level)");
+            strSql.Append("Name,Contact,Phone,Address,LevelName)");
 			strSql.Append(" values (");
-			strSql.Append("@Name,@Contact,@Phone,@Address,@Level)");
+            strSql.Append("@Name,@Contact,@Phone,@Address,@LevelName)");
             strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Name", Name),
 					new SqlParameter("@Contact", Contact),
 					new SqlParameter("@Phone", Phone),
 					new SqlParameter("@Address", Address),
-					new SqlParameter("@Level",Level)};
+					new SqlParameter("@LevelName",LevelName)};
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
             if (obj == null)
@@ -172,20 +183,20 @@ namespace Warehouse
 			strSql.Append("Contact=@Contact,");
 			strSql.Append("Phone=@Phone,");
 			strSql.Append("Address=@Address,");
-			strSql.Append("Level=@Level");
+            strSql.Append("LevelName=@LevelName");
 			strSql.Append(" where Name=@Name ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4),
 					new SqlParameter("@Contact", SqlDbType.VarChar,50),
 					new SqlParameter("@Phone", SqlDbType.VarChar,50),
 					new SqlParameter("@Address", SqlDbType.VarChar,200),
-					new SqlParameter("@Level", SqlDbType.Int,4),
+					new SqlParameter("@LevelName", SqlDbType.VarChar,50),
 					new SqlParameter("@Name", SqlDbType.VarChar,50)};
 			parameters[0].Value = ID;
 			parameters[1].Value = Contact;
 			parameters[2].Value = Phone;
 			parameters[3].Value = Address;
-			parameters[4].Value = Level;
+			parameters[4].Value = LevelName;
 			parameters[5].Value = Name;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -229,8 +240,8 @@ namespace Warehouse
 		public void GetModel(string Name)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,Name,Contact,Phone,Address,Level ");
-			strSql.Append(" FROM [Agent] ");
+			strSql.Append("select * ");
+            strSql.Append(" FROM [Agent] A JOIN Level B ON A.LevelName = B.LevelName ");
 			strSql.Append(" where Name=@Name ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Name", SqlDbType.VarChar,-1)};
@@ -259,12 +270,31 @@ namespace Warehouse
 				{
 					this.Address=ds.Tables[0].Rows[0]["Address"].ToString();
 				}
-				if(ds.Tables[0].Rows[0]["Level"]!=null && ds.Tables[0].Rows[0]["Level"].ToString()!="")
+                if (ds.Tables[0].Rows[0]["LevelName"] != null && ds.Tables[0].Rows[0]["LevelName"].ToString() != "")
 				{
-					this.Level=int.Parse(ds.Tables[0].Rows[0]["Level"].ToString());
+                    this.LevelName = ds.Tables[0].Rows[0]["LevelName"].ToString();
 				}
+                if (ds.Tables[0].Rows[0]["Price"] != null && ds.Tables[0].Rows[0]["Price"].ToString() != "")
+                {
+                    this.Price =decimal.Parse(ds.Tables[0].Rows[0]["Price"].ToString());
+                }
 			}
 		}
+
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public DataSet GetCbxList(string strWhere)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select Name ");
+            strSql.Append(" FROM [Agent]");
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" where " + strWhere);
+            }
+            return DbHelperSQL.Query(strSql.ToString());
+        }
 
 		/// <summary>
 		/// 获得数据列表
@@ -273,7 +303,7 @@ namespace Warehouse
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select * ");
-			strSql.Append(" FROM [Agent] A JOIN Level L ON A.Level=L.LevelID ");
+            strSql.Append(" FROM [Agent] A JOIN Level L ON A.LevelName=L.LevelName ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);

@@ -21,6 +21,27 @@ namespace Warehouse
 		private int? _cnt;
         private DateTime _createTime;
         private string _normName;
+        private string _operator;
+        private DateTime _inTime;
+        private decimal _sumPrice;
+
+        public decimal SumPrice
+        {
+            get { return _sumPrice; }
+            set { _sumPrice = value; }
+        }
+
+        public DateTime InTime
+        {
+            get { return _inTime; }
+            set { _inTime = value; }
+        }
+
+        public string Operator
+        {
+            get { return _operator; }
+            set { _operator = value; }
+        }
 
         public string NormName
         {
@@ -126,13 +147,11 @@ namespace Warehouse
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from [InW]");
-			strSql.Append(" where Batch=@Batch and ID=@ID ");
+			strSql.Append(" where Batch=@Batch ");
 
 			SqlParameter[] parameters = {
-					new SqlParameter("@Batch", SqlDbType.VarChar,-1),
-					new SqlParameter("@ID", SqlDbType.Int,4)};
+					new SqlParameter("@Batch", SqlDbType.VarChar,-1)};
 			parameters[0].Value = Batch;
-			parameters[1].Value = ID;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
 		}
@@ -145,19 +164,17 @@ namespace Warehouse
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into [InW] (");
-			strSql.Append("Batch,NormID,Barcode,Cnt)");
+			strSql.Append("Batch,NormID,Barcode,Cnt,Operator,InTime)");
 			strSql.Append(" values (");
-			strSql.Append("@Batch,@NormID,@Barcode,@Cnt)");
+            strSql.Append("@Batch,@NormID,@Barcode,@Cnt,@Operator,@InTime)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
-					new SqlParameter("@Batch", SqlDbType.VarChar,50),
-					new SqlParameter("@NormID", SqlDbType.Int,4),
-					new SqlParameter("@Barcode", SqlDbType.VarChar,100),
-					new SqlParameter("@Cnt", SqlDbType.Int,4)};
-			parameters[0].Value = Batch;
-			parameters[1].Value = NormID;
-			parameters[2].Value = Barcode;
-			parameters[3].Value = Cnt;
+					new SqlParameter("@Batch", Batch),
+					new SqlParameter("@NormID", NormID),
+					new SqlParameter("@Barcode", Barcode),
+					new SqlParameter("@Cnt", Cnt),
+                    new SqlParameter("@Operator", Operator),
+                    new SqlParameter("@InTime", InTime)};
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -206,16 +223,14 @@ namespace Warehouse
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int ID)
+		public bool Delete(string batch)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from [InW] ");
-			strSql.Append(" where Batch=@Batch and ID=@ID ");
+			strSql.Append(" where Batch=@Batch");
 			SqlParameter[] parameters = {
-					new SqlParameter("@Batch", SqlDbType.VarChar,-1),
-					new SqlParameter("@ID", SqlDbType.Int,4)};
-			parameters[0].Value = Batch;
-			parameters[1].Value = ID;
+					new SqlParameter("@Batch", SqlDbType.VarChar,-1)};
+			parameters[0].Value = batch;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -295,6 +310,14 @@ namespace Warehouse
                 if (ds.Tables[0].Rows[0]["NormName"] != null && ds.Tables[0].Rows[0]["NormName"].ToString() != "")
                 {
                     model.NormName = ds.Tables[0].Rows[0]["NormName"].ToString();
+                }
+                if (ds.Tables[0].Rows[0]["Operator"] != null && ds.Tables[0].Rows[0]["Operator"].ToString() != "")
+                {
+                    model.Operator = ds.Tables[0].Rows[0]["Operator"].ToString();
+                }
+                if (ds.Tables[0].Rows[0]["InTime"] != null && ds.Tables[0].Rows[0]["InTime"].ToString() != "")
+                {
+                    model.InTime = DateTime.Parse(ds.Tables[0].Rows[0]["InTime"].ToString());
                 }
                 return model;
             }
