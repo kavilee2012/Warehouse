@@ -33,6 +33,8 @@
             this.成品入仓ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.成品出仓ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查询ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.库存查看ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.统计查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.客户管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.用户管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,8 +44,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStatus_Time = new System.Windows.Forms.ToolStripStatusLabel();
-            this.库存查看ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.统计查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -92,6 +92,20 @@
             this.查询ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.查询ToolStripMenuItem1.Text = "查询出仓情况";
             this.查询ToolStripMenuItem1.Click += new System.EventHandler(this.查询ToolStripMenuItem1_Click);
+            // 
+            // 库存查看ToolStripMenuItem
+            // 
+            this.库存查看ToolStripMenuItem.Name = "库存查看ToolStripMenuItem";
+            this.库存查看ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.库存查看ToolStripMenuItem.Text = "库存查看";
+            this.库存查看ToolStripMenuItem.Click += new System.EventHandler(this.库存查看ToolStripMenuItem_Click);
+            // 
+            // 统计查询ToolStripMenuItem
+            // 
+            this.统计查询ToolStripMenuItem.Name = "统计查询ToolStripMenuItem";
+            this.统计查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.统计查询ToolStripMenuItem.Text = "统计查询";
+            this.统计查询ToolStripMenuItem.Click += new System.EventHandler(this.统计查询ToolStripMenuItem_Click);
             // 
             // 客户管理ToolStripMenuItem
             // 
@@ -163,18 +177,6 @@
             // 
             this.toolStatus_Time.Name = "toolStatus_Time";
             this.toolStatus_Time.Size = new System.Drawing.Size(0, 17);
-            // 
-            // 库存查看ToolStripMenuItem
-            // 
-            this.库存查看ToolStripMenuItem.Name = "库存查看ToolStripMenuItem";
-            this.库存查看ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.库存查看ToolStripMenuItem.Text = "库存查看";
-            // 
-            // 统计查询ToolStripMenuItem
-            // 
-            this.统计查询ToolStripMenuItem.Name = "统计查询ToolStripMenuItem";
-            this.统计查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.统计查询ToolStripMenuItem.Text = "统计查询";
             // 
             // frmIndex
             // 

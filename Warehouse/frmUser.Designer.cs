@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_Search = new System.Windows.Forms.Button();
             this.btn_Add = new System.Windows.Forms.Button();
@@ -91,9 +91,8 @@
             this.cbx_Position.FormattingEnabled = true;
             this.cbx_Position.Items.AddRange(new object[] {
             "不限",
-            "总经理",
-            "主管",
-            "员工"});
+            "普通用户",
+            "管理员"});
             this.cbx_Position.Location = new System.Drawing.Point(288, 34);
             this.cbx_Position.Name = "cbx_Position";
             this.cbx_Position.Size = new System.Drawing.Size(107, 20);
@@ -168,8 +167,8 @@
             // cModity
             // 
             this.cModity.ActiveLinkColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cModity.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cModity.DefaultCellStyle = dataGridViewCellStyle3;
             this.cModity.Frozen = true;
             this.cModity.HeaderText = "";
             this.cModity.MinimumWidth = 60;
@@ -181,8 +180,8 @@
             // cDel
             // 
             this.cDel.ActiveLinkColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cDel.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cDel.DefaultCellStyle = dataGridViewCellStyle4;
             this.cDel.Frozen = true;
             this.cDel.HeaderText = "";
             this.cDel.MinimumWidth = 60;

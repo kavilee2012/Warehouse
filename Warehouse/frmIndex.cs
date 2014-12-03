@@ -77,6 +77,16 @@ namespace Warehouse
              f.ShowDialog();
         }
 
+        private void 库存查看ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowFrom(new frmWarehouseView());
+        }
+
+        private void 统计查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowFrom(new frmStatistics());
+        }
+
 
 
 

@@ -59,7 +59,7 @@ namespace Warehouse
             {
                 cbx_Norm.DataSource = ds.Tables[0];
                 cbx_Norm.DisplayMember = "NormName";
-                cbx_Norm.ValueMember = "NormID";
+                cbx_Norm.ValueMember = "NormName";
             }
             else
             {
@@ -109,7 +109,7 @@ namespace Warehouse
             }
 
             InW m = new InW();
-            m.NormID = (int)cbx_Norm.SelectedValue;
+            m.NormName = cbx_Norm.SelectedValue.ToString();
             m.Cnt = int.Parse(cntStr);
             m.Batch = GenBatchNO();
             m.Barcode = GenBarcode();
@@ -135,7 +135,6 @@ namespace Warehouse
 
         private string GetNormFormat(string name)
         {
-
             return "1234";
         }
 
@@ -147,7 +146,7 @@ namespace Warehouse
         {
             string batchNO = "";
             batchNO += GetNormFormat(cbx_Norm.SelectedItem.ToString());
-            batchNO += DateTime.Now.ToString("yyMMdd");
+            batchNO += DateTime.Now.ToString("yyMMddhhmmss");
             batchNO += "001";
             return batchNO;
         }
@@ -158,7 +157,7 @@ namespace Warehouse
         /// <returns></returns>
         private string GenBarcode()
         {
-            return "000111000111000";
+            return DateTime.Now.ToString("yyMMddhhmmss");
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -175,7 +174,7 @@ namespace Warehouse
 
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-
+            DataGridViewService.VisibleRowOrder(dataGridView1, e);
         }
 
 

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C0739823-13DD-4D65-9820-DEB3352F0A2C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -121,6 +121,12 @@
     <Compile Include="frmStartScan.Designer.cs">
       <DependentUpon>frmStartScan.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStatistics.Designer.cs">
+      <DependentUpon>frmStatistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUpdatePwd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,12 @@
     </Compile>
     <Compile Include="frmUserUpdate.Designer.cs">
       <DependentUpon>frmUserUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWarehouseView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWarehouseView.Designer.cs">
+      <DependentUpon>frmWarehouseView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -183,6 +195,10 @@
     <EmbeddedResource Include="frmStartScan.resx">
       <DependentUpon>frmStartScan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmStatistics.resx">
+      <DependentUpon>frmStatistics.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUpdatePwd.resx">
       <DependentUpon>frmUpdatePwd.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -193,6 +209,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmUserUpdate.resx">
       <DependentUpon>frmUserUpdate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWarehouseView.resx">
+      <DependentUpon>frmWarehouseView.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -219,6 +239,8 @@
     <Compile Include="Service\Level.cs" />
     <Compile Include="Service\Norm.cs" />
     <Compile Include="Service\OutW.cs" />
+    <Compile Include="Service\Supply.cs" />
+    <Compile Include="Service\SupplyDetail.cs" />
     <Compile Include="Service\User.cs" />
   </ItemGroup>
   <ItemGroup>

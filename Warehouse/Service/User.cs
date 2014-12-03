@@ -186,7 +186,7 @@ namespace Warehouse
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(string  name)
+		public bool Delete()
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from [User] ");

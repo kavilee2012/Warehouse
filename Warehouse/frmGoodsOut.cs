@@ -50,38 +50,56 @@ namespace Warehouse
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmOutDetail f = new frmOutDetail();
-            f.ShowDialog();
+            if (cbx_Agent.SelectedValue == null)
+            {
+                MessageBox.Show("请先选择客户！");
+                cbx_Agent.Focus();
+                return;
+            }
+
+            if (allOut.Count <= 0)
+            {
+                MessageBox.Show("没有要出货的成品！");
+                return;
+            }
+
+            Supply m = new Supply();
+            m.SupplyID = GenSupplyID();
+            m.AgentName = cbx_Agent.SelectedValue.ToString();
+            m.Price = _price;
+            m.Operator = Global.userName;
+            m.SumPrice = decimal.Parse(lab_Sum.Text.Replace("元","").Trim());
+            int re = m.Add();
+            if (re > 0)
+            {
+                MessageBox.Show("生成供应单成功！");
+                cbx_Agent.SelectedIndex = -1;
+                txt_Price.Text = "";
+                txt_Barcode.Text = "";
+                allOut=new List<InW>();
+                BindDGV();
+            }
+            else
+            {
+                MessageBox.Show("生成供应单失败！");
+            }
         }
 
-        public static DataTable GeneralDataTable()
+        private string GenSupplyID()
         {
-            DataTable tblDatas = new DataTable("Datas");
-            tblDatas.Columns.Add("ID", Type.GetType("System.Int32"));
-            tblDatas.Columns[0].AutoIncrement = true;
-            tblDatas.Columns[0].AutoIncrementSeed = 1;
-            tblDatas.Columns[0].AutoIncrementStep = 1;
-
-            tblDatas.Columns.Add("A", Type.GetType("System.String"));
-            tblDatas.Columns.Add("B", Type.GetType("System.String"));
-            tblDatas.Columns.Add("C", Type.GetType("System.String"));
-            tblDatas.Columns.Add("D", Type.GetType("System.String"));
-
-            tblDatas.Rows.Add(new object[] { null, "20141114AAAA", "8G", "1000", "打印条码" });
-            tblDatas.Rows.Add(new object[] { null, "20141114BBBB", "64G", "2000", "打印条码" });
-            tblDatas.Rows.Add(new object[] { null, "20141114CCCC", "16G", "1000", "打印条码" });
-            tblDatas.Rows.Add(new object[] { null, "20141114DDDD", "64G", "5000", "打印条码" });
-            tblDatas.Rows.Add(new object[] { null, "20141114EEEE", "8G", "1000", "打印条码" });
-
-            return tblDatas;
-
+            return DateTime.Now.ToString("yyyyMMddhhmmss");
         }
+
+
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //frmStartScan f = new frmStartScan(this);
-            //f.ShowDialog();
-            //btn_GenNo.Visible = true;
+            if (cbx_Agent.SelectedValue == null)
+            {
+                MessageBox.Show("请先选择客户！");
+                cbx_Agent.Focus();
+                return;
+            }
             InW w = new InW().GetModelByBarcode(txt_Barcode.Text);
             if (w != null)
             {
@@ -110,10 +128,15 @@ namespace Warehouse
         
         public void BindDGV()
         {
+            decimal sumMoney = 0;
             foreach (InW w in allOut)
             {
                 w.SumPrice =decimal.Parse(w.NormName) * 100 * _price;
+                sumMoney += w.SumPrice;
             }
+            lab_Cnt.Text = allOut.Count.ToString();
+            lab_Sum.Text = sumMoney.ToString("0.00")+"元";
+            dataGridView1.DataSource = null;
             dataGridView1.DataSource = allOut;
         }
 
@@ -137,6 +160,11 @@ namespace Warehouse
                     txt_Price.Text = m.Price.ToString("0.00");
                 }
             }
+        }
+
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            DataGridViewService.VisibleRowOrder(dataGridView1, e);
         }
     }
 }

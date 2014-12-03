@@ -19,31 +19,66 @@ namespace Warehouse
         private void frmGoodsSearch_Load(object sender, EventArgs e)
         {
             dataGridView1.AutoGenerateColumns = false;
-            DataTable dt = GeneralDataTable();
+            BindCBX();
+            BindDGV();
+            cbx_Agent.SelectedIndex = 0;
+        }
+
+        private void BindCBX()
+        {
+
+            DataSet ds = new Agent().GetCbxList("");
+            DataTable dt = ds.Tables[0];
+            if (dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.NewRow();
+                dr["Name"] = " ";
+                dt.Rows.InsertAt(dr, 0);
+                cbx_Agent.DataSource = dt;
+                cbx_Agent.DisplayMember = "Name";
+                cbx_Agent.ValueMember = "Name";
+            }
+            else
+            {
+                MessageBox.Show("请先添加客户资料！");
+                return;
+            }
+        }
+
+        public void BindDGV()
+        {
+            decimal sumMoney = 0;
+            int cnt = 0;
+            DataSet ds = new Supply().GetList("");
+            DataTable dt = ds.Tables[0];
+
+            foreach (DataRow w in dt.Rows)
+            {
+                //w.SumPrice = decimal.Parse(w.NormName) * 100 * _price;
+                sumMoney += decimal.Parse(w["SumPrice"].ToString());
+            }
+            lab_Cnt.Text = cnt.ToString();
+            lab_Sum.Text = sumMoney.ToString("0.00") + "元";
+            dataGridView1.DataSource = null;
             dataGridView1.DataSource = dt;
         }
 
-        public static DataTable GeneralDataTable()
+        private void btn_Search_Click(object sender, EventArgs e)
         {
-            DataTable tblDatas = new DataTable("Datas");
-            tblDatas.Columns.Add("ID", Type.GetType("System.Int32"));
-            tblDatas.Columns[0].AutoIncrement = true;
-            tblDatas.Columns[0].AutoIncrementSeed = 1;
-            tblDatas.Columns[0].AutoIncrementStep = 1;
 
-            tblDatas.Columns.Add("A", Type.GetType("System.String"));
-            tblDatas.Columns.Add("B", Type.GetType("System.String"));
-            tblDatas.Columns.Add("C", Type.GetType("System.String"));
-            tblDatas.Columns.Add("D", Type.GetType("System.String"));
+        }
 
-            tblDatas.Rows.Add(new object[] { null, "20141114AAAA", "AA", DateTime.Now.ToString("yyyy-MM-dd"), "详细" });
-            tblDatas.Rows.Add(new object[] { null, "20141114BBBB", "BB", DateTime.Now.ToString("yyyy-MM-dd"), "详细" });
-            tblDatas.Rows.Add(new object[] { null, "20141114CCCC", "CC", DateTime.Now.ToString("yyyy-MM-dd"), "详细" });
-            tblDatas.Rows.Add(new object[] { null, "20141114DDDD", "AA", DateTime.Now.ToString("yyyy-MM-dd"), "详细" });
-            tblDatas.Rows.Add(new object[] { null, "20141114EEEE", "BB", DateTime.Now.ToString("yyyy-MM-dd"), "详细" });
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            DataGridViewService.VisibleRowOrder(dataGridView1, e);
+        }
 
-            return tblDatas;
-
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView1.Columns["cDetail"].Index)
+            {
+                e.Value = " 详细";
+            }
         }
 
     }

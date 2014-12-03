@@ -105,7 +105,7 @@ namespace Warehouse
 		public InW(int ID)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,Batch,NormID,Barcode,Cnt ");
+			strSql.Append("select * ");
 			strSql.Append(" FROM [InW] ");
 			strSql.Append(" where Batch=@Batch and ID=@ID ");
 			SqlParameter[] parameters = {
@@ -125,9 +125,9 @@ namespace Warehouse
 				{
 					this.Batch=ds.Tables[0].Rows[0]["Batch"].ToString();
 				}
-				if(ds.Tables[0].Rows[0]["NormID"]!=null && ds.Tables[0].Rows[0]["NormID"].ToString()!="")
+                if (ds.Tables[0].Rows[0]["NormName"] != null && ds.Tables[0].Rows[0]["NormName"].ToString() != "")
 				{
-					this.NormID=int.Parse(ds.Tables[0].Rows[0]["NormID"].ToString());
+                    this.NormName = ds.Tables[0].Rows[0]["NormName"].ToString();
 				}
 				if(ds.Tables[0].Rows[0]["Barcode"]!=null)
 				{
@@ -164,13 +164,13 @@ namespace Warehouse
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into [InW] (");
-			strSql.Append("Batch,NormID,Barcode,Cnt,Operator,InTime)");
+            strSql.Append("Batch,NormName,Barcode,Cnt,Operator,InTime)");
 			strSql.Append(" values (");
-            strSql.Append("@Batch,@NormID,@Barcode,@Cnt,@Operator,@InTime)");
+            strSql.Append("@Batch,@NormName,@Barcode,@Cnt,@Operator,@InTime)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Batch", Batch),
-					new SqlParameter("@NormID", NormID),
+					new SqlParameter("@NormName", NormName),
 					new SqlParameter("@Barcode", Barcode),
 					new SqlParameter("@Cnt", Cnt),
                     new SqlParameter("@Operator", Operator),
@@ -193,17 +193,17 @@ namespace Warehouse
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update [InW] set ");
-			strSql.Append("NormID=@NormID,");
+            strSql.Append("NormName=@NormName,");
 			strSql.Append("Barcode=@Barcode,");
 			strSql.Append("Cnt=@Cnt");
 			strSql.Append(" where Batch=@Batch and ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@NormID", SqlDbType.Int,4),
+					new SqlParameter("@NormName", SqlDbType.VarChar,50),
 					new SqlParameter("@Barcode", SqlDbType.VarChar,100),
 					new SqlParameter("@Cnt", SqlDbType.Int,4),
 					new SqlParameter("@ID", SqlDbType.Int,4),
 					new SqlParameter("@Batch", SqlDbType.VarChar,50)};
-			parameters[0].Value = NormID;
+            parameters[0].Value = NormName;
 			parameters[1].Value = Barcode;
 			parameters[2].Value = Cnt;
 			parameters[3].Value = ID;
@@ -251,7 +251,7 @@ namespace Warehouse
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select * ");
-            strSql.Append(" FROM [InW] A JOIN Norm B ON A.NormID = B.NormID  ");
+            strSql.Append(" FROM [InW]");
 			strSql.Append(" where Batch=@Batch ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Batch", SqlDbType.VarChar,-1)};
@@ -267,7 +267,7 @@ namespace Warehouse
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select * ");
-            strSql.Append(" FROM [InW] A JOIN Norm B ON A.NormID = B.NormID ");
+            strSql.Append(" FROM [InW]");
             strSql.Append(" where Barcode=@Barcode ");
             SqlParameter[] parameters = {
 					new SqlParameter("@Barcode", SqlDbType.VarChar,-1)};
@@ -291,10 +291,10 @@ namespace Warehouse
                 {
                     model.Batch = ds.Tables[0].Rows[0]["Batch"].ToString();
                 }
-                if (ds.Tables[0].Rows[0]["NormID"] != null && ds.Tables[0].Rows[0]["NormID"].ToString() != "")
-                {
-                    model.NormID = int.Parse(ds.Tables[0].Rows[0]["NormID"].ToString());
-                }
+                //if (ds.Tables[0].Rows[0]["NormID"] != null && ds.Tables[0].Rows[0]["NormID"].ToString() != "")
+                //{
+                //    model.NormID = int.Parse(ds.Tables[0].Rows[0]["NormID"].ToString());
+                //}
                 if (ds.Tables[0].Rows[0]["Barcode"] != null)
                 {
                     model.Barcode = ds.Tables[0].Rows[0]["Barcode"].ToString();
@@ -331,7 +331,7 @@ namespace Warehouse
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select * ");
-			strSql.Append(" FROM [InW] A JOIN Norm B ON A.NormID=B.NormID ");
+			strSql.Append(" FROM [InW]");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);

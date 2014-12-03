@@ -87,8 +87,16 @@ namespace Warehouse
                     object v = dataGridView1.Rows[e.RowIndex].Cells["cUserName"].Value;
                     if (v!=null)
                     {
+                        if (v.ToString() == "admin")
+                        {
+                            MessageBox.Show("不能删除管理员!");
+                            return;
+                        }
+
                         User no = new User();
-                        bool re = no.Delete(v.ToString());
+                        no.UserName = v.ToString();
+
+                        bool re = no.Delete();
                         if (re)
                         {
                             MessageBox.Show("删除成功!");
@@ -106,6 +114,12 @@ namespace Warehouse
                 object v = dataGridView1.Rows[e.RowIndex].Cells["cUserName"].Value;
                 if (v!=null)
                 {
+                    if (v.ToString() == "admin")
+                    {
+                        MessageBox.Show("不能修改管理员!");
+                        return;
+                    }
+
                     User no = new User();
                     no.GetModel(v.ToString());
                     frmUserUpdate f = new frmUserUpdate(no);

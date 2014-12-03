@@ -28,25 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btn_Search = new System.Windows.Forms.Button();
+            this.txt_Barcode = new System.Windows.Forms.TextBox();
+            this.cbx_Agent = new System.Windows.Forms.ComboBox();
+            this.txt_SupplyNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNorm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lab_Cnt = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lab_Sum = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cSupplyID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cAgent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cOperator = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cOutTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPrint = new System.Windows.Forms.DataGridViewLinkColumn();
             this.cDetail = new System.Windows.Forms.DataGridViewLinkColumn();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -54,75 +62,110 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.lab_Cnt);
             this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.lab_Sum);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(0, 90);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(721, 343);
+            this.panel1.Size = new System.Drawing.Size(893, 478);
             this.panel1.TabIndex = 12;
             // 
-            // label6
+            // dataGridView1
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(4, 307);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(215, 12);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "共 500 条记录，每页 50 条，共 10 页";
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cSupplyID,
+            this.cAgent,
+            this.cPrice,
+            this.cSum,
+            this.cOperator,
+            this.cOutTime,
+            this.cPrint,
+            this.cDetail});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(887, 403);
+            this.dataGridView1.TabIndex = 9;
+            this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.btn_Search);
+            this.groupBox1.Controls.Add(this.txt_Barcode);
+            this.groupBox1.Controls.Add(this.cbx_Agent);
+            this.groupBox1.Controls.Add(this.txt_SupplyNo);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(5, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(713, 78);
+            this.groupBox1.Size = new System.Drawing.Size(885, 78);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "出仓查询";
             // 
-            // button1
+            // btn_Search
             // 
-            this.button1.Location = new System.Drawing.Point(553, 33);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(59, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "查 询";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_Search.Location = new System.Drawing.Point(609, 32);
+            this.btn_Search.Name = "btn_Search";
+            this.btn_Search.Size = new System.Drawing.Size(59, 23);
+            this.btn_Search.TabIndex = 15;
+            this.btn_Search.Text = "查 询";
+            this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
-            // textBox3
+            // txt_Barcode
             // 
-            this.textBox3.Location = new System.Drawing.Point(433, 32);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(91, 21);
-            this.textBox3.TabIndex = 13;
+            this.txt_Barcode.Location = new System.Drawing.Point(428, 33);
+            this.txt_Barcode.Name = "txt_Barcode";
+            this.txt_Barcode.Size = new System.Drawing.Size(112, 21);
+            this.txt_Barcode.TabIndex = 13;
             // 
-            // comboBox1
+            // cbx_Agent
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbx_Agent.FormattingEnabled = true;
+            this.cbx_Agent.Items.AddRange(new object[] {
             "AA",
             "BB",
             "CC"});
-            this.comboBox1.Location = new System.Drawing.Point(240, 32);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(112, 20);
-            this.comboBox1.TabIndex = 12;
+            this.cbx_Agent.Location = new System.Drawing.Point(240, 32);
+            this.cbx_Agent.Name = "cbx_Agent";
+            this.cbx_Agent.Size = new System.Drawing.Size(112, 20);
+            this.cbx_Agent.TabIndex = 12;
             // 
-            // textBox1
+            // txt_SupplyNo
             // 
-            this.textBox1.Location = new System.Drawing.Point(80, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(102, 21);
-            this.textBox1.TabIndex = 10;
+            this.txt_SupplyNo.Location = new System.Drawing.Point(80, 32);
+            this.txt_SupplyNo.Name = "txt_SupplyNo";
+            this.txt_SupplyNo.Size = new System.Drawing.Size(102, 21);
+            this.txt_SupplyNo.TabIndex = 10;
             // 
             // label1
             // 
@@ -145,71 +188,129 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(369, 36);
+            this.label3.Location = new System.Drawing.Point(377, 36);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 3;
-            this.label3.Text = "条码编号：";
+            this.label3.Text = "条形码：";
             // 
-            // dataGridView1
+            // lab_Cnt
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
+            this.lab_Cnt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cID,
-            this.cNorm,
-            this.cCode,
-            this.cOutTime,
-            this.cDetail});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(718, 291);
-            this.dataGridView1.TabIndex = 9;
+            this.lab_Cnt.AutoSize = true;
+            this.lab_Cnt.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lab_Cnt.Location = new System.Drawing.Point(92, 430);
+            this.lab_Cnt.Name = "lab_Cnt";
+            this.lab_Cnt.Size = new System.Drawing.Size(27, 27);
+            this.lab_Cnt.TabIndex = 19;
+            this.lab_Cnt.Text = "0";
             // 
-            // cID
+            // label6
             // 
-            this.cID.DataPropertyName = "ID";
-            this.cID.HeaderText = "序号";
-            this.cID.Name = "cID";
-            this.cID.ReadOnly = true;
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(12, 430);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(96, 27);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "数量：";
             // 
-            // cNorm
+            // lab_Sum
             // 
-            this.cNorm.DataPropertyName = "A";
-            this.cNorm.HeaderText = "供货单号";
-            this.cNorm.Name = "cNorm";
-            this.cNorm.ReadOnly = true;
+            this.lab_Sum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lab_Sum.AutoSize = true;
+            this.lab_Sum.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lab_Sum.Location = new System.Drawing.Point(308, 430);
+            this.lab_Sum.Name = "lab_Sum";
+            this.lab_Sum.Size = new System.Drawing.Size(72, 27);
+            this.lab_Sum.TabIndex = 17;
+            this.lab_Sum.Text = "0.00";
             // 
-            // cCode
+            // label7
             // 
-            this.cCode.DataPropertyName = "B";
-            this.cCode.HeaderText = "客户";
-            this.cCode.Name = "cCode";
-            this.cCode.ReadOnly = true;
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.Location = new System.Drawing.Point(228, 430);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(96, 27);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "金额：";
+            // 
+            // cSupplyID
+            // 
+            this.cSupplyID.DataPropertyName = "SupplyID";
+            this.cSupplyID.HeaderText = "供货单号";
+            this.cSupplyID.Name = "cSupplyID";
+            this.cSupplyID.ReadOnly = true;
+            this.cSupplyID.Width = 150;
+            // 
+            // cAgent
+            // 
+            this.cAgent.DataPropertyName = "AgentName";
+            this.cAgent.HeaderText = "客户名称";
+            this.cAgent.Name = "cAgent";
+            this.cAgent.ReadOnly = true;
+            this.cAgent.Width = 80;
+            // 
+            // cPrice
+            // 
+            this.cPrice.DataPropertyName = "Price";
+            this.cPrice.HeaderText = "每平米价格";
+            this.cPrice.Name = "cPrice";
+            this.cPrice.ReadOnly = true;
+            // 
+            // cSum
+            // 
+            this.cSum.DataPropertyName = "SumPrice";
+            this.cSum.HeaderText = "金额";
+            this.cSum.Name = "cSum";
+            this.cSum.ReadOnly = true;
+            this.cSum.Width = 80;
+            // 
+            // cOperator
+            // 
+            this.cOperator.DataPropertyName = "Operator";
+            this.cOperator.HeaderText = "操作员";
+            this.cOperator.Name = "cOperator";
+            this.cOperator.ReadOnly = true;
             // 
             // cOutTime
             // 
-            this.cOutTime.DataPropertyName = "C";
-            this.cOutTime.HeaderText = "出仓时间";
+            this.cOutTime.DataPropertyName = "CreateTime";
+            this.cOutTime.HeaderText = "出单时间";
             this.cOutTime.Name = "cOutTime";
             this.cOutTime.ReadOnly = true;
             // 
+            // cPrint
+            // 
+            this.cPrint.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.cPrint.DataPropertyName = "D";
+            this.cPrint.HeaderText = "";
+            this.cPrint.Name = "cPrint";
+            this.cPrint.ReadOnly = true;
+            this.cPrint.Visible = false;
+            this.cPrint.VisitedLinkColor = System.Drawing.Color.Blue;
+            // 
             // cDetail
             // 
-            this.cDetail.DataPropertyName = "D";
+            this.cDetail.ActiveLinkColor = System.Drawing.Color.Blue;
             this.cDetail.HeaderText = "";
             this.cDetail.Name = "cDetail";
             this.cDetail.ReadOnly = true;
+            this.cDetail.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.cDetail.Width = 60;
             // 
             // frmGoodsSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 435);
+            this.ClientSize = new System.Drawing.Size(893, 570);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Name = "frmGoodsSearch";
@@ -217,9 +318,9 @@
             this.Load += new System.EventHandler(this.frmGoodsSearch_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -227,20 +328,26 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btn_Search;
+        private System.Windows.Forms.TextBox txt_Barcode;
+        private System.Windows.Forms.ComboBox cbx_Agent;
+        private System.Windows.Forms.TextBox txt_SupplyNo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cNorm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCode;
+        private System.Windows.Forms.Label lab_Cnt;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lab_Sum;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cSupplyID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cAgent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cSum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cOperator;
         private System.Windows.Forms.DataGridViewTextBoxColumn cOutTime;
+        private System.Windows.Forms.DataGridViewLinkColumn cPrint;
         private System.Windows.Forms.DataGridViewLinkColumn cDetail;
     }
 }

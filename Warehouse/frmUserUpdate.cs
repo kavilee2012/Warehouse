@@ -33,7 +33,7 @@ namespace Warehouse
 
         private void btn_Modity_Click(object sender, EventArgs e)
         {
-            _m.Position = cbx_Position.SelectedItem.ToString();
+            _m.Position = cbx_Position.Text.ToString();
             if (cbx_Pwd.Checked)
             {
                 _m.UserPwd = "123456";

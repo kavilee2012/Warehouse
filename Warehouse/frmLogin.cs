@@ -37,6 +37,10 @@ namespace Warehouse
             User user = new User();
             if (user.Login(_name, _pwd))
             {
+                if (_name == "admin")
+                {
+                    Global.IsAdmin = true;
+                }
                 Global.userName = _name;
                 frmIndex f = new frmIndex();
                 this.Hide();
