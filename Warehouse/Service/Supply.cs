@@ -3,6 +3,7 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using SqlServerDAL;
+using System.Collections.Generic;
 namespace Warehouse
 {
 	/// <summary>
@@ -16,10 +17,10 @@ namespace Warehouse
 		private int _id;
 		private string _supplyid;
 		private string _agentname;
-		private decimal? _price;
+		private decimal _price;
 		private string _operator;
-		private DateTime? _createtime;
-		private decimal? _sumprice;
+		private DateTime _createtime;
+		private decimal _sumprice;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -47,7 +48,7 @@ namespace Warehouse
 		/// <summary>
 		/// 
 		/// </summary>
-		public decimal? Price
+		public decimal Price
 		{
 			set{ _price=value;}
 			get{return _price;}
@@ -63,7 +64,7 @@ namespace Warehouse
 		/// <summary>
 		/// 
 		/// </summary>
-		public DateTime? CreateTime
+		public DateTime CreateTime
 		{
 			set{ _createtime=value;}
 			get{return _createtime;}
@@ -71,7 +72,7 @@ namespace Warehouse
 		/// <summary>
 		/// 
 		/// </summary>
-		public decimal? SumPrice
+		public decimal SumPrice
 		{
 			set{ _sumprice=value;}
 			get{return _sumprice;}
@@ -84,17 +85,15 @@ namespace Warehouse
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public Supply(string SupplyID,int ID)
+		public Supply(string SupplyID)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ID,SupplyID,AgentName,Price,Operator,CreateTime,SumPrice ");
+			strSql.Append("select * ");
 			strSql.Append(" FROM Supply ");
-			strSql.Append(" where SupplyID=@SupplyID and ID=@ID ");
+			strSql.Append(" where SupplyID=@SupplyID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@SupplyID", SqlDbType.VarChar,50),
-					new SqlParameter("@ID", SqlDbType.Int,4)};
+					new SqlParameter("@SupplyID", SqlDbType.VarChar,50)};
 			parameters[0].Value = SupplyID;
-			parameters[1].Value = ID;
 
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
@@ -143,14 +142,8 @@ namespace Warehouse
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int Add()
+        public int Add(List<SupplyDetail> list)
 		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("insert into Supply(");
-			strSql.Append("SupplyID,AgentName,Price,Operator,SumPrice)");
-			strSql.Append(" values (");
-			strSql.Append("@SupplyID,@AgentName,@Price,@Operator,@SumPrice)");
-			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@SupplyID", SqlDbType.VarChar,50),
 					new SqlParameter("@AgentName", SqlDbType.VarChar,50),
@@ -163,15 +156,24 @@ namespace Warehouse
 			parameters[3].Value = Operator;
 			parameters[4].Value = SumPrice;
 
-			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
-			if (obj == null)
-			{
-				return 1;
-			}
-			else
-			{
-				return Convert.ToInt32(obj);
-			}
+            List<string> sqlT = new List<string>();
+            sqlT.Add("insert into [Supply](SupplyID,AgentName,Price,Operator,SumPrice) values (@SupplyID,@AgentName,@Price,@Operator,@SumPrice);");
+            if (list.Count > 0)
+            {
+                foreach (SupplyDetail s in list)
+                {
+                    sqlT.Add("INSERT INTO SupplyDetail(SupplyID,Barcode,Normname,Price,SumMoney,Cnt) VALUES(@SupplyID,'" + s.Barcode + "','" + s.NormName + "',@Price," + s.SumMoney + ",1);");
+                }
+            }
+            object obj = DbHelperSQL.NewExecTransaction(sqlT.ToArray(), parameters);
+            if (obj == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
 		}
 		/// <summary>
 		/// 更新一条数据
@@ -277,6 +279,15 @@ namespace Warehouse
 			}
 			return DbHelperSQL.Query(strSql.ToString());
 		}
+
+
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public DataSet GetFilterList(string strSql)
+        {
+            return DbHelperSQL.Query(strSql.ToString());
+        }
 
 		#endregion  成员方法
 	}

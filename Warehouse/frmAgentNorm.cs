@@ -91,11 +91,16 @@ namespace Warehouse
             {
                 if (MessageBox.Show(this, "确定要删除吗?", "警告", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    object v = dataGridView1.Rows[e.RowIndex].Cells["cID"].Value;
-                    if (ValidateService.IsNumber(v))
+                    object v = dataGridView1.Rows[e.RowIndex].Cells["cName"].Value;
+                    if (v!=null)
                     {
                         Level no = new Level();
-                        bool re = no.Delete((int)v);
+                        if (no.IsRelation(v.ToString()))
+                        {
+                            MessageBox.Show("该记录已被使用，禁止删除！");
+                            return;
+                        }
+                        bool re = no.Delete(v.ToString());
                         if (re)
                         {
                             MessageBox.Show("删除成功!");

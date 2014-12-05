@@ -148,14 +148,14 @@ namespace Warehouse
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int LevelID)
+		public bool Delete(string name)
 		{
+
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from [Level] ");
-			strSql.Append(" where LevelID=@LevelID ");
+			strSql.Append(" where LevelName=@LevelName ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@LevelID", SqlDbType.Int,4)};
-			parameters[0].Value = LevelID;
+					new SqlParameter("@LevelName", name)};
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -213,6 +213,26 @@ namespace Warehouse
 			}
 			return DbHelperSQL.Query(strSql.ToString());
 		}
+
+
+        /// <summary>
+        /// 判断是否已关联
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public bool IsRelation(string name)
+        {
+            string sql = "SELECT count(ID) FROM Agent WHERE LevelName='" + name + "'";
+            int obj = (int)DbHelperSQL.GetSingle(sql);
+            if (obj > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 		#endregion  Method
 	}

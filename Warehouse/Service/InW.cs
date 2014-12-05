@@ -3,6 +3,8 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using SqlServerDAL;
+using System.Collections.Generic;
+using System.Collections;
 namespace Warehouse
 {
 	/// <summary>
@@ -18,7 +20,7 @@ namespace Warehouse
 		private string _batch;
 		private int? _normid;
 		private string _barcode;
-		private int? _cnt;
+		private int _cnt;
         private DateTime _createTime;
         private string _normName;
         private string _operator;
@@ -89,7 +91,7 @@ namespace Warehouse
 		/// <summary>
 		/// 
 		/// </summary>
-		public int? Cnt
+		public int Cnt
 		{
 			set{ _cnt=value;}
 			get{return _cnt;}
@@ -160,23 +162,25 @@ namespace Warehouse
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int Add()
+		public int Add(List<string> list)
 		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("insert into [InW] (");
-            strSql.Append("Batch,NormName,Barcode,Cnt,Operator,InTime)");
-			strSql.Append(" values (");
-            strSql.Append("@Batch,@NormName,@Barcode,@Cnt,@Operator,@InTime)");
-			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Batch", Batch),
 					new SqlParameter("@NormName", NormName),
 					new SqlParameter("@Barcode", Barcode),
 					new SqlParameter("@Cnt", Cnt),
-                    new SqlParameter("@Operator", Operator),
-                    new SqlParameter("@InTime", InTime)};
+                    new SqlParameter("@Operator", Operator)};
 
-			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
+            List<string> sqlT = new List<string>();
+            sqlT.Add("insert into [InW] (Batch,NormName,Barcode,Cnt,Operator,InTime) values (@Batch,@NormName,@Barcode,@Cnt,@Operator,getdate());");
+            if (list.Count > 0)
+            {
+                foreach (string s in list)
+                {
+                    sqlT.Add("INSERT INTO InWDetail(BatchID,Barcode,Normname,Cnt) VALUES(@Batch,'" + s + "',@NormName,1);");
+                }
+            }
+            object obj = DbHelperSQL.NewExecTransaction(sqlT.ToArray(), parameters);
 			if (obj == null)
 			{
 				return 0;
@@ -223,24 +227,26 @@ namespace Warehouse
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(string batch)
+		public int Delete(string batch)
 		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from [InW] ");
-			strSql.Append(" where Batch=@Batch");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Batch", SqlDbType.VarChar,-1)};
 			parameters[0].Value = batch;
 
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-			if (rows > 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+             List<string> sqlT = new List<string>();
+             sqlT.Add("delete from [InW] where Batch=@Batch;");
+             sqlT.Add("delete from [InWDetail] WHERE BatchID=@Batch");
+
+
+            object obj = DbHelperSQL.NewExecTransaction(sqlT.ToArray(), parameters);
+            if (obj == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
 		}
 
 
@@ -266,9 +272,9 @@ namespace Warehouse
         public InW GetModelByBarcode(string code)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select * ");
-            strSql.Append(" FROM [InW]");
-            strSql.Append(" where Barcode=@Barcode ");
+            strSql.Append("select A.ID,A.Cnt,A.InTime,A.Operator,A.Batch,A.CreateTime,B.NormName,B.Barcode");
+            strSql.Append(" FROM [InW] A JOIN InWDetail B ON A.Batch=B.BatchID");
+            strSql.Append(" where B.Barcode=@Barcode ");
             SqlParameter[] parameters = {
 					new SqlParameter("@Barcode", SqlDbType.VarChar,-1)};
             parameters[0].Value = code;
@@ -336,6 +342,7 @@ namespace Warehouse
 			{
 				strSql.Append(" where "+strWhere);
 			}
+            strSql.Append(" order by id desc");
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 

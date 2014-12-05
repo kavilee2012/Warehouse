@@ -524,5 +524,49 @@ namespace SqlServerDAL
         }
         #endregion	
 
+
+
+        /// <summary>
+        /// 执行事务处理
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public static int NewExecTransaction( string[] sqlT, params SqlParameter[] commandParameters)
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            SqlTransaction sTransaction = null;
+            try
+            {
+                conn.Open();
+                SqlCommand com = conn.CreateCommand();
+                sTransaction = conn.BeginTransaction();
+                com.Transaction = sTransaction;
+                foreach (SqlParameter parm in commandParameters)
+                {
+                    com.Parameters.Add(parm);
+                }
+                foreach (string sql in sqlT)
+                {
+                    if (!string.IsNullOrEmpty(sql))
+                    {
+                        com.CommandText = sql;
+                        com.ExecuteNonQuery();
+                    }
+                }
+                sTransaction.Commit();
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                //MyLog.WriteLog(ex.Message);
+                sTransaction.Rollback();
+                return 0;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }

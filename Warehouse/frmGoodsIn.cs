@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Common;
+using SqlServerDAL;
 
 namespace Warehouse
 {
@@ -72,8 +73,12 @@ namespace Warehouse
         {
             if (e.ColumnIndex == dataGridView1.Columns["cPrint"].Index)
             {
-                frmInDetail f = new frmInDetail();
-                f.ShowDialog();
+                object v = dataGridView1.Rows[e.RowIndex].Cells["cBatch"].Value;
+                if (v != null)
+                {
+                    frmInDetail f = new frmInDetail(v.ToString());
+                    f.ShowDialog();
+                }
             }
             else if (e.ColumnIndex == dataGridView1.Columns["cDel"].Index)
             {
@@ -83,8 +88,8 @@ namespace Warehouse
                     if (v!=null)
                     {
                         InW no = new InW();
-                        bool re = no.Delete(v.ToString());
-                        if (re)
+                        int re = no.Delete(v.ToString());
+                        if (re>0)
                         {
                             MessageBox.Show("删除成功!");
                             BindDGV();
@@ -108,22 +113,37 @@ namespace Warehouse
                 return;
             }
 
-            InW m = new InW();
-            m.NormName = cbx_Norm.SelectedValue.ToString();
-            m.Cnt = int.Parse(cntStr);
-            m.Batch = GenBatchNO();
-            m.Barcode = GenBarcode();
-            m.Operator = Global.userName;
-            m.InTime = dtp_InTime.Value;
-            int re = m.Add();
-            if (re > 0)
+            try
             {
-                MessageBox.Show("入库成功!");
-                BindDGV();
+                InW m = new InW();
+                m.NormName = cbx_Norm.SelectedValue.ToString();
+                m.Cnt = int.Parse(cntStr);
+                m.Batch = GenBatchNO();
+                List<string> barList = GenBarcode(m.Cnt);
+                m.Barcode = barList[0] + "~" + barList[barList.Count - 1];
+                m.Operator = Global.userName;
+                int re = m.Add(barList);
+                if (re > 0)
+                {
+                    MessageBox.Show("入库成功!");
+                    BindDGV();
+                }
+                else
+                {
+                    MessageBox.Show("入库失败!");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("入库失败!");
+                if (ex.Message.Contains("999"))
+                {
+                    MessageBox.Show("每天同一规格成品入仓数量不能大于999件!");
+                    txt_Cnt.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("系统异常! 详细:" + ex.Message);
+                }
             }
         }
 
@@ -135,30 +155,84 @@ namespace Warehouse
 
         private string GetNormFormat(string name)
         {
-            return "1234";
+            string re = (float.Parse(name) * 1000).ToString("0000.00");
+            return re.Substring(0, 4);
         }
 
         /// <summary>
-        /// 生成批号
+        /// 生成流水位
         /// </summary>
         /// <returns></returns>
-        private string GenBatchNO()
+        private string GetToDayNO()
         {
             string batchNO = "";
-            batchNO += GetNormFormat(cbx_Norm.SelectedItem.ToString());
-            batchNO += DateTime.Now.ToString("yyMMddhhmmss");
-            batchNO += "001";
+            batchNO += GetNormFormat(cbx_Norm.SelectedValue.ToString());//四位
+            batchNO += CommonService.GetServerTime().ToString("yyMMdd");//六位
             return batchNO;
         }
+
+        private string GetTopBatch(string front)
+        {
+            string sql = "SELECT TOP 1 RIGHT(Batch,3) FROM InW WHERE LEFT(Batch,11)='"+front+"' ORDER BY RIGHT(Batch,3) DESC";
+            object obj = DbHelperSQL.GetSingle(sql);
+            if (obj != DBNull.Value && obj != null)
+            {
+                return (Convert.ToInt32(obj) + 1).ToString("000");
+            }
+            else
+            {
+                return "001";
+            }
+        }
+
+        private string GetTopBarcode(string front)
+        {
+            string sql = "SELECT TOP 1 RIGHT(Barcode,3) FROM InWDetail WHERE LEFT(Barcode,10)='" + front + "' ORDER BY RIGHT(Barcode,3) DESC";
+            object obj = DbHelperSQL.GetSingle(sql);
+            if (obj != DBNull.Value && obj != null)
+            {
+                return (Convert.ToInt32(obj) + 1).ToString("000");
+            }
+            else
+            {
+                return "001";
+            }
+        }
+
+
+        private string GenBatchNO()
+        {
+            string front = "P" + GetToDayNO();
+            front += GetTopBatch(front);
+            return front;
+        }
+
 
         /// <summary>
         /// 生成条码
         /// </summary>
         /// <returns></returns>
-        private string GenBarcode()
+        private List<string> GenBarcode(int cnt)
         {
-            return DateTime.Now.ToString("yyMMddhhmmss");
+            string _today = GetToDayNO();
+            int _base = int.Parse(GetTopBarcode(_today));
+            if ((_base + cnt)>999)
+            {
+                throw new Exception("不能大于999");
+            }
+            List<string> list = new List<string>();
+            for (int i = 0; i < cnt;i++ )
+            {
+                string s = _today + (_base + i).ToString("000");
+                list.Add(s);
+            }
+            return list;
         }
+
+
+
+
+
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {

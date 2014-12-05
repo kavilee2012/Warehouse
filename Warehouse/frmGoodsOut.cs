@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Common;
+using SqlServerDAL;
 
 namespace Warehouse
 {
@@ -63,13 +64,24 @@ namespace Warehouse
                 return;
             }
 
+            List<SupplyDetail> list = new List<SupplyDetail>();
+            foreach (InW i in allOut)
+            {
+                SupplyDetail s = new SupplyDetail();
+                s.Barcode = i.Barcode;
+                s.NormName = i.NormName;
+                s.SumMoney = i.SumPrice;
+                list.Add(s);
+            }
+
             Supply m = new Supply();
             m.SupplyID = GenSupplyID();
             m.AgentName = cbx_Agent.SelectedValue.ToString();
             m.Price = _price;
             m.Operator = Global.userName;
             m.SumPrice = decimal.Parse(lab_Sum.Text.Replace("元","").Trim());
-            int re = m.Add();
+
+            int re = m.Add(list);
             if (re > 0)
             {
                 MessageBox.Show("生成供应单成功！");
@@ -85,9 +97,24 @@ namespace Warehouse
             }
         }
 
+        private string GetTopSupplyID(string front)
+        {
+            string sql = "SELECT TOP 1 RIGHT(SupplyID,4) FROM Supply WHERE LEFT(SupplyID,6)='" + front + "' ORDER BY RIGHT(SupplyID,4) DESC";
+            object obj = DbHelperSQL.GetSingle(sql);
+            if (obj != DBNull.Value && obj != null)
+            {
+                return (Convert.ToInt32(obj) + 1).ToString("0000");
+            }
+            else
+            {
+                return "0001";
+            }
+        }
         private string GenSupplyID()
         {
-            return DateTime.Now.ToString("yyyyMMddhhmmss");
+            string supplyID = CommonService.GetServerTime().ToString("yyyyMM");
+            supplyID += GetTopSupplyID(supplyID);
+            return supplyID;
         }
 
 
@@ -103,8 +130,12 @@ namespace Warehouse
             InW w = new InW().GetModelByBarcode(txt_Barcode.Text);
             if (w != null)
             {
+                //判断是否重复
+                
+
                 allOut.Add(w);
                 BindDGV();
+                txt_Barcode.Text = "";
             }
         }
 

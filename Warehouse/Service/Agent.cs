@@ -21,6 +21,20 @@ namespace Warehouse
 		private string _address;
 		private string _level;
         private decimal _price;
+        private string _tel;
+        private string _Fox;
+
+        public string Fox
+        {
+            get { return _Fox; }
+            set { _Fox = value; }
+        }
+
+        public string Tel
+        {
+            get { return _tel; }
+            set { _tel = value; }
+        }
 
         public decimal Price
         {
@@ -124,6 +138,14 @@ namespace Warehouse
                 {
                     this.Price = decimal.Parse(ds.Tables[0].Rows[0]["Price"].ToString());
                 }
+                if (ds.Tables[0].Rows[0]["Tel"] != null && ds.Tables[0].Rows[0]["Tel"].ToString() != "")
+                {
+                    this.Tel = ds.Tables[0].Rows[0]["Tel"].ToString();
+                }
+                if (ds.Tables[0].Rows[0]["Fox"] != null && ds.Tables[0].Rows[0]["Fox"].ToString() != "")
+                {
+                    this.Fox = ds.Tables[0].Rows[0]["Fox"].ToString();
+                }
 			}
 		}
 
@@ -151,15 +173,17 @@ namespace Warehouse
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into [Agent] (");
-            strSql.Append("Name,Contact,Phone,Address,LevelName)");
+            strSql.Append("Name,Contact,Phone,Address,LevelName,Tel,Fox)");
 			strSql.Append(" values (");
-            strSql.Append("@Name,@Contact,@Phone,@Address,@LevelName)");
+            strSql.Append("@Name,@Contact,@Phone,@Address,@LevelName,@Tel,@Fox)");
             strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Name", Name),
 					new SqlParameter("@Contact", Contact),
 					new SqlParameter("@Phone", Phone),
 					new SqlParameter("@Address", Address),
+                    new SqlParameter("@Tel", Tel),
+                    new SqlParameter("@Fox", Fox),
 					new SqlParameter("@LevelName",LevelName)};
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
@@ -183,6 +207,8 @@ namespace Warehouse
 			strSql.Append("Contact=@Contact,");
 			strSql.Append("Phone=@Phone,");
 			strSql.Append("Address=@Address,");
+            strSql.Append("Tel=@Tel,");
+            strSql.Append("Fox=@Fox,");
             strSql.Append("LevelName=@LevelName");
 			strSql.Append(" where Name=@Name ");
 			SqlParameter[] parameters = {
@@ -191,13 +217,17 @@ namespace Warehouse
 					new SqlParameter("@Phone", SqlDbType.VarChar,50),
 					new SqlParameter("@Address", SqlDbType.VarChar,200),
 					new SqlParameter("@LevelName", SqlDbType.VarChar,50),
-					new SqlParameter("@Name", SqlDbType.VarChar,50)};
+					new SqlParameter("@Name", SqlDbType.VarChar,50),
+                    new SqlParameter("@Tel", SqlDbType.VarChar,50),
+                    new SqlParameter("@Fox", SqlDbType.VarChar,50)};
 			parameters[0].Value = ID;
 			parameters[1].Value = Contact;
 			parameters[2].Value = Phone;
 			parameters[3].Value = Address;
 			parameters[4].Value = LevelName;
 			parameters[5].Value = Name;
+            parameters[6].Value = Tel;
+            parameters[7].Value = Fox;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -278,6 +308,14 @@ namespace Warehouse
                 {
                     this.Price =decimal.Parse(ds.Tables[0].Rows[0]["Price"].ToString());
                 }
+                if (ds.Tables[0].Rows[0]["Tel"] != null && ds.Tables[0].Rows[0]["Tel"].ToString() != "")
+                {
+                    this.Tel = ds.Tables[0].Rows[0]["Tel"].ToString();
+                }
+                if (ds.Tables[0].Rows[0]["Fox"] != null && ds.Tables[0].Rows[0]["Fox"].ToString() != "")
+                {
+                    this.Fox = ds.Tables[0].Rows[0]["Fox"].ToString();
+                }
 			}
 		}
 
@@ -310,6 +348,26 @@ namespace Warehouse
 			}
 			return DbHelperSQL.Query(strSql.ToString());
 		}
+
+
+        /// <summary>
+        /// 判断是否已关联
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public bool IsRelation(string name)
+        {
+            string sql = "SELECT count(ID) FROM Supply WHERE AgentName='" + name + "'";
+            int obj = (int)DbHelperSQL.GetSingle(sql);
+            if (obj > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 		#endregion  Method
 	}

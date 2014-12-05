@@ -73,6 +73,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(809, 513);
             this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // label1
             // 
@@ -90,6 +91,7 @@
             this.cNorm.HeaderText = "成品规格(单位:米)";
             this.cNorm.Name = "cNorm";
             this.cNorm.ReadOnly = true;
+            this.cNorm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.cNorm.Width = 200;
             // 
             // cCnt
@@ -98,6 +100,7 @@
             this.cCnt.HeaderText = "当前库存";
             this.cCnt.Name = "cCnt";
             this.cCnt.ReadOnly = true;
+            this.cCnt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.cCnt.Width = 200;
             // 
             // cNowTime
@@ -106,6 +109,7 @@
             this.cNowTime.HeaderText = "截止时间";
             this.cNowTime.Name = "cNowTime";
             this.cNowTime.ReadOnly = true;
+            this.cNowTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.cNowTime.Width = 150;
             // 
             // cDel

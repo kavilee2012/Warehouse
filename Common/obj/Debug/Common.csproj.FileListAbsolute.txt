@@ -24,3 +24,6 @@ E:\Test\LZC\Warehouse\Warehouse\Common\bin\Debug\NPOI.dll
 E:\Test\LZC\Warehouse\Warehouse\Common\obj\Debug\ResolveAssemblyReference.cache
 E:\Test\LZC\Warehouse\Warehouse\Common\obj\Debug\Common.dll
 E:\Test\LZC\Warehouse\Warehouse\Common\obj\Debug\Common.pdb
+E:\Test\LZC\Warehouse\Warehouse\Common\bin\Debug\SqlServer.dll
+E:\Test\LZC\Warehouse\Warehouse\Common\bin\Debug\Interop.SQLDMO.dll
+E:\Test\LZC\Warehouse\Warehouse\Common\bin\Debug\SqlServer.pdb

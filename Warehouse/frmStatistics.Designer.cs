@@ -29,19 +29,21 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtp_End = new System.Windows.Forms.DateTimePicker();
+            this.dtp_Start = new System.Windows.Forms.DateTimePicker();
             this.btn_Search = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dtp_Start = new System.Windows.Forms.DateTimePicker();
-            this.dtp_End = new System.Windows.Forms.DateTimePicker();
             this.cNorm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNowTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cOutMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cDel = new System.Windows.Forms.DataGridViewLinkColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -62,6 +64,20 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "出仓查询";
+            // 
+            // dtp_End
+            // 
+            this.dtp_End.Location = new System.Drawing.Point(371, 34);
+            this.dtp_End.Name = "dtp_End";
+            this.dtp_End.Size = new System.Drawing.Size(129, 21);
+            this.dtp_End.TabIndex = 17;
+            // 
+            // dtp_Start
+            // 
+            this.dtp_Start.Location = new System.Drawing.Point(139, 33);
+            this.dtp_Start.Name = "dtp_Start";
+            this.dtp_Start.Size = new System.Drawing.Size(129, 21);
+            this.dtp_Start.TabIndex = 16;
             // 
             // btn_Search
             // 
@@ -112,35 +128,23 @@
             this.cOut,
             this.cCnt,
             this.cNowTime,
+            this.cOutMoney,
             this.cDel});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Location = new System.Drawing.Point(7, 96);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(885, 500);
             this.dataGridView1.TabIndex = 16;
-            // 
-            // dtp_Start
-            // 
-            this.dtp_Start.Location = new System.Drawing.Point(139, 33);
-            this.dtp_Start.Name = "dtp_Start";
-            this.dtp_Start.Size = new System.Drawing.Size(129, 21);
-            this.dtp_Start.TabIndex = 16;
-            // 
-            // dtp_End
-            // 
-            this.dtp_End.Location = new System.Drawing.Point(371, 34);
-            this.dtp_End.Name = "dtp_End";
-            this.dtp_End.Size = new System.Drawing.Size(129, 21);
-            this.dtp_End.TabIndex = 17;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // cNorm
             // 
@@ -148,6 +152,7 @@
             this.cNorm.HeaderText = "成品规格(单位:米)";
             this.cNorm.Name = "cNorm";
             this.cNorm.ReadOnly = true;
+            this.cNorm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.cNorm.Width = 200;
             // 
             // cIn
@@ -156,6 +161,7 @@
             this.cIn.HeaderText = "入仓数量";
             this.cIn.Name = "cIn";
             this.cIn.ReadOnly = true;
+            this.cIn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // cOut
             // 
@@ -163,6 +169,7 @@
             this.cOut.HeaderText = "出仓数量";
             this.cOut.Name = "cOut";
             this.cOut.ReadOnly = true;
+            this.cOut.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // cCnt
             // 
@@ -170,6 +177,7 @@
             this.cCnt.HeaderText = "当前库存";
             this.cCnt.Name = "cCnt";
             this.cCnt.ReadOnly = true;
+            this.cCnt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.cCnt.Visible = false;
             this.cCnt.Width = 200;
             // 
@@ -181,6 +189,17 @@
             this.cNowTime.ReadOnly = true;
             this.cNowTime.Visible = false;
             this.cNowTime.Width = 150;
+            // 
+            // cOutMoney
+            // 
+            this.cOutMoney.DataPropertyName = "OutMoney";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.cOutMoney.DefaultCellStyle = dataGridViewCellStyle2;
+            this.cOutMoney.HeaderText = "出仓金额";
+            this.cOutMoney.Name = "cOutMoney";
+            this.cOutMoney.ReadOnly = true;
+            this.cOutMoney.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // cDel
             // 
@@ -223,6 +242,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cOut;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCnt;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNowTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cOutMoney;
         private System.Windows.Forms.DataGridViewLinkColumn cDel;
     }
 }

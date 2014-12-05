@@ -36,11 +36,33 @@ namespace Warehouse
         private void BindDGV(string start, string end)
         {
             string sql = "SELECT NormName," +
-               " (SELECT ISNULL(SUM(I.Cnt),0) FROM InW I WHERE NormName=N.NormName AND I.CreateTime BETWEEN '" + start + "' AND '" + end + "') AS InCnt," +
+               " (SELECT ISNULL(SUM(I.Cnt),0) FROM InWDetail I WHERE NormName=N.NormName AND I.CreateTime BETWEEN '" + start + "' AND '" + end + "') AS InCnt," +
 " (SELECT ISNULL(SUM(O.Cnt),0) FROM SupplyDetail O WHERE NormName=N.NormName AND O.CreateTime BETWEEN '" + start + "' AND '" + end + "') AS OutCnt," +
+" (SELECT ISNULL(SUM(X.SumMoney),0) FROM SupplyDetail X WHERE NormName=N.NormName AND X.CreateTime BETWEEN '" + start + "' AND '" + end + "') AS OutMoney," +
 " GETDATE() AS NowTime FROM Norm N ORDER BY NormName ASC";
             DataSet ds = DbHelperSQL.Query(sql);
-            dataGridView1.DataSource = ds.Tables[0];
+            DataTable dt = ds.Tables[0];
+
+            int _inCnt = 0, _outCnt = 0;
+            decimal _outMoney = 0;
+            foreach (DataRow r in dt.Rows)
+            {
+                _inCnt += int.Parse(r["InCnt"].ToString());
+                _outCnt += int.Parse(r["OutCnt"].ToString());
+                _outMoney += decimal.Parse(r["outMoney"].ToString());
+            }
+            DataRow dr = dt.NewRow();
+            dr["NormName"] = "总计";
+            dr["InCnt"] = _inCnt;
+            dr["OutCnt"] = _outCnt;
+            dr["OutMoney"] = _outMoney;
+            dt.Rows.Add(dr);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            dataGridView1.Rows[dataGridView1.Rows.Count - 1].DefaultCellStyle.BackColor=Color.Yellow;
         }
     }
 }

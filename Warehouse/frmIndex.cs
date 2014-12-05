@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Common;
 
 namespace Warehouse
 {
@@ -17,7 +18,7 @@ namespace Warehouse
 
         private void frmIndex_Load(object sender, EventArgs e)
         {
-            toolStatus_Time.Text = "当前用户：admin      2014年11月20日 星期四";
+            toolStatus_Time.Text = "当前用户：" + Global.userName + "    登录时间：" + DateTime.Now.ToString("yyyy年MM月dd日 HH:mm:ss");
         }
 
         public void ShowFrom(Form fm)

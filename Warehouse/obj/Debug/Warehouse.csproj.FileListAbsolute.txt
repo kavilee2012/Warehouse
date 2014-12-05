@@ -60,3 +60,4 @@ E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.frmUpdatePwd.resources
 E:\WorkFile\LZC\Warehouse\Warehouse\obj\Debug\Warehouse.frmUserUpdate.resources
 E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.frmStatistics.resources
 E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.frmWarehouseView.resources
+E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.frmSupplyDetail.resources

@@ -46,6 +46,8 @@ namespace Warehouse
             model.Contact = txt_Contact.Text.Trim();
             model.Phone = txt_Phone.Text.Trim();
             model.Address = txt_Address.Text.Trim();
+            model.Tel = txt_Tel.Text.Trim();
+            model.Fox = txt_Fox.Text.Trim();
             int re = model.Add();
             if (re > 0)
             {
@@ -56,6 +58,8 @@ namespace Warehouse
                 txt_Contact.Text = "";
                 txt_Phone.Text = "";
                 txt_Address.Text = "";
+                txt_Fox.Text = "";
+                txt_Tel.Text = "";
                 BindDGV();
             }
             else
@@ -105,6 +109,11 @@ namespace Warehouse
                     if (v != null)
                     {
                         Agent no = new Agent();
+                        if (no.IsRelation(v.ToString()))
+                        {
+                            MessageBox.Show("该记录已被使用，禁止删除！");
+                            return;
+                        }
                         bool re = no.Delete(v.ToString());
                         if (re)
                         {

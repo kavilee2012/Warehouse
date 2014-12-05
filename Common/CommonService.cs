@@ -5,6 +5,7 @@ using System.Net;
 using System.IO;
 using System.IO.Compression;
 using System.Data;
+using SqlServerDAL;
 
 namespace Common
 {
@@ -131,6 +132,21 @@ namespace Common
 
             return tblDatas;
 
+        }
+
+
+        public static DateTime GetServerTime()
+        {
+            string sql = "SELECT GETDATE()";
+            object obj = DbHelperSQL.GetSingle(sql);
+            if (obj != DBNull.Value && obj != null)
+            {
+                return Convert.ToDateTime(obj);
+            }
+            else
+            {
+                return DateTime.Now;
+            }
         }
 
     }

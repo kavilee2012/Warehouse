@@ -127,6 +127,12 @@
     <Compile Include="frmStatistics.Designer.cs">
       <DependentUpon>frmStatistics.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSupplyDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSupplyDetail.Designer.cs">
+      <DependentUpon>frmSupplyDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUpdatePwd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,10 @@
       <DependentUpon>frmStatistics.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSupplyDetail.resx">
+      <DependentUpon>frmSupplyDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUpdatePwd.resx">
       <DependentUpon>frmUpdatePwd.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -236,6 +246,7 @@
     </Compile>
     <Compile Include="Service\Agent.cs" />
     <Compile Include="Service\InW.cs" />
+    <Compile Include="Service\InWDetail.cs" />
     <Compile Include="Service\Level.cs" />
     <Compile Include="Service\Norm.cs" />
     <Compile Include="Service\OutW.cs" />

@@ -70,10 +70,10 @@ namespace Warehouse
             {
                 e.Value = " 删除";
             }
-            else if (e.ColumnIndex == dataGridView1.Columns["cName"].Index)
-            {
-                e.Value = e.Value + "米";
-            }
+            //else if (e.ColumnIndex == dataGridView1.Columns["cName"].Index)
+            //{
+            //    //e.Value = e.Value;
+            //}
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -82,11 +82,16 @@ namespace Warehouse
             {
                 if (MessageBox.Show(this, "确定要删除吗?", "警告", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    object v = dataGridView1.Rows[e.RowIndex].Cells["cID"].Value;
-                    if (ValidateService.IsNumber(v))
+                    object v = dataGridView1.Rows[e.RowIndex].Cells["cName"].Value;
+                    if (v!=null)
                     {
                         Norm no = new Norm();
-                        bool re = no.Delete((int)v);
+                        if (no.IsRelation(v.ToString()))
+                        {
+                            MessageBox.Show("该记录已被使用，禁止删除！");
+                            return;
+                        }
+                        bool re = no.Delete(v.ToString());
                         if (re)
                         {
                             MessageBox.Show("删除成功!");

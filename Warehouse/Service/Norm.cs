@@ -143,14 +143,14 @@ namespace Warehouse
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int NormID)
+		public bool Delete(string name)
 		{
+
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from [Norm] ");
-			strSql.Append(" where NormID=@NormID ");
+            strSql.Append(" where NormName=@NormName ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@NormID", SqlDbType.Int,4)};
-			parameters[0].Value = NormID;
+					new SqlParameter("@NormName", name)};
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -206,6 +206,25 @@ namespace Warehouse
             strSql.Append(" ORDER BY NormName ASC");
 			return DbHelperSQL.Query(strSql.ToString());
 		}
+
+        /// <summary>
+        /// 判断是否已关联
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public bool IsRelation(string name)
+        {
+            string sql = "SELECT count(ID) FROM InW WHERE NormName='" + name + "'";
+            int obj = (int)DbHelperSQL.GetSingle(sql);
+            if (obj > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 		#endregion  Method
 	}
