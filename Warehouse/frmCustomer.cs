@@ -22,6 +22,11 @@ namespace Warehouse
             dataGridView1.AutoGenerateColumns = false;
             BindLevel();
             BindDGV();
+            if (!Global.IsAdmin)
+            {
+                dataGridView1.Columns["cModity"].Visible = false;
+                dataGridView1.Columns["cDel"].Visible = false;
+            }
         }
 
         private void btn_Add_Click(object sender, EventArgs e)

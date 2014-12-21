@@ -34,16 +34,17 @@
             this.成品出仓ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查询ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.库存查看ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.统计查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.客户管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.用户管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.成品规格维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.代理商级别维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改个人密码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.统计查询ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStatus_Time = new System.Windows.Forms.ToolStripStatusLabel();
+            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -66,8 +67,7 @@
             this.成品入仓ToolStripMenuItem,
             this.成品出仓ToolStripMenuItem,
             this.查询ToolStripMenuItem1,
-            this.库存查看ToolStripMenuItem,
-            this.统计查询ToolStripMenuItem});
+            this.库存查看ToolStripMenuItem});
             this.商品管理ToolStripMenuItem.Name = "商品管理ToolStripMenuItem";
             this.商品管理ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.商品管理ToolStripMenuItem.Text = "商品管理";
@@ -75,37 +75,30 @@
             // 成品入仓ToolStripMenuItem
             // 
             this.成品入仓ToolStripMenuItem.Name = "成品入仓ToolStripMenuItem";
-            this.成品入仓ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.成品入仓ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.成品入仓ToolStripMenuItem.Text = "成品入仓";
             this.成品入仓ToolStripMenuItem.Click += new System.EventHandler(this.成品入仓ToolStripMenuItem_Click);
             // 
             // 成品出仓ToolStripMenuItem
             // 
             this.成品出仓ToolStripMenuItem.Name = "成品出仓ToolStripMenuItem";
-            this.成品出仓ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.成品出仓ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.成品出仓ToolStripMenuItem.Text = "成品出仓";
             this.成品出仓ToolStripMenuItem.Click += new System.EventHandler(this.成品出仓ToolStripMenuItem_Click);
             // 
             // 查询ToolStripMenuItem1
             // 
             this.查询ToolStripMenuItem1.Name = "查询ToolStripMenuItem1";
-            this.查询ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.查询ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
             this.查询ToolStripMenuItem1.Text = "查询出仓情况";
             this.查询ToolStripMenuItem1.Click += new System.EventHandler(this.查询ToolStripMenuItem1_Click);
             // 
             // 库存查看ToolStripMenuItem
             // 
             this.库存查看ToolStripMenuItem.Name = "库存查看ToolStripMenuItem";
-            this.库存查看ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.库存查看ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.库存查看ToolStripMenuItem.Text = "库存查看";
             this.库存查看ToolStripMenuItem.Click += new System.EventHandler(this.库存查看ToolStripMenuItem_Click);
-            // 
-            // 统计查询ToolStripMenuItem
-            // 
-            this.统计查询ToolStripMenuItem.Name = "统计查询ToolStripMenuItem";
-            this.统计查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.统计查询ToolStripMenuItem.Text = "统计查询";
-            this.统计查询ToolStripMenuItem.Click += new System.EventHandler(this.统计查询ToolStripMenuItem_Click);
             // 
             // 客户管理ToolStripMenuItem
             // 
@@ -120,7 +113,9 @@
             this.用户管理ToolStripMenuItem,
             this.成品规格维护ToolStripMenuItem,
             this.代理商级别维护ToolStripMenuItem,
-            this.修改个人密码ToolStripMenuItem});
+            this.统计查询ToolStripMenuItem1,
+            this.修改个人密码ToolStripMenuItem,
+            this.退出ToolStripMenuItem});
             this.系统管理ToolStripMenuItem.Name = "系统管理ToolStripMenuItem";
             this.系统管理ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.系统管理ToolStripMenuItem.Text = "系统管理";
@@ -153,6 +148,13 @@
             this.修改个人密码ToolStripMenuItem.Text = "修改个人密码";
             this.修改个人密码ToolStripMenuItem.Click += new System.EventHandler(this.修改个人密码ToolStripMenuItem_Click);
             // 
+            // 统计查询ToolStripMenuItem1
+            // 
+            this.统计查询ToolStripMenuItem1.Name = "统计查询ToolStripMenuItem1";
+            this.统计查询ToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
+            this.统计查询ToolStripMenuItem1.Text = "统计查询";
+            this.统计查询ToolStripMenuItem1.Click += new System.EventHandler(this.统计查询ToolStripMenuItem_Click);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -177,6 +179,13 @@
             // 
             this.toolStatus_Time.Name = "toolStatus_Time";
             this.toolStatus_Time.Size = new System.Drawing.Size(0, 17);
+            // 
+            // 退出ToolStripMenuItem
+            // 
+            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.退出ToolStripMenuItem.Text = "退出";
+            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click_1);
             // 
             // frmIndex
             // 
@@ -219,6 +228,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStatus_Time;
         private System.Windows.Forms.ToolStripMenuItem 修改个人密码ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 库存查看ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 统计查询ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 统计查询ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
     }
 }

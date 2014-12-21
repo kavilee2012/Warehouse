@@ -23,6 +23,7 @@ namespace Warehouse
         {
             se = new Sunisoft.IrisSkin.SkinEngine();
             se.SkinFile = Application.StartupPath + @"\Skin\MP10.ssk";
+            txt_UserName.Focus();
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)

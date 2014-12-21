@@ -73,14 +73,14 @@ namespace Warehouse
             string _agent = cbx_Agent.SelectedValue.ToString().Trim();
             string _barcode = txt_Barcode.Text.Trim();
 
-            string sql = "select *  FROM Supply A WHERE";
-            if (!string.IsNullOrEmpty(_barcode))
-            {
-                sql = "select TOP 1 A.*  FROM Supply A JOIN SupplyDetail B ON A.SupplyID = B.SupplyID WHERE";
-            }
+            string sql = "SELECT *  FROM Supply WHERE";
+            //if (!string.IsNullOrEmpty(_barcode))
+            //{
+            //    sql = "select  A.*  FROM Supply A JOIN SupplyDetail B ON A.SupplyID = B.SupplyID WHERE";
+            //}
             if (!string.IsNullOrEmpty(_id))
             {
-                sql += " A.SupplyID LIKE'%" + _id + "%' AND";
+                sql += " SupplyID LIKE'%" + _id + "%' AND";
             }
             if (!string.IsNullOrEmpty(_agent))
             {
@@ -88,7 +88,7 @@ namespace Warehouse
             }
             if (!string.IsNullOrEmpty(_barcode))
             {
-                sql += " Barcode='" + _barcode + "' AND";
+                sql += " SupplyID IN(SELECT DISTINCT SupplyID FROM SupplyDetail WHERE Barcode LIKE'%" + _barcode + "%') AND";
             }
             if (sql.Contains("AND"))
             {

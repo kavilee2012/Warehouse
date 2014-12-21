@@ -18,7 +18,7 @@ namespace Warehouse
 
         private void frmStatistics_Load(object sender, EventArgs e)
         {
-
+            dtp_Start.Value = dtp_End.Value.AddMonths(-1);
         }
 
         private void btn_Search_Click(object sender, EventArgs e)

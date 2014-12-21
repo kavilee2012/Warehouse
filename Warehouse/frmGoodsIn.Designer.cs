@@ -34,19 +34,25 @@
             this.txt_Operator = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbx_Norm = new System.Windows.Forms.ComboBox();
-            this.txt_Cnt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_Add = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbx_Big = new System.Windows.Forms.ComboBox();
+            this.cbx_Cnt = new System.Windows.Forms.ComboBox();
+            this.dtp_InTime = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             this.cInTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cBatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNorm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cBigCnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cOperator = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cPrint = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.cModity = new System.Windows.Forms.DataGridViewLinkColumn();
             this.cDel = new System.Windows.Forms.DataGridViewLinkColumn();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -65,16 +71,16 @@
             // txt_Operator
             // 
             this.txt_Operator.Enabled = false;
-            this.txt_Operator.Location = new System.Drawing.Point(99, 29);
+            this.txt_Operator.Location = new System.Drawing.Point(95, 29);
             this.txt_Operator.Name = "txt_Operator";
-            this.txt_Operator.Size = new System.Drawing.Size(100, 21);
+            this.txt_Operator.Size = new System.Drawing.Size(75, 21);
             this.txt_Operator.TabIndex = 1;
             this.txt_Operator.Text = "自动生成";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(220, 33);
+            this.label2.Location = new System.Drawing.Point(192, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 2;
@@ -83,30 +89,23 @@
             // cbx_Norm
             // 
             this.cbx_Norm.FormattingEnabled = true;
-            this.cbx_Norm.Location = new System.Drawing.Point(287, 30);
+            this.cbx_Norm.Location = new System.Drawing.Point(259, 30);
             this.cbx_Norm.Name = "cbx_Norm";
-            this.cbx_Norm.Size = new System.Drawing.Size(100, 20);
+            this.cbx_Norm.Size = new System.Drawing.Size(69, 20);
             this.cbx_Norm.TabIndex = 3;
-            // 
-            // txt_Cnt
-            // 
-            this.txt_Cnt.Location = new System.Drawing.Point(474, 30);
-            this.txt_Cnt.Name = "txt_Cnt";
-            this.txt_Cnt.Size = new System.Drawing.Size(54, 21);
-            this.txt_Cnt.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(407, 34);
+            this.label4.Location = new System.Drawing.Point(462, 34);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 6;
-            this.label4.Text = "成品件数：";
+            this.label4.Text = "件数：";
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(614, 30);
+            this.btn_Add.Location = new System.Drawing.Point(870, 28);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(75, 23);
             this.btn_Add.TabIndex = 8;
@@ -118,11 +117,15 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.dtp_InTime);
+            this.groupBox1.Controls.Add(this.cbx_Cnt);
+            this.groupBox1.Controls.Add(this.cbx_Big);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txt_Operator);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btn_Add);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txt_Cnt);
             this.groupBox1.Controls.Add(this.cbx_Norm);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(5, 12);
@@ -162,10 +165,12 @@
             this.cInTime,
             this.cBatch,
             this.cNorm,
+            this.cBigCnt,
             this.cCount,
             this.cBarcode,
             this.cOperator,
             this.cPrint,
+            this.cModity,
             this.cDel});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -185,12 +190,58 @@
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(350, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "大卷：";
+            // 
+            // cbx_Big
+            // 
+            this.cbx_Big.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_Big.FormattingEnabled = true;
+            this.cbx_Big.Location = new System.Drawing.Point(392, 31);
+            this.cbx_Big.Name = "cbx_Big";
+            this.cbx_Big.Size = new System.Drawing.Size(45, 20);
+            this.cbx_Big.TabIndex = 10;
+            // 
+            // cbx_Cnt
+            // 
+            this.cbx_Cnt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_Cnt.FormattingEnabled = true;
+            this.cbx_Cnt.Location = new System.Drawing.Point(506, 30);
+            this.cbx_Cnt.Name = "cbx_Cnt";
+            this.cbx_Cnt.Size = new System.Drawing.Size(45, 20);
+            this.cbx_Cnt.TabIndex = 11;
+            // 
+            // dtp_InTime
+            // 
+            this.dtp_InTime.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dtp_InTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_InTime.Location = new System.Drawing.Point(654, 30);
+            this.dtp_InTime.Name = "dtp_InTime";
+            this.dtp_InTime.Size = new System.Drawing.Size(153, 21);
+            this.dtp_InTime.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(587, 34);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "入仓时间：";
+            // 
             // cInTime
             // 
             this.cInTime.DataPropertyName = "InTime";
             this.cInTime.HeaderText = "入仓时间";
             this.cInTime.Name = "cInTime";
             this.cInTime.ReadOnly = true;
+            this.cInTime.Width = 120;
             // 
             // cBatch
             // 
@@ -207,6 +258,14 @@
             this.cNorm.Name = "cNorm";
             this.cNorm.ReadOnly = true;
             this.cNorm.Width = 150;
+            // 
+            // cBigCnt
+            // 
+            this.cBigCnt.DataPropertyName = "BigCnt";
+            this.cBigCnt.HeaderText = "大卷";
+            this.cBigCnt.Name = "cBigCnt";
+            this.cBigCnt.ReadOnly = true;
+            this.cBigCnt.Width = 80;
             // 
             // cCount
             // 
@@ -239,6 +298,13 @@
             this.cPrint.Name = "cPrint";
             this.cPrint.ReadOnly = true;
             this.cPrint.VisitedLinkColor = System.Drawing.Color.Blue;
+            // 
+            // cModity
+            // 
+            this.cModity.HeaderText = "";
+            this.cModity.Name = "cModity";
+            this.cModity.ReadOnly = true;
+            this.cModity.Width = 60;
             // 
             // cDel
             // 
@@ -273,19 +339,25 @@
         private System.Windows.Forms.TextBox txt_Operator;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbx_Norm;
-        private System.Windows.Forms.TextBox txt_Cnt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbx_Cnt;
+        private System.Windows.Forms.ComboBox cbx_Big;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtp_InTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn cInTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn cBatch;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNorm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cBigCnt;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn cBarcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn cOperator;
         private System.Windows.Forms.DataGridViewLinkColumn cPrint;
+        private System.Windows.Forms.DataGridViewLinkColumn cModity;
         private System.Windows.Forms.DataGridViewLinkColumn cDel;
     }
 }

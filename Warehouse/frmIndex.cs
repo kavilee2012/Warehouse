@@ -19,6 +19,13 @@ namespace Warehouse
         private void frmIndex_Load(object sender, EventArgs e)
         {
             toolStatus_Time.Text = "当前用户：" + Global.userName + "    登录时间：" + DateTime.Now.ToString("yyyy年MM月dd日 HH:mm:ss");
+            if (!Global.IsAdmin)
+            {
+                用户管理ToolStripMenuItem.Visible = false;
+                成品规格维护ToolStripMenuItem.Visible = false;
+                代理商级别维护ToolStripMenuItem.Visible = false;
+                统计查询ToolStripMenuItem1.Visible = false;
+            }
         }
 
         public void ShowFrom(Form fm)
@@ -83,9 +90,16 @@ namespace Warehouse
             ShowFrom(new frmWarehouseView());
         }
 
+
         private void 统计查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowFrom(new frmStatistics());
+        }
+
+        private void 退出ToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+            //System.Environment.Exit(0);
         }
 
 

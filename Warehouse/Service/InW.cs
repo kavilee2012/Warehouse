@@ -26,6 +26,13 @@ namespace Warehouse
         private string _operator;
         private DateTime _inTime;
         private decimal _sumPrice;
+        private int _bigCnt;
+
+        public int BigCnt
+        {
+            get { return _bigCnt; }
+            set { _bigCnt = value; }
+        }
 
         public decimal SumPrice
         {
@@ -139,6 +146,10 @@ namespace Warehouse
 				{
 					this.Cnt=int.Parse(ds.Tables[0].Rows[0]["Cnt"].ToString());
 				}
+                if (ds.Tables[0].Rows[0]["BigCnt"] != null && ds.Tables[0].Rows[0]["BigCnt"].ToString() != "")
+                {
+                    this.BigCnt = int.Parse(ds.Tables[0].Rows[0]["BigCnt"].ToString());
+                }
 			}
 		}
 
@@ -169,10 +180,11 @@ namespace Warehouse
 					new SqlParameter("@NormName", NormName),
 					new SqlParameter("@Barcode", Barcode),
 					new SqlParameter("@Cnt", Cnt),
+                    new SqlParameter("@BigCnt", BigCnt),
                     new SqlParameter("@Operator", Operator)};
 
             List<string> sqlT = new List<string>();
-            sqlT.Add("insert into [InW] (Batch,NormName,Barcode,Cnt,Operator,InTime) values (@Batch,@NormName,@Barcode,@Cnt,@Operator,getdate());");
+            sqlT.Add("insert into [InW] (Batch,NormName,Barcode,BigCnt,Cnt,Operator,InTime) values (@Batch,@NormName,@Barcode,@BigCnt,@Cnt,@Operator,getdate());");
             if (list.Count > 0)
             {
                 foreach (string s in list)
@@ -272,7 +284,7 @@ namespace Warehouse
         public InW GetModelByBarcode(string code)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select A.ID,A.Cnt,A.InTime,A.Operator,A.Batch,A.CreateTime,B.NormName,B.Barcode");
+            strSql.Append("select A.ID,A.Cnt,A.BigCnt,A.InTime,A.Operator,A.Batch,A.CreateTime,B.NormName,B.Barcode");
             strSql.Append(" FROM [InW] A JOIN InWDetail B ON A.Batch=B.BatchID");
             strSql.Append(" where B.Barcode=@Barcode ");
             SqlParameter[] parameters = {
@@ -304,6 +316,10 @@ namespace Warehouse
                 if (ds.Tables[0].Rows[0]["Barcode"] != null)
                 {
                     model.Barcode = ds.Tables[0].Rows[0]["Barcode"].ToString();
+                }
+                if (ds.Tables[0].Rows[0]["BigCnt"] != null && ds.Tables[0].Rows[0]["BigCnt"].ToString() != "")
+                {
+                    model.BigCnt = int.Parse(ds.Tables[0].Rows[0]["BigCnt"].ToString());
                 }
                 if (ds.Tables[0].Rows[0]["Cnt"] != null && ds.Tables[0].Rows[0]["Cnt"].ToString() != "")
                 {

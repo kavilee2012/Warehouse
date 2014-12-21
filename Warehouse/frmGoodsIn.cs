@@ -24,9 +24,16 @@ namespace Warehouse
             //this.txt_AutoCode.Text = "自动生成";//DateTime.Now.ToString("yyyyMMdd" + "XXXX");
             //DataTable dt = GeneralDataTable();
             //dataGridView1.DataSource = dt;
+            BindCbx();
             BindNorm();
             BindDGV();
             txt_Operator.Text = Global.userName;
+
+            if (!Global.IsAdmin)
+            {
+                dataGridView1.Columns["cModity"].Visible=false;
+                dataGridView1.Columns["cDel"].Visible = false;
+            }
         }
 
         public static DataTable GeneralDataTable()
@@ -69,6 +76,15 @@ namespace Warehouse
             }
         }
 
+        private void BindCbx()
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                cbx_Big.Items.Add(i);
+                cbx_Cnt.Items.Add(i);
+            }
+        }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dataGridView1.Columns["cPrint"].Index)
@@ -105,11 +121,12 @@ namespace Warehouse
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            string cntStr = txt_Cnt.Text.Trim();
-            if (!ValidateService.IsNumber(cntStr))
+            string bigStr = cbx_Big.Text;
+            string cntStr = cbx_Cnt.Text;
+            if (string.IsNullOrEmpty(cntStr)||string.IsNullOrEmpty(bigStr))
             {
-                MessageBox.Show("数量格式不正确!");
-                txt_Cnt.Focus();
+                MessageBox.Show("卷数或件数格式不正确!");
+                cbx_Cnt.Focus();
                 return;
             }
 
@@ -117,9 +134,10 @@ namespace Warehouse
             {
                 InW m = new InW();
                 m.NormName = cbx_Norm.SelectedValue.ToString();
+                m.BigCnt = int.Parse(bigStr);
                 m.Cnt = int.Parse(cntStr);
                 m.Batch = GenBatchNO();
-                List<string> barList = GenBarcode(m.Cnt);
+                List<string> barList = GenBarcode(m.Cnt,m.BigCnt);
                 m.Barcode = barList[0] + "~" + barList[barList.Count - 1];
                 m.Operator = Global.userName;
                 int re = m.Add(barList);
@@ -135,10 +153,10 @@ namespace Warehouse
             }
             catch (Exception ex)
             {
-                if (ex.Message.Contains("999"))
+                if (ex.Message.Contains("99"))
                 {
-                    MessageBox.Show("每天同一规格成品入仓数量不能大于999件!");
-                    txt_Cnt.Focus();
+                    MessageBox.Show("每天同一规格成品入仓数量不能大于99件!");
+                    //txt_Cnt.Focus();
                 }
                 else
                 {
@@ -160,14 +178,21 @@ namespace Warehouse
         }
 
         /// <summary>
-        /// 生成流水位
+        /// 生成流水位九位
         /// </summary>
         /// <returns></returns>
-        private string GetToDayNO()
+        private string GetTodayNO(bool isBarcode)
         {
             string batchNO = "";
             batchNO += GetNormFormat(cbx_Norm.SelectedValue.ToString());//四位
-            batchNO += CommonService.GetServerTime().ToString("yyMMdd");//六位
+            if (isBarcode)
+            {
+                batchNO += CommonService.GetServerTime().ToString("yyMMdd").Substring(1);//五位
+            }
+            else
+            {
+                batchNO += CommonService.GetServerTime().ToString("yyMMdd");//六位
+            }
             return batchNO;
         }
 
@@ -187,43 +212,45 @@ namespace Warehouse
 
         private string GetTopBarcode(string front)
         {
-            string sql = "SELECT TOP 1 RIGHT(Barcode,3) FROM InWDetail WHERE LEFT(Barcode,10)='" + front + "' ORDER BY RIGHT(Barcode,3) DESC";
+            string sql = "SELECT TOP 1 RIGHT(Barcode,2) FROM InWDetail WHERE LEFT(Barcode,11)='" + front + "' ORDER BY RIGHT(Barcode,2) DESC";
             object obj = DbHelperSQL.GetSingle(sql);
             if (obj != DBNull.Value && obj != null)
             {
-                return (Convert.ToInt32(obj) + 1).ToString("000");
+                return (Convert.ToInt32(obj) + 1).ToString("00");
             }
             else
             {
-                return "001";
+                return "01";
             }
         }
 
 
         private string GenBatchNO()
         {
-            string front = "P" + GetToDayNO();
+            string front = "P" + GetTodayNO(false);
             front += GetTopBatch(front);
             return front;
         }
 
 
         /// <summary>
-        /// 生成条码
+        /// 生成条码(规格4+年月日5+大卷2+件数2)
         /// </summary>
         /// <returns></returns>
-        private List<string> GenBarcode(int cnt)
+        private List<string> GenBarcode(int cnt,int bigCnt)
         {
-            string _today = GetToDayNO();
-            int _base = int.Parse(GetTopBarcode(_today));
-            if ((_base + cnt)>999)
+            string _today = GetTodayNO(true);
+            string _front = _today + bigCnt.ToString("00");
+
+            int _base = int.Parse(GetTopBarcode(_front));
+            if ((_base + cnt)>99)
             {
-                throw new Exception("不能大于999");
+                throw new Exception("不能大于99");
             }
             List<string> list = new List<string>();
             for (int i = 0; i < cnt;i++ )
             {
-                string s = _today + (_base + i).ToString("000");
+                string s = _front + (_base + i).ToString("00");
                 list.Add(s);
             }
             return list;
@@ -243,6 +270,10 @@ namespace Warehouse
             else if (e.ColumnIndex == dataGridView1.Columns["cDel"].Index)
             {
                 e.Value = " 删除";
+            }
+            else if (e.ColumnIndex == dataGridView1.Columns["cModity"].Index)
+            {
+                e.Value = " 修改";
             }
         }
 

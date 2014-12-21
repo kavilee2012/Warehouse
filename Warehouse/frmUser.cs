@@ -89,7 +89,7 @@ namespace Warehouse
                     {
                         if (v.ToString() == "admin")
                         {
-                            MessageBox.Show("不能删除管理员!");
+                            MessageBox.Show("不能删除系统管理员!");
                             return;
                         }
 
@@ -116,7 +116,7 @@ namespace Warehouse
                 {
                     if (v.ToString() == "admin")
                     {
-                        MessageBox.Show("不能修改管理员!");
+                        MessageBox.Show("不能修改系统管理员!");
                         return;
                     }
 
