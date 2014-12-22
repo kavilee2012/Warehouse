@@ -11,6 +11,8 @@ namespace Warehouse
 {
     public partial class frmGoodsSearch : Form
     {
+        string _sqlWhere = "";
+
         public frmGoodsSearch()
         {
             InitializeComponent();
@@ -23,7 +25,15 @@ namespace Warehouse
             //BindDGV();
             cbx_Agent.SelectedIndex = 0;
 
-            btn_Search.PerformClick();
+            pagerControl1.OnPageChanged += new EventHandler(pagerControl1_OnPageChanged);
+            BindDGV();
+
+            //btn_Search.PerformClick();
+        }
+
+        void pagerControl1_OnPageChanged(object sender, EventArgs e)
+        {
+            BindDGV();
         }
 
         private void BindCBX()
@@ -47,24 +57,27 @@ namespace Warehouse
             }
         }
 
-        public void BindDGV(DataTable dt)
+        public void BindDGV()
         {
-            decimal sumMoney = 0;
-            int cnt = 0;
-            //DataSet ds = new Supply().GetList("");
-            //DataTable dt = ds.Tables[0];
+            
+            //int cnt = 0;
+            //foreach (DataRow w in dt.Rows)
+            //{
+            //    sumMoney += decimal.Parse(w["SumPrice"].ToString());
+            //}
+            //cnt = dt.Rows.Count;
 
-            foreach (DataRow w in dt.Rows)
-            {
-                //w.SumPrice = decimal.Parse(w.NormName) * 100 * _price;
-                sumMoney += decimal.Parse(w["SumPrice"].ToString());
-                
-            }
-            cnt = dt.Rows.Count;
-            lab_Cnt.Text = cnt.ToString();
-            lab_Sum.Text = sumMoney.ToString("0.00") + "元";
+
+            decimal _sumMoney = 0;
+            int _count = 0;
+            Supply s = new Supply();
+            DataSet ds = s.GetPageList(pagerControl1.PageSize, pagerControl1.PageIndex, _sqlWhere, out _count,out _sumMoney);//s.GetFilterList(sqlWhere);
+            pagerControl1.DrawControl(_count);
+
+            lab_Cnt.Text = _count.ToString();
+            lab_Sum.Text = _sumMoney.ToString("0.00") + "元";
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = dt;
+            dataGridView1.DataSource = ds.Tables[0];
         }
 
         private void btn_Search_Click(object sender, EventArgs e)
@@ -73,34 +86,32 @@ namespace Warehouse
             string _agent = cbx_Agent.SelectedValue.ToString().Trim();
             string _barcode = txt_Barcode.Text.Trim();
 
-            string sql = "SELECT *  FROM Supply WHERE";
-            //if (!string.IsNullOrEmpty(_barcode))
-            //{
-            //    sql = "select  A.*  FROM Supply A JOIN SupplyDetail B ON A.SupplyID = B.SupplyID WHERE";
-            //}
+            string sqlWhere = "";
             if (!string.IsNullOrEmpty(_id))
             {
-                sql += " SupplyID LIKE'%" + _id + "%' AND";
+                sqlWhere += " SupplyID LIKE'%" + _id + "%' AND";
             }
             if (!string.IsNullOrEmpty(_agent))
             {
-                sql += " AgentName='" + _agent + "' AND";
+                sqlWhere += " AgentName='" + _agent + "' AND";
             }
             if (!string.IsNullOrEmpty(_barcode))
             {
-                sql += " SupplyID IN(SELECT DISTINCT SupplyID FROM SupplyDetail WHERE Barcode LIKE'%" + _barcode + "%') AND";
+                sqlWhere += " SupplyID IN(SELECT DISTINCT SupplyID FROM SupplyDetail WHERE Barcode LIKE'%" + _barcode + "%') AND";
             }
-            if (sql.Contains("AND"))
+            if (sqlWhere.Contains("AND"))
             {
-                sql = sql.Substring(0, sql.Length - 3);
+                sqlWhere = sqlWhere.Substring(0, sqlWhere.Length - 3);
             }
-            else
-            {
-                sql = sql.Substring(0, sql.Length - 5);
-            }
-            Supply s = new Supply();
-            DataSet ds = s.GetFilterList(sql);
-            BindDGV(ds.Tables[0]);
+            //else
+            //{
+            //    sqlWhere = sqlWhere.Substring(0, sqlWhere.Length - 5);
+            //}
+
+            _sqlWhere = sqlWhere;
+
+            pagerControl1.PageIndex = 1;
+            BindDGV();
         }
 
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)

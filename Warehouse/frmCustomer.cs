@@ -21,12 +21,19 @@ namespace Warehouse
             cbx_Level.SelectedIndex = 0;
             dataGridView1.AutoGenerateColumns = false;
             BindLevel();
-            BindDGV();
+            
             if (!Global.IsAdmin)
             {
                 dataGridView1.Columns["cModity"].Visible = false;
                 dataGridView1.Columns["cDel"].Visible = false;
             }
+            pagerControl1.OnPageChanged += new EventHandler(pagerControl1_OnPageChanged);
+            BindDGV();
+        }
+
+        void pagerControl1_OnPageChanged(object sender, EventArgs e)
+        {
+            BindDGV();
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
@@ -75,8 +82,10 @@ namespace Warehouse
 
         private void BindDGV()
         {
-            DataSet ds = new Agent().GetList("");
+            int _count = 0;
+            DataSet ds = new Agent().GetPageList(pagerControl1.PageSize, pagerControl1.PageIndex, "",out _count);
             dataGridView1.DataSource = ds.Tables[0];
+            pagerControl1.DrawControl(_count);
         }
 
         private void BindLevel()

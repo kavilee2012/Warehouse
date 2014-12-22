@@ -369,6 +369,34 @@ namespace Warehouse
             }
         }
 
+
+        /// <summary>
+        /// 分页获取数据列表
+        /// </summary>
+        public DataSet GetPageList(int PageSize, int PageIndex, string strWhere, out int count)
+        {
+            string strSql = "";
+            if (PageIndex == 1)
+            {
+                strSql += "select TOP " + PageSize + " * FROM [Agent] A JOIN Level L ON A.LevelName=L.LevelName";
+            }
+            else
+            {
+                int sumSize = PageSize * (PageIndex - 1);
+                strSql += "select TOP " + PageSize + " * FROM [Agent] A JOIN Level L ON A.LevelName=L.LevelName WHERE A.Name NOT IN(select TOP " + sumSize + " Name FROM [Agent] ORDER BY ID DESC)";
+            }
+            string strCnt = "SELECT count(id) FROM Agent A JOIN Level L ON A.LevelName=L.LevelName ";
+            if (strWhere.Trim() != "")
+            {
+                strSql += " where " + strWhere;
+                strCnt += " where " + strWhere;
+            }
+            strSql += " ORDER BY A.ID DESC";
+
+            count = (int)DbHelperSQL.GetSingle(strCnt);
+            return DbHelperSQL.Query(strSql);
+        }
+
 		#endregion  Method
 	}
 }

@@ -26,7 +26,6 @@ namespace Warehouse
             //dataGridView1.DataSource = dt;
             BindCbx();
             BindNorm();
-            BindDGV();
             txt_Operator.Text = Global.userName;
 
             if (!Global.IsAdmin)
@@ -34,6 +33,14 @@ namespace Warehouse
                 dataGridView1.Columns["cModity"].Visible=false;
                 dataGridView1.Columns["cDel"].Visible = false;
             }
+
+            pagerControl1.OnPageChanged += new EventHandler(pagerControl1_OnPageChanged);
+            BindDGV();
+        }
+
+        void pagerControl1_OnPageChanged(object sender, EventArgs e)
+        {
+            BindDGV();
         }
 
         public static DataTable GeneralDataTable()
@@ -167,8 +174,10 @@ namespace Warehouse
 
         private void BindDGV()
         {
-            DataSet ds = new InW().GetList("");
+            int _count = 0;
+            DataSet ds = new InW().GetPageList(pagerControl1.PageSize, pagerControl1.PageIndex, "", out _count);
             dataGridView1.DataSource = ds.Tables[0];
+            pagerControl1.DrawControl(_count);
         }
 
         private string GetNormFormat(string name)

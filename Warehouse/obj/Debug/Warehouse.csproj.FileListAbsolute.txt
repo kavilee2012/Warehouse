@@ -94,3 +94,4 @@ E:\WorkFile\WH\Warehouse\obj\Debug\Warehouse.frmUserUpdate.resources
 E:\WorkFile\WH\Warehouse\obj\Debug\Warehouse.frmWarehouseView.resources
 E:\WorkFile\WH\Warehouse\obj\Debug\Warehouse.Properties.Resources.resources
 E:\WorkFile\WH\Warehouse\obj\Debug\Warehouse.csproj.GenerateResource.Cache
+E:\Test\LZC\Warehouse\Warehouse\Warehouse\bin\Debug\WinFormPager.dll

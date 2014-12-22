@@ -40,7 +40,6 @@
             // 
             this.cbx_Position.FormattingEnabled = true;
             this.cbx_Position.Items.AddRange(new object[] {
-            "不限",
             "普通用户",
             "管理员"});
             this.cbx_Position.Location = new System.Drawing.Point(172, 121);

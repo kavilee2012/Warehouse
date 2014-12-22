@@ -362,6 +362,34 @@ namespace Warehouse
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 
+
+        /// <summary>
+        /// 分页获取数据列表
+        /// </summary>
+        public DataSet GetPageList(int PageSize, int PageIndex, string strWhere, out int count)
+        {
+            string strSql = "";
+            if (PageIndex == 1)
+            {
+                strSql += "select TOP " + PageSize + " * FROM [InW] A";
+            }
+            else
+            {
+                int sumSize = PageSize * (PageIndex - 1);
+                strSql += "select TOP " + PageSize + " * FROM [InW] A WHERE Batch NOT IN(select TOP " + sumSize + " Batch FROM [InW] ORDER BY ID DESC)";
+            }
+            string strCnt = "SELECT count(id) FROM InW ";
+            if (strWhere.Trim() != "")
+            {
+                strSql += " where " + strWhere;
+                strCnt += " where " + strWhere;
+            }
+            strSql += " ORDER BY A.ID DESC";
+
+            count = (int)DbHelperSQL.GetSingle(strCnt);
+            return DbHelperSQL.Query(strSql);
+        }
+
 		#endregion  Method
 	}
 }

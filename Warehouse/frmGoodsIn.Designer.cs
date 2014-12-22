@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_Operator = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,13 +37,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btn_Add = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtp_InTime = new System.Windows.Forms.DateTimePicker();
+            this.cbx_Cnt = new System.Windows.Forms.ComboBox();
+            this.cbx_Big = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbx_Big = new System.Windows.Forms.ComboBox();
-            this.cbx_Cnt = new System.Windows.Forms.ComboBox();
-            this.dtp_InTime = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
             this.cInTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cBatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNorm = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +54,7 @@
             this.cPrint = new System.Windows.Forms.DataGridViewLinkColumn();
             this.cModity = new System.Windows.Forms.DataGridViewLinkColumn();
             this.cDel = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.pagerControl1 = new WinFormPager.PagerControl();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -135,11 +136,57 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "入仓信息";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(587, 34);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "入仓时间：";
+            // 
+            // dtp_InTime
+            // 
+            this.dtp_InTime.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dtp_InTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_InTime.Location = new System.Drawing.Point(654, 30);
+            this.dtp_InTime.Name = "dtp_InTime";
+            this.dtp_InTime.Size = new System.Drawing.Size(153, 21);
+            this.dtp_InTime.TabIndex = 12;
+            // 
+            // cbx_Cnt
+            // 
+            this.cbx_Cnt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_Cnt.FormattingEnabled = true;
+            this.cbx_Cnt.Location = new System.Drawing.Point(506, 30);
+            this.cbx_Cnt.Name = "cbx_Cnt";
+            this.cbx_Cnt.Size = new System.Drawing.Size(45, 20);
+            this.cbx_Cnt.TabIndex = 11;
+            // 
+            // cbx_Big
+            // 
+            this.cbx_Big.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_Big.FormattingEnabled = true;
+            this.cbx_Big.Location = new System.Drawing.Point(392, 31);
+            this.cbx_Big.Name = "cbx_Big";
+            this.cbx_Big.Size = new System.Drawing.Size(45, 20);
+            this.cbx_Big.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(350, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "大卷：";
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.pagerControl1);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(5, 92);
             this.panel1.Name = "panel1";
@@ -152,14 +199,14 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cInTime,
@@ -172,68 +219,23 @@
             this.cPrint,
             this.cModity,
             this.cDel});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(963, 420);
+            this.dataGridView1.Size = new System.Drawing.Size(963, 372);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(350, 34);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "大卷：";
-            // 
-            // cbx_Big
-            // 
-            this.cbx_Big.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbx_Big.FormattingEnabled = true;
-            this.cbx_Big.Location = new System.Drawing.Point(392, 31);
-            this.cbx_Big.Name = "cbx_Big";
-            this.cbx_Big.Size = new System.Drawing.Size(45, 20);
-            this.cbx_Big.TabIndex = 10;
-            // 
-            // cbx_Cnt
-            // 
-            this.cbx_Cnt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbx_Cnt.FormattingEnabled = true;
-            this.cbx_Cnt.Location = new System.Drawing.Point(506, 30);
-            this.cbx_Cnt.Name = "cbx_Cnt";
-            this.cbx_Cnt.Size = new System.Drawing.Size(45, 20);
-            this.cbx_Cnt.TabIndex = 11;
-            // 
-            // dtp_InTime
-            // 
-            this.dtp_InTime.CustomFormat = "yyyy-MM-dd HH:mm:ss";
-            this.dtp_InTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_InTime.Location = new System.Drawing.Point(654, 30);
-            this.dtp_InTime.Name = "dtp_InTime";
-            this.dtp_InTime.Size = new System.Drawing.Size(153, 21);
-            this.dtp_InTime.TabIndex = 12;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(587, 34);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 12);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "入仓时间：";
             // 
             // cInTime
             // 
@@ -315,6 +317,19 @@
             this.cDel.VisitedLinkColor = System.Drawing.Color.Blue;
             this.cDel.Width = 60;
             // 
+            // pagerControl1
+            // 
+            this.pagerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pagerControl1.JumpText = "Go";
+            this.pagerControl1.Location = new System.Drawing.Point(3, 381);
+            this.pagerControl1.Name = "pagerControl1";
+            this.pagerControl1.PageIndex = 1;
+            this.pagerControl1.PageSize = 10;
+            this.pagerControl1.RecordSize = 0;
+            this.pagerControl1.Size = new System.Drawing.Size(963, 29);
+            this.pagerControl1.TabIndex = 8;
+            // 
             // frmGoodsIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -359,5 +374,6 @@
         private System.Windows.Forms.DataGridViewLinkColumn cPrint;
         private System.Windows.Forms.DataGridViewLinkColumn cModity;
         private System.Windows.Forms.DataGridViewLinkColumn cDel;
+        private WinFormPager.PagerControl pagerControl1;
     }
 }

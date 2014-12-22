@@ -39,3 +39,20 @@
    在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
    在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
    在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+2014-12-22 16:11:07 : System.Exception: 列名 'AgentName' 无效。
+列名 'AgentName' 无效。
+   在 SqlServerDAL.DbHelperSQL.Query(String SQLString) 位置 E:\Test\LZC\Warehouse\Warehouse\SqlServer\DbHelperSQL.cs:行号 253
+   在 Warehouse.Agent.GetPageList(Int32 PageSize, Int32 PageIndex, String strWhere, Int32& count) 位置 E:\Test\LZC\Warehouse\Warehouse\Warehouse\Service\Agent.cs:行号 397
+   在 Warehouse.frmCustomer.BindDGV() 位置 E:\Test\LZC\Warehouse\Warehouse\Warehouse\frmCustomer.cs:行号 86
+   在 Warehouse.frmCustomer.pagerControl1_OnPageChanged(Object sender, EventArgs e) 位置 E:\Test\LZC\Warehouse\Warehouse\Warehouse\frmCustomer.cs:行号 36
+   在 WinFormPager.PagerControl.DrawControl(Boolean callEvent)
+   在 WinFormPager.PagerControl.lnkNext_LinkClicked(Object sender, LinkLabelLinkClickedEventArgs e)
+   在 System.Windows.Forms.LinkLabel.OnLinkClicked(LinkLabelLinkClickedEventArgs e)
+   在 System.Windows.Forms.LinkLabel.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.Label.WndProc(Message& m)
+   在 System.Windows.Forms.LinkLabel.WndProc(Message& msg)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)

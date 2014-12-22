@@ -41,6 +41,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WinFormPager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dll\WinFormPager.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="frmAgentNorm.cs">
@@ -161,6 +165,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAgentNorm.resx">
       <DependentUpon>frmAgentNorm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAgentNormUpdate.resx">
       <DependentUpon>frmAgentNormUpdate.cs</DependentUpon>
@@ -172,9 +177,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGoodsIn.resx">
       <DependentUpon>frmGoodsIn.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGoodsNorm.resx">
       <DependentUpon>frmGoodsNorm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGoodsNormUpdate.resx">
       <DependentUpon>frmGoodsNormUpdate.cs</DependentUpon>
@@ -182,24 +189,31 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGoodsOut.resx">
       <DependentUpon>frmGoodsOut.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGoodsSearch.resx">
       <DependentUpon>frmGoodsSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInDetail.resx">
       <DependentUpon>frmInDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOutDetail.resx">
       <DependentUpon>frmOutDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStartScan.resx">
       <DependentUpon>frmStartScan.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStatistics.resx">
       <DependentUpon>frmStatistics.cs</DependentUpon>

@@ -54,6 +54,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.pagerControl1 = new WinFormPager.PagerControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -64,6 +65,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.pagerControl1);
             this.panel1.Controls.Add(this.lab_Cnt);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.lab_Sum);
@@ -158,7 +160,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(887, 403);
+            this.dataGridView1.Size = new System.Drawing.Size(887, 349);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
@@ -271,6 +273,7 @@
             // 
             // cbx_Agent
             // 
+            this.cbx_Agent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_Agent.FormattingEnabled = true;
             this.cbx_Agent.Items.AddRange(new object[] {
             "AA",
@@ -315,6 +318,19 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "条形码：";
             // 
+            // pagerControl1
+            // 
+            this.pagerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pagerControl1.JumpText = "Go";
+            this.pagerControl1.Location = new System.Drawing.Point(2, 357);
+            this.pagerControl1.Name = "pagerControl1";
+            this.pagerControl1.PageIndex = 1;
+            this.pagerControl1.PageSize = 10;
+            this.pagerControl1.RecordSize = 0;
+            this.pagerControl1.Size = new System.Drawing.Size(888, 29);
+            this.pagerControl1.TabIndex = 20;
+            // 
             // frmGoodsSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -358,5 +374,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cOutTime;
         private System.Windows.Forms.DataGridViewLinkColumn cPrint;
         private System.Windows.Forms.DataGridViewLinkColumn cDetail;
+        private WinFormPager.PagerControl pagerControl1;
     }
 }

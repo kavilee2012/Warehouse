@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_Search = new System.Windows.Forms.Button();
             this.btn_Add = new System.Windows.Forms.Button();
@@ -43,7 +43,6 @@
             this.cModity = new System.Windows.Forms.DataGridViewLinkColumn();
             this.cDel = new System.Windows.Forms.DataGridViewLinkColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -90,7 +89,6 @@
             // 
             this.cbx_Position.FormattingEnabled = true;
             this.cbx_Position.Items.AddRange(new object[] {
-            "不限",
             "普通用户",
             "管理员"});
             this.cbx_Position.Location = new System.Drawing.Point(288, 34);
@@ -141,7 +139,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(720, 364);
+            this.dataGridView1.Size = new System.Drawing.Size(720, 418);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -167,8 +165,8 @@
             // cModity
             // 
             this.cModity.ActiveLinkColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cModity.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cModity.DefaultCellStyle = dataGridViewCellStyle1;
             this.cModity.Frozen = true;
             this.cModity.HeaderText = "";
             this.cModity.MinimumWidth = 60;
@@ -180,8 +178,8 @@
             // cDel
             // 
             this.cDel.ActiveLinkColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cDel.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cDel.DefaultCellStyle = dataGridViewCellStyle2;
             this.cDel.Frozen = true;
             this.cDel.HeaderText = "";
             this.cDel.MinimumWidth = 60;
@@ -195,22 +193,11 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(8, 103);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(726, 424);
             this.panel1.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 383);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(215, 12);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "共 500 条记录，每页 50 条，共 10 页";
             // 
             // frmUser
             // 
@@ -227,7 +214,6 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -243,7 +229,6 @@
         private System.Windows.Forms.ComboBox cbx_Position;
         private System.Windows.Forms.TextBox txt_Name;
         private System.Windows.Forms.Button btn_Search;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn cUserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPosition;
         private System.Windows.Forms.DataGridViewLinkColumn cModity;

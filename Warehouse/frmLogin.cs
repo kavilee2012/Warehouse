@@ -38,7 +38,8 @@ namespace Warehouse
             User user = new User();
             if (user.Login(_name, _pwd))
             {
-                if (_name == "admin")
+                user.GetModel(_name);
+                if (user.Position == "管理员" || user.Position == "系统管理员")
                 {
                     Global.IsAdmin = true;
                 }
