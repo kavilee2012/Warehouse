@@ -203,7 +203,6 @@ namespace Warehouse
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update [Agent] set ");
-			strSql.Append("ID=@ID,");
 			strSql.Append("Contact=@Contact,");
 			strSql.Append("Phone=@Phone,");
 			strSql.Append("Address=@Address,");
@@ -212,22 +211,13 @@ namespace Warehouse
             strSql.Append("LevelName=@LevelName");
 			strSql.Append(" where Name=@Name ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@ID", SqlDbType.Int,4),
-					new SqlParameter("@Contact", SqlDbType.VarChar,50),
-					new SqlParameter("@Phone", SqlDbType.VarChar,50),
-					new SqlParameter("@Address", SqlDbType.VarChar,200),
-					new SqlParameter("@LevelName", SqlDbType.VarChar,50),
-					new SqlParameter("@Name", SqlDbType.VarChar,50),
-                    new SqlParameter("@Tel", SqlDbType.VarChar,50),
-                    new SqlParameter("@Fox", SqlDbType.VarChar,50)};
-			parameters[0].Value = ID;
-			parameters[1].Value = Contact;
-			parameters[2].Value = Phone;
-			parameters[3].Value = Address;
-			parameters[4].Value = LevelName;
-			parameters[5].Value = Name;
-            parameters[6].Value = Tel;
-            parameters[7].Value = Fox;
+					new SqlParameter("@Contact", Contact),
+					new SqlParameter("@Phone", Phone),
+					new SqlParameter("@Address", Address),
+					new SqlParameter("@LevelName", LevelName),
+					new SqlParameter("@Name", Name),
+                    new SqlParameter("@Tel", Tel),
+                    new SqlParameter("@Fox", Fox)};
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)

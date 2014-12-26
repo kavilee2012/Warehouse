@@ -41,6 +41,11 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>Report_Parameter_5</Prompt>
     </ReportParameter>
+    <ReportParameter Name="pam_Company">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Report_Parameter_6</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <rd:DrawGrid>true</rd:DrawGrid>
   <InteractiveWidth>21cm</InteractiveWidth>
@@ -78,7 +83,7 @@
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
-  <Width>22.5cm</Width>
+  <Width>20.25cm</Width>
   <Body>
     <ColumnSpacing>1cm</ColumnSpacing>
     <ReportItems>
@@ -95,7 +100,7 @@
         </Style>
         <ZIndex>5</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>13.25cm</Left>
+        <Left>13.5cm</Left>
         <Height>0.63492cm</Height>
         <Value>="单号："&amp;Parameters!pam_NO.Value</Value>
       </Textbox>
@@ -487,7 +492,7 @@
             <Width>3.98333cm</Width>
           </TableColumn>
         </TableColumns>
-        <Height>12.55952cm</Height>
+        <Height>9.05952cm</Height>
         <Footer>
           <TableRows>
             <TableRow>
@@ -699,7 +704,7 @@
                   </ReportItems>
                 </TableCell>
               </TableCells>
-              <Height>5cm</Height>
+              <Height>1.5cm</Height>
             </TableRow>
             <TableRow>
               <TableCells>
@@ -808,7 +813,7 @@
         </Style>
         <ZIndex>2</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>13.25cm</Left>
+        <Left>13.5cm</Left>
         <Height>0.63492cm</Height>
         <Value>="日期："&amp;Parameters!pam_Date.Value</Value>
       </Textbox>
@@ -829,7 +834,7 @@
         <ZIndex>1</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>1.25cm</Height>
-        <Value>广州XXXXX有限公司 </Value>
+        <Value>=Parameters!pam_Company.Value</Value>
       </Textbox>
       <Textbox Name="textbox2">
         <rd:DefaultName>textbox2</rd:DefaultName>
@@ -849,7 +854,7 @@
         <Value>="收货单位："&amp;Parameters!pam_Supply.Value</Value>
       </Textbox>
     </ReportItems>
-    <Height>29.13492cm</Height>
+    <Height>23.75cm</Height>
   </Body>
   <Language>zh-CN</Language>
   <PageFooter>

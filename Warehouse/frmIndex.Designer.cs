@@ -39,12 +39,13 @@
             this.用户管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.成品规格维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.代理商级别维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.修改个人密码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.统计查询ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.修改个人密码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStatus_Time = new System.Windows.Forms.ToolStripStatusLabel();
-            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.公司信息设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -110,10 +111,11 @@
             // 系统管理ToolStripMenuItem
             // 
             this.系统管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.统计查询ToolStripMenuItem1,
             this.用户管理ToolStripMenuItem,
             this.成品规格维护ToolStripMenuItem,
             this.代理商级别维护ToolStripMenuItem,
-            this.统计查询ToolStripMenuItem1,
+            this.公司信息设置ToolStripMenuItem,
             this.修改个人密码ToolStripMenuItem,
             this.退出ToolStripMenuItem});
             this.系统管理ToolStripMenuItem.Name = "系统管理ToolStripMenuItem";
@@ -141,6 +143,13 @@
             this.代理商级别维护ToolStripMenuItem.Text = "代理商级别维护";
             this.代理商级别维护ToolStripMenuItem.Click += new System.EventHandler(this.代理商级别维护ToolStripMenuItem_Click);
             // 
+            // 统计查询ToolStripMenuItem1
+            // 
+            this.统计查询ToolStripMenuItem1.Name = "统计查询ToolStripMenuItem1";
+            this.统计查询ToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
+            this.统计查询ToolStripMenuItem1.Text = "统计查询";
+            this.统计查询ToolStripMenuItem1.Click += new System.EventHandler(this.统计查询ToolStripMenuItem_Click);
+            // 
             // 修改个人密码ToolStripMenuItem
             // 
             this.修改个人密码ToolStripMenuItem.Name = "修改个人密码ToolStripMenuItem";
@@ -148,12 +157,12 @@
             this.修改个人密码ToolStripMenuItem.Text = "修改个人密码";
             this.修改个人密码ToolStripMenuItem.Click += new System.EventHandler(this.修改个人密码ToolStripMenuItem_Click);
             // 
-            // 统计查询ToolStripMenuItem1
+            // 退出ToolStripMenuItem
             // 
-            this.统计查询ToolStripMenuItem1.Name = "统计查询ToolStripMenuItem1";
-            this.统计查询ToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
-            this.统计查询ToolStripMenuItem1.Text = "统计查询";
-            this.统计查询ToolStripMenuItem1.Click += new System.EventHandler(this.统计查询ToolStripMenuItem_Click);
+            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.退出ToolStripMenuItem.Text = "退出";
+            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click_1);
             // 
             // panel1
             // 
@@ -180,12 +189,12 @@
             this.toolStatus_Time.Name = "toolStatus_Time";
             this.toolStatus_Time.Size = new System.Drawing.Size(0, 17);
             // 
-            // 退出ToolStripMenuItem
+            // 公司信息设置ToolStripMenuItem
             // 
-            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.退出ToolStripMenuItem.Text = "退出";
-            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click_1);
+            this.公司信息设置ToolStripMenuItem.Name = "公司信息设置ToolStripMenuItem";
+            this.公司信息设置ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.公司信息设置ToolStripMenuItem.Text = "公司信息设置";
+            this.公司信息设置ToolStripMenuItem.Click += new System.EventHandler(this.公司信息设置ToolStripMenuItem_Click);
             // 
             // frmIndex
             // 
@@ -230,5 +239,6 @@
         private System.Windows.Forms.ToolStripMenuItem 库存查看ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 统计查询ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 公司信息设置ToolStripMenuItem;
     }
 }

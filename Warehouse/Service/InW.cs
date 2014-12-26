@@ -181,10 +181,11 @@ namespace Warehouse
 					new SqlParameter("@Barcode", Barcode),
 					new SqlParameter("@Cnt", Cnt),
                     new SqlParameter("@BigCnt", BigCnt),
+                    new SqlParameter("@InTime", InTime),
                     new SqlParameter("@Operator", Operator)};
 
             List<string> sqlT = new List<string>();
-            sqlT.Add("insert into [InW] (Batch,NormName,Barcode,BigCnt,Cnt,Operator,InTime) values (@Batch,@NormName,@Barcode,@BigCnt,@Cnt,@Operator,getdate());");
+            sqlT.Add("insert into [InW] (Batch,NormName,Barcode,BigCnt,Cnt,Operator,InTime) values (@Batch,@NormName,@Barcode,@BigCnt,@Cnt,@Operator,@InTime);");
             if (list.Count > 0)
             {
                 foreach (string s in list)
@@ -388,6 +389,26 @@ namespace Warehouse
 
             count = (int)DbHelperSQL.GetSingle(strCnt);
             return DbHelperSQL.Query(strSql);
+        }
+
+
+        /// <summary>
+        /// 判断是否已关联
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public bool IsRelation(string batchID)
+        {
+            string sql = "SELECT Count(Barcode) FROM SupplyDetail where Barcode IN (SELECT Barcode FROM InWDetail WHERE BatchID='" + batchID + "')";
+            int obj = (int)DbHelperSQL.GetSingle(sql);
+            if (obj > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
 		#endregion  Method

@@ -98,3 +98,5 @@ E:\Test\LZC\Warehouse\Warehouse\Warehouse\bin\Debug\WinFormPager.dll
 E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.frmSupplyReport.resources
 E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\RdlCompile.cache
 E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\RdlCompile.compiled
+E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.frmCustomerUpdate.resources
+E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.frmCompany.resources

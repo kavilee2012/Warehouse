@@ -28,11 +28,21 @@ namespace Warehouse
             BindNorm();
             txt_Operator.Text = Global.userName;
 
-            if (!Global.IsAdmin)
+
+
+            dtp_InTime.Value = CommonService.GetServerTime();
+            if (Global.userName!="admin")
             {
-                dataGridView1.Columns["cModity"].Visible=false;
+                //dataGridView1.Columns["cModity"].Visible = false;
                 dataGridView1.Columns["cDel"].Visible = false;
+
+                dtp_InTime.Enabled = false;
             }
+            else
+            {
+                dtp_InTime.Enabled = true;
+            }
+
 
             pagerControl1.OnPageChanged += new EventHandler(pagerControl1_OnPageChanged);
             BindDGV();
@@ -111,6 +121,11 @@ namespace Warehouse
                     if (v!=null)
                     {
                         InW no = new InW();
+                        if (no.IsRelation(v.ToString()))
+                        {
+                            MessageBox.Show("该批条码已被出仓，禁止删除！");
+                            return;
+                        }
                         int re = no.Delete(v.ToString());
                         if (re>0)
                         {
@@ -147,6 +162,9 @@ namespace Warehouse
                 List<string> barList = GenBarcode(m.Cnt,m.BigCnt);
                 m.Barcode = barList[0] + "~" + barList[barList.Count - 1];
                 m.Operator = Global.userName;
+                m.InTime = dtp_InTime.Value;
+
+
                 int re = m.Add(barList);
                 if (re > 0)
                 {
@@ -192,16 +210,10 @@ namespace Warehouse
         /// <returns></returns>
         private string GetTodayNO(bool isBarcode)
         {
+            DateTime date = dtp_InTime.Enabled ? dtp_InTime.Value : CommonService.GetServerTime();//六位
             string batchNO = "";
             batchNO += GetNormFormat(cbx_Norm.SelectedValue.ToString());//四位
-            if (isBarcode)
-            {
-                batchNO += CommonService.GetServerTime().ToString("yyMMdd").Substring(1);//五位
-            }
-            else
-            {
-                batchNO += CommonService.GetServerTime().ToString("yyMMdd");//六位
-            }
+            batchNO += date.ToString("yyMMdd");
             return batchNO;
         }
 
@@ -221,7 +233,7 @@ namespace Warehouse
 
         private string GetTopBarcode(string front)
         {
-            string sql = "SELECT TOP 1 RIGHT(Barcode,2) FROM InWDetail WHERE LEFT(Barcode,11)='" + front + "' ORDER BY RIGHT(Barcode,2) DESC";
+            string sql = "SELECT TOP 1 RIGHT(Barcode,2) FROM InWDetail WHERE LEFT(Barcode,12)='" + front + "' ORDER BY RIGHT(Barcode,2) DESC";
             object obj = DbHelperSQL.GetSingle(sql);
             if (obj != DBNull.Value && obj != null)
             {
@@ -280,10 +292,10 @@ namespace Warehouse
             {
                 e.Value = " 删除";
             }
-            else if (e.ColumnIndex == dataGridView1.Columns["cModity"].Index)
-            {
-                e.Value = " 修改";
-            }
+            //else if (e.ColumnIndex == dataGridView1.Columns["cModity"].Index)
+            //{
+            //    e.Value = " 修改";
+            //}
         }
 
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)

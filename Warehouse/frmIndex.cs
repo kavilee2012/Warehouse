@@ -22,6 +22,7 @@ namespace Warehouse
 
             if (Global.userName != "admin")
             {
+                公司信息设置ToolStripMenuItem.Visible = false;
                 代理商级别维护ToolStripMenuItem.Visible = false;
                 成品规格维护ToolStripMenuItem.Visible = false;
                 用户管理ToolStripMenuItem.Visible = false;
@@ -30,7 +31,7 @@ namespace Warehouse
             {
                 统计查询ToolStripMenuItem1.Visible = false;
             }
-            ShowFrom(new frmWarehouseView());
+            //ShowFrom(new frmWarehouseView());
         }
 
         public void ShowFrom(Form fm)
@@ -105,6 +106,11 @@ namespace Warehouse
         {
             Application.Exit();
             //System.Environment.Exit(0);
+        }
+
+        private void 公司信息设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowFrom(new frmCompany());
         }
 
 

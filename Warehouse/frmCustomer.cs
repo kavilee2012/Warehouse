@@ -28,12 +28,12 @@ namespace Warehouse
                 dataGridView1.Columns["cDel"].Visible = false;
             }
             pagerControl1.OnPageChanged += new EventHandler(pagerControl1_OnPageChanged);
-            BindDGV();
+            BindDGV("");
         }
 
         void pagerControl1_OnPageChanged(object sender, EventArgs e)
         {
-            BindDGV();
+            BindDGV("");
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
@@ -72,7 +72,7 @@ namespace Warehouse
                 txt_Address.Text = "";
                 txt_Fox.Text = "";
                 txt_Tel.Text = "";
-                BindDGV();
+                BindDGV("");
             }
             else
             {
@@ -80,10 +80,10 @@ namespace Warehouse
             }
         }
 
-        private void BindDGV()
+        private void BindDGV(string where)
         {
             int _count = 0;
-            DataSet ds = new Agent().GetPageList(pagerControl1.PageSize, pagerControl1.PageIndex, "",out _count);
+            DataSet ds = new Agent().GetPageList(pagerControl1.PageSize, pagerControl1.PageIndex, where,out _count);
             dataGridView1.DataSource = ds.Tables[0];
             pagerControl1.DrawControl(_count);
         }
@@ -110,6 +110,17 @@ namespace Warehouse
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
+            string _name = txt_Name.Text.Trim();
+            BindDGV(" Name like'%" + _name + "%'");
+            //if (string.IsNullOrEmpty(_name))
+            //{
+            //    BindDGV("");
+            //}
+            //else
+            //{
+            //    BindDGV(" Name like'%" + _name + "%'");
+            //}
+            
 
         }
 
@@ -132,12 +143,25 @@ namespace Warehouse
                         if (re)
                         {
                             MessageBox.Show("删除成功!");
-                            BindDGV();
+                            BindDGV("");
                         }
                         else
                         {
                             MessageBox.Show("删除失败!");
                         }
+                    }
+                }
+            }
+            else if (e.ColumnIndex == dataGridView1.Columns["cModity"].Index)
+            {
+                object v = dataGridView1.Rows[e.RowIndex].Cells["cName"].Value;
+                if (v != null)
+                {
+                    frmCustomerUpdate f = new frmCustomerUpdate(v.ToString());
+                    f.ShowDialog();
+                    if (f._isOK)
+                    {
+                        BindDGV("");
                     }
                 }
             }

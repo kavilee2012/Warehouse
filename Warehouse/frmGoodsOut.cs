@@ -90,6 +90,9 @@ namespace Warehouse
                 txt_Barcode.Text = "";
                 allOut=new List<InW>();
                 BindDGV();
+
+                frmSupplyReport ff = new frmSupplyReport();
+                ff.ShowDialog();
             }
             else
             {

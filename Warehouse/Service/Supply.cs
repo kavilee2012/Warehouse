@@ -21,6 +21,13 @@ namespace Warehouse
 		private string _operator;
 		private DateTime _createtime;
 		private decimal _sumprice;
+        private DateTime _inTime;
+
+        public DateTime InTime
+        {
+            get { return _inTime; }
+            set { _inTime = value; }
+        }
 		/// <summary>
 		/// 
 		/// </summary>
@@ -113,6 +120,10 @@ namespace Warehouse
 				{
 					CreateTime=DateTime.Parse(ds.Tables[0].Rows[0]["CreateTime"].ToString());
 				}
+                if (ds.Tables[0].Rows[0]["InTime"].ToString() != "")
+                {
+                    InTime = DateTime.Parse(ds.Tables[0].Rows[0]["InTime"].ToString());
+                }
 				if(ds.Tables[0].Rows[0]["SumPrice"].ToString()!="")
 				{
 					SumPrice=decimal.Parse(ds.Tables[0].Rows[0]["SumPrice"].ToString());
@@ -228,17 +239,15 @@ namespace Warehouse
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public void GetModel(string SupplyID,int ID)
+		public void GetModel(string SupplyID)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ID,SupplyID,AgentName,Price,Operator,CreateTime,SumPrice ");
+			strSql.Append("select  top 1 * ");
 			strSql.Append(" FROM Supply ");
-			strSql.Append(" where SupplyID=@SupplyID and ID=@ID ");
+			strSql.Append(" where SupplyID=@SupplyID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@SupplyID", SqlDbType.VarChar,50),
-					new SqlParameter("@ID", SqlDbType.Int,4)};
+					new SqlParameter("@SupplyID", SqlDbType.VarChar,50)};
 			parameters[0].Value = SupplyID;
-			parameters[1].Value = ID;
 
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
@@ -258,6 +267,10 @@ namespace Warehouse
 				{
                     this.CreateTime = DateTime.Parse(ds.Tables[0].Rows[0]["CreateTime"].ToString());
 				}
+                if (ds.Tables[0].Rows[0]["InTime"].ToString() != "")
+                {
+                    InTime = DateTime.Parse(ds.Tables[0].Rows[0]["InTime"].ToString());
+                }
 				if(ds.Tables[0].Rows[0]["SumPrice"].ToString()!="")
 				{
                     this.SumPrice = decimal.Parse(ds.Tables[0].Rows[0]["SumPrice"].ToString());

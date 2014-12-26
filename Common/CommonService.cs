@@ -6,6 +6,8 @@ using System.IO;
 using System.IO.Compression;
 using System.Data;
 using SqlServerDAL;
+using System.Data.SqlClient;
+using SqlServer;
 
 namespace Common
 {
@@ -147,6 +149,52 @@ namespace Common
             {
                 return DateTime.Now;
             }
+        }
+
+
+        /// <summary>
+        /// 获取参数值
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static string GetParamValue(string name)
+        {
+            string sql = "SELECT ArgValue FROM Argument WHERE ArgName=@paramname";
+            SqlParameter[] pas = new SqlParameter[]
+            {
+            new SqlParameter("@paramname",name)
+            };
+            object rows = SqlHelper.ExecuteScalar(sql, pas);
+            if (rows != System.DBNull.Value)
+            {
+                return rows.ToString();
+            }
+            else
+            {
+                return " ";
+            }
+
+        }
+
+
+        /// <summary>
+        /// 设置参数名
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static bool SetParamName(string name, string value)
+        {
+            string sql = "UPDATE Argument Set ArgValue=@paramvalue WHERE ArgName=@paramname";
+            SqlParameter[] pas = new SqlParameter[]
+            {
+            new SqlParameter("@paramvalue",SqlDbType.Text),
+            new SqlParameter("@paramname",SqlDbType.VarChar,150)
+            };
+            pas[0].Value = value;
+            pas[1].Value = name;
+            int rows = SqlHelper.ExecuteNonQuery(sql, pas);
+            return (rows > 0);
         }
 
     }
