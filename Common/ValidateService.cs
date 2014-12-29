@@ -189,6 +189,22 @@ namespace Common
         }
         #endregion
 
+        #region IsNumber验证是不是纯数字
+        /// <summary>
+        /// IsNumber验证是不是数字
+        /// </summary>
+        public static bool IsAllNumber(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            Regex rg = new Regex(@"^[0-9]*$");
+            Match mc = rg.Match(obj.ToString());
+            return (mc.Success);
+        }
+        #endregion
+
         #region IsDoubleNumber验证是不是两位小数字
         /// <summary>
         /// IsNumber验证是不是数字

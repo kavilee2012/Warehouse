@@ -37,3 +37,13 @@ E:\WorkFile\WH\Common\bin\Debug\SqlServer.pdb
 E:\WorkFile\WH\Common\obj\Debug\ResolveAssemblyReference.cache
 E:\WorkFile\WH\Common\obj\Debug\Common.dll
 E:\WorkFile\WH\Common\obj\Debug\Common.pdb
+E:\WorkFile\WHouse\Common\bin\Debug\Common.dll.config
+E:\WorkFile\WHouse\Common\bin\Debug\Common.dll
+E:\WorkFile\WHouse\Common\bin\Debug\Common.pdb
+E:\WorkFile\WHouse\Common\bin\Debug\NPOI.dll
+E:\WorkFile\WHouse\Common\bin\Debug\SqlServer.dll
+E:\WorkFile\WHouse\Common\bin\Debug\Interop.SQLDMO.dll
+E:\WorkFile\WHouse\Common\bin\Debug\SqlServer.pdb
+E:\WorkFile\WHouse\Common\obj\Debug\ResolveAssemblyReference.cache
+E:\WorkFile\WHouse\Common\obj\Debug\Common.dll
+E:\WorkFile\WHouse\Common\obj\Debug\Common.pdb

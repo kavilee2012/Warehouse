@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C0739823-13DD-4D65-9820-DEB3352F0A2C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -67,6 +67,12 @@
     </Compile>
     <Compile Include="frmAgentNormUpdate.Designer.cs">
       <DependentUpon>frmAgentNormUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBatchUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBatchUpload.Designer.cs">
+      <DependentUpon>frmBatchUpload.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCompany.cs">
       <SubType>Form</SubType>
@@ -197,6 +203,9 @@
     <EmbeddedResource Include="frmAgentNormUpdate.resx">
       <DependentUpon>frmAgentNormUpdate.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBatchUpload.resx">
+      <DependentUpon>frmBatchUpload.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCompany.resx">
       <DependentUpon>frmCompany.cs</DependentUpon>

@@ -21,10 +21,17 @@ namespace Warehouse
 
         private void frmGoodsOut_Load(object sender, EventArgs e)
         {
+            lab_Error.Tag = "9999";
+            lab_Error.ForeColor = Color.Red;
+
             dataGridView1.AutoGenerateColumns = false;
             txt_Operator.Text = Global.userName;
             BindCBX();
             cbx_Agent.SelectedIndex = -1;
+            panel_Time.Visible = true;
+            rb_Time.Checked = true;
+            link_Upload.Visible = false;
+            rb_Batch.Checked = false;
         }
 
         private void BindCBX()
@@ -182,6 +189,7 @@ namespace Warehouse
                 {
                     _price = m.Price;
                     txt_Price.Text = m.Price.ToString("0.00");
+                    BindDGV();
                 }
             }
         }
@@ -193,30 +201,37 @@ namespace Warehouse
 
         private void txt_Barcode_TextChanged(object sender, EventArgs e)
         {
-            if (cbx_Agent.SelectedValue == null)
-            {
-                MessageBox.Show("请先选择客户！");
-                cbx_Agent.Focus();
-                return;
-            }
+            //if (cbx_Agent.SelectedValue == null)
+            //{
+            //    MessageBox.Show("请先选择客户！");
+            //    cbx_Agent.Focus();
+            //    return;
+            //}
 
             if (txt_Barcode.Text.Trim().Length >= 14)
             {
                 string _barcode = txt_Barcode.Text.Trim();
                 if (!InWDetail.Exists(_barcode))
                 {
-                    MessageBox.Show("该条码不存在！");
+                    //MessageBox.Show("该条码不存在！");
+                    lab_Error.Text = "该条码不存在!";
                     return;
                 }
                 if (SupplyDetail.Exists(_barcode))
                 {
-                    MessageBox.Show("该条码已出仓,不能重复出仓！");
+                    //MessageBox.Show("该条码已出仓,不能重复出仓！");
+                    lab_Error.Text = "该条码已出仓,不能重复出仓!";
                     return;
                 }
                 InW w = new InW().GetModelByBarcode(_barcode);
                 allOut.Add(w);
                 BindDGV();
                 txt_Barcode.Text = "";
+                lab_Error.Text = "";
+            }
+            else
+            {
+                lab_Error.Text = "";
             }
         }
 
@@ -248,6 +263,32 @@ namespace Warehouse
             {
                 txt_Barcode_TextChanged(null, null);
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rb_Batch_CheckedChanged(object sender, EventArgs e)
+        {
+            link_Upload.Visible = rb_Batch.Checked;
+        }
+
+        private void rb_Time_CheckedChanged(object sender, EventArgs e)
+        {
+            panel_Time.Visible = rb_Time.Checked;
+        }
+
+        private void panel_Time_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void link_Upload_Click(object sender, EventArgs e)
+        {
+            frmBatchUpload f = new frmBatchUpload();
+            f.ShowDialog();
         }
     }
 }
