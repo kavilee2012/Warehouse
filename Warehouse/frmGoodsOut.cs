@@ -64,6 +64,11 @@ namespace Warehouse
                 return;
             }
 
+            if (MessageBox.Show("确定要生成供货单吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                return;
+            }
+
             List<SupplyDetail> list = new List<SupplyDetail>();
             foreach (InW i in allOut)
             {
@@ -91,7 +96,7 @@ namespace Warehouse
                 allOut=new List<InW>();
                 BindDGV();
 
-                frmSupplyReport ff = new frmSupplyReport();
+                frmSupplyReport ff = new frmSupplyReport(m.SupplyID);
                 ff.ShowDialog();
             }
             else
@@ -124,22 +129,7 @@ namespace Warehouse
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (cbx_Agent.SelectedValue == null)
-            {
-                MessageBox.Show("请先选择客户！");
-                cbx_Agent.Focus();
-                return;
-            }
-            InW w = new InW().GetModelByBarcode(txt_Barcode.Text);
-            if (w != null)
-            {
-                //判断是否重复
-                
 
-                allOut.Add(w);
-                BindDGV();
-                txt_Barcode.Text = "";
-            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -199,6 +189,65 @@ namespace Warehouse
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             DataGridViewService.VisibleRowOrder(dataGridView1, e);
+        }
+
+        private void txt_Barcode_TextChanged(object sender, EventArgs e)
+        {
+            if (cbx_Agent.SelectedValue == null)
+            {
+                MessageBox.Show("请先选择客户！");
+                cbx_Agent.Focus();
+                return;
+            }
+
+            if (txt_Barcode.Text.Trim().Length >= 14)
+            {
+                string _barcode = txt_Barcode.Text.Trim();
+                if (!InWDetail.Exists(_barcode))
+                {
+                    MessageBox.Show("该条码不存在！");
+                    return;
+                }
+                if (SupplyDetail.Exists(_barcode))
+                {
+                    MessageBox.Show("该条码已出仓,不能重复出仓！");
+                    return;
+                }
+                InW w = new InW().GetModelByBarcode(_barcode);
+                allOut.Add(w);
+                BindDGV();
+                txt_Barcode.Text = "";
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Columns["cDel"].Index == e.ColumnIndex)
+            { 
+                string v = dataGridView1.Rows[e.RowIndex].Cells["cBarcode"].Value.ToString();
+                InW _w = null;
+                foreach (InW i in allOut)
+                {
+                    if (i.Barcode == v)
+                    {
+                        _w = i;
+                        break;
+                    }
+                }
+                if (_w != null)
+                {
+                    allOut.Remove(_w);
+                    BindDGV();
+                }
+            }
+        }
+
+        private void txt_Barcode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txt_Barcode_TextChanged(null, null);
+            }
         }
     }
 }

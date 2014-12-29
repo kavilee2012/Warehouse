@@ -44,7 +44,7 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Warehouse.Supply.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(751, 699);
+            this.reportViewer1.Size = new System.Drawing.Size(872, 699);
             this.reportViewer1.TabIndex = 0;
             // 
             // SupplyRPTBindingSource
@@ -55,9 +55,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(751, 699);
+            this.ClientSize = new System.Drawing.Size(872, 699);
             this.Controls.Add(this.reportViewer1);
             this.Name = "frmSupplyReport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "送货单报表";
             this.Load += new System.EventHandler(this.frmSupplyReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SupplyRPTBindingSource)).EndInit();
             this.ResumeLayout(false);

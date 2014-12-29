@@ -67,16 +67,12 @@ namespace Warehouse
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
-		public bool Exists()
+		public static bool Exists(string barcode)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) from InWDetail");
-			//strSql.Append(" where 条件);
+            strSql.Append("select count(1) from InWDetail where Barcode='" + barcode + "'");
 
-			SqlParameter[] parameters = {
-};
-
-			return DbHelperSQL.Exists(strSql.ToString(),parameters);
+			return DbHelperSQL.Exists(strSql.ToString());
 		}
 
 

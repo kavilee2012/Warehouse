@@ -137,7 +137,7 @@ namespace Warehouse
                     string supplyID = v.ToString();
                     //frmSupplyDetail f = new frmSupplyDetail(supplyID);
                     
-                    frmSupplyReport f = new frmSupplyReport();
+                    frmSupplyReport f = new frmSupplyReport(supplyID);
                     f.ShowDialog();
                 }
 

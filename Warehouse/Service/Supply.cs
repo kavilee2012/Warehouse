@@ -21,13 +21,7 @@ namespace Warehouse
 		private string _operator;
 		private DateTime _createtime;
 		private decimal _sumprice;
-        private DateTime _inTime;
 
-        public DateTime InTime
-        {
-            get { return _inTime; }
-            set { _inTime = value; }
-        }
 		/// <summary>
 		/// 
 		/// </summary>
@@ -120,10 +114,10 @@ namespace Warehouse
 				{
 					CreateTime=DateTime.Parse(ds.Tables[0].Rows[0]["CreateTime"].ToString());
 				}
-                if (ds.Tables[0].Rows[0]["InTime"].ToString() != "")
-                {
-                    InTime = DateTime.Parse(ds.Tables[0].Rows[0]["InTime"].ToString());
-                }
+                //if (ds.Tables[0].Rows[0]["InTime"].ToString() != "")
+                //{
+                //    InTime = DateTime.Parse(ds.Tables[0].Rows[0]["InTime"].ToString());
+                //}
 				if(ds.Tables[0].Rows[0]["SumPrice"].ToString()!="")
 				{
 					SumPrice=decimal.Parse(ds.Tables[0].Rows[0]["SumPrice"].ToString());
@@ -267,10 +261,10 @@ namespace Warehouse
 				{
                     this.CreateTime = DateTime.Parse(ds.Tables[0].Rows[0]["CreateTime"].ToString());
 				}
-                if (ds.Tables[0].Rows[0]["InTime"].ToString() != "")
-                {
-                    InTime = DateTime.Parse(ds.Tables[0].Rows[0]["InTime"].ToString());
-                }
+                //if (ds.Tables[0].Rows[0]["InTime"].ToString() != "")
+                //{
+                //    InTime = DateTime.Parse(ds.Tables[0].Rows[0]["InTime"].ToString());
+                //}
 				if(ds.Tables[0].Rows[0]["SumPrice"].ToString()!="")
 				{
                     this.SumPrice = decimal.Parse(ds.Tables[0].Rows[0]["SumPrice"].ToString());

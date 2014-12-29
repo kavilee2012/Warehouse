@@ -262,11 +262,15 @@ namespace Warehouse {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class DataTable1DataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
             
-            private global::System.Data.DataColumn columnname;
+            private global::System.Data.DataColumn column规格;
             
-            private global::System.Data.DataColumn columnincome;
+            private global::System.Data.DataColumn column单位;
             
-            private global::System.Data.DataColumn columndept;
+            private global::System.Data.DataColumn column单价;
+            
+            private global::System.Data.DataColumn column数量;
+            
+            private global::System.Data.DataColumn column金额;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public DataTable1DataTable() {
@@ -299,23 +303,37 @@ namespace Warehouse {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn nameColumn {
+            public global::System.Data.DataColumn 规格Column {
                 get {
-                    return this.columnname;
+                    return this.column规格;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn incomeColumn {
+            public global::System.Data.DataColumn 单位Column {
                 get {
-                    return this.columnincome;
+                    return this.column单位;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn deptColumn {
+            public global::System.Data.DataColumn 单价Column {
                 get {
-                    return this.columndept;
+                    return this.column单价;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn 数量Column {
+                get {
+                    return this.column数量;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn 金额Column {
+                get {
+                    return this.column金额;
                 }
             }
             
@@ -348,12 +366,14 @@ namespace Warehouse {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public DataTable1Row AddDataTable1Row(string name, string income, string dept) {
+            public DataTable1Row AddDataTable1Row(string 规格, string 单位, string 单价, string 数量, string 金额) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        name,
-                        income,
-                        dept};
+                        规格,
+                        单位,
+                        单价,
+                        数量,
+                        金额};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -378,19 +398,25 @@ namespace Warehouse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal void InitVars() {
-                this.columnname = base.Columns["name"];
-                this.columnincome = base.Columns["income"];
-                this.columndept = base.Columns["dept"];
+                this.column规格 = base.Columns["规格"];
+                this.column单位 = base.Columns["单位"];
+                this.column单价 = base.Columns["单价"];
+                this.column数量 = base.Columns["数量"];
+                this.column金额 = base.Columns["金额"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             private void InitClass() {
-                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnname);
-                this.columnincome = new global::System.Data.DataColumn("income", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnincome);
-                this.columndept = new global::System.Data.DataColumn("dept", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndept);
+                this.column规格 = new global::System.Data.DataColumn("规格", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column规格);
+                this.column单位 = new global::System.Data.DataColumn("单位", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column单位);
+                this.column单价 = new global::System.Data.DataColumn("单价", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column单价);
+                this.column数量 = new global::System.Data.DataColumn("数量", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column数量);
+                this.column金额 = new global::System.Data.DataColumn("金额", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column金额);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -523,78 +549,128 @@ namespace Warehouse {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string name {
+            public string 规格 {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.nameColumn]));
+                        return ((string)(this[this.tableDataTable1.规格Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“DataTable1”中列“name”的值为 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("表“DataTable1”中列“规格”的值为 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.nameColumn] = value;
+                    this[this.tableDataTable1.规格Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string income {
+            public string 单位 {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.incomeColumn]));
+                        return ((string)(this[this.tableDataTable1.单位Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“DataTable1”中列“income”的值为 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("表“DataTable1”中列“单位”的值为 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.incomeColumn] = value;
+                    this[this.tableDataTable1.单位Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string dept {
+            public string 单价 {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.deptColumn]));
+                        return ((string)(this[this.tableDataTable1.单价Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“DataTable1”中列“dept”的值为 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("表“DataTable1”中列“单价”的值为 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.deptColumn] = value;
+                    this[this.tableDataTable1.单价Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsnameNull() {
-                return this.IsNull(this.tableDataTable1.nameColumn);
+            public string 数量 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.数量Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“DataTable1”中列“数量”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.数量Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetnameNull() {
-                this[this.tableDataTable1.nameColumn] = global::System.Convert.DBNull;
+            public string 金额 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.金额Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“DataTable1”中列“金额”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.金额Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsincomeNull() {
-                return this.IsNull(this.tableDataTable1.incomeColumn);
+            public bool Is规格Null() {
+                return this.IsNull(this.tableDataTable1.规格Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetincomeNull() {
-                this[this.tableDataTable1.incomeColumn] = global::System.Convert.DBNull;
+            public void Set规格Null() {
+                this[this.tableDataTable1.规格Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsdeptNull() {
-                return this.IsNull(this.tableDataTable1.deptColumn);
+            public bool Is单位Null() {
+                return this.IsNull(this.tableDataTable1.单位Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetdeptNull() {
-                this[this.tableDataTable1.deptColumn] = global::System.Convert.DBNull;
+            public void Set单位Null() {
+                this[this.tableDataTable1.单位Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is单价Null() {
+                return this.IsNull(this.tableDataTable1.单价Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set单价Null() {
+                this[this.tableDataTable1.单价Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is数量Null() {
+                return this.IsNull(this.tableDataTable1.数量Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set数量Null() {
+                this[this.tableDataTable1.数量Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is金额Null() {
+                return this.IsNull(this.tableDataTable1.金额Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set金额Null() {
+                this[this.tableDataTable1.金额Column] = global::System.Convert.DBNull;
             }
         }
         
