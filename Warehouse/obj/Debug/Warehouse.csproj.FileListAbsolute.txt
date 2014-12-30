@@ -140,3 +140,4 @@ E:\WorkFile\WHouse\Warehouse\obj\Debug\Warehouse.csproj.GenerateResource.Cache
 E:\WorkFile\WHouse\Warehouse\obj\Debug\RdlCompile.cache
 E:\WorkFile\WHouse\Warehouse\obj\Debug\RdlCompile.compiled
 E:\WorkFile\WHouse\Warehouse\obj\Debug\Warehouse.frmBatchUpload.resources
+E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.frmBatchUpload.resources

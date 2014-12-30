@@ -46,7 +46,7 @@ namespace Warehouse
 
         private void 客户管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowFrom(new frmCustomer());
+           
         }
 
         private void 用户管理ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -104,13 +104,48 @@ namespace Warehouse
 
         private void 退出ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            Application.Exit();
-            //System.Environment.Exit(0);
+            if (MessageBox.Show("确定要退出系统?", "警告", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Exit();
+                //System.Environment.Exit(0);
+            }
         }
 
         private void 公司信息设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowFrom(new frmCompany());
+        }
+
+        private void frmIndex_KeyDown(object sender, KeyEventArgs e)
+        {
+            ////单键 
+            //switch (e.KeyCode)
+            //{
+            //    case Keys.F1:
+            //        成品入仓ToolStripMenuItem_Click(this, EventArgs.Empty);
+            //        break;
+            //    case Keys.F2:
+            //        成品出仓ToolStripMenuItem_Click(this, EventArgs.Empty);
+            //        break;
+            //    case Keys.F3:
+            //        查询ToolStripMenuItem1_Click(this, EventArgs.Empty);
+            //        break;
+            //    case Keys.F4:
+            //        库存查看ToolStripMenuItem_Click(this, EventArgs.Empty);
+            //        break;
+            //    case Keys.F5:
+            //        客户管理ToolStripMenuItem_Click(this, EventArgs.Empty);
+            //        break;
+            //    case Keys.Escape:
+            //        退出ToolStripMenuItem_Click_1(this, EventArgs.Empty);
+            //        break;
+            //} 
+
+        }
+
+        private void 客户管理ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ShowFrom(new frmCustomer());
         }
 
 

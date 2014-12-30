@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pagerControl1 = new WinFormPager.PagerControl();
             this.lab_Cnt = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lab_Sum = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pagerControl1 = new WinFormPager.PagerControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -75,6 +75,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(893, 478);
             this.panel1.TabIndex = 12;
+            // 
+            // pagerControl1
+            // 
+            this.pagerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pagerControl1.JumpText = "Go";
+            this.pagerControl1.Location = new System.Drawing.Point(2, 357);
+            this.pagerControl1.Name = "pagerControl1";
+            this.pagerControl1.PageIndex = 1;
+            this.pagerControl1.PageSize = 10;
+            this.pagerControl1.RecordSize = 0;
+            this.pagerControl1.Size = new System.Drawing.Size(888, 29);
+            this.pagerControl1.TabIndex = 20;
             // 
             // lab_Cnt
             // 
@@ -127,6 +140,7 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -259,7 +273,7 @@
             this.btn_Search.Location = new System.Drawing.Point(609, 32);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(59, 23);
-            this.btn_Search.TabIndex = 15;
+            this.btn_Search.TabIndex = 4;
             this.btn_Search.Text = "查 询";
             this.btn_Search.UseVisualStyleBackColor = true;
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
@@ -269,7 +283,7 @@
             this.txt_Barcode.Location = new System.Drawing.Point(428, 33);
             this.txt_Barcode.Name = "txt_Barcode";
             this.txt_Barcode.Size = new System.Drawing.Size(112, 21);
-            this.txt_Barcode.TabIndex = 13;
+            this.txt_Barcode.TabIndex = 3;
             // 
             // cbx_Agent
             // 
@@ -282,14 +296,14 @@
             this.cbx_Agent.Location = new System.Drawing.Point(240, 32);
             this.cbx_Agent.Name = "cbx_Agent";
             this.cbx_Agent.Size = new System.Drawing.Size(112, 20);
-            this.cbx_Agent.TabIndex = 12;
+            this.cbx_Agent.TabIndex = 2;
             // 
             // txt_SupplyNo
             // 
             this.txt_SupplyNo.Location = new System.Drawing.Point(80, 32);
             this.txt_SupplyNo.Name = "txt_SupplyNo";
             this.txt_SupplyNo.Size = new System.Drawing.Size(102, 21);
-            this.txt_SupplyNo.TabIndex = 10;
+            this.txt_SupplyNo.TabIndex = 1;
             // 
             // label1
             // 
@@ -318,21 +332,9 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "条形码：";
             // 
-            // pagerControl1
-            // 
-            this.pagerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.pagerControl1.JumpText = "Go";
-            this.pagerControl1.Location = new System.Drawing.Point(2, 357);
-            this.pagerControl1.Name = "pagerControl1";
-            this.pagerControl1.PageIndex = 1;
-            this.pagerControl1.PageSize = 10;
-            this.pagerControl1.RecordSize = 0;
-            this.pagerControl1.Size = new System.Drawing.Size(888, 29);
-            this.pagerControl1.TabIndex = 20;
-            // 
             // frmGoodsSearch
             // 
+            this.AcceptButton = this.btn_Search;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(893, 570);

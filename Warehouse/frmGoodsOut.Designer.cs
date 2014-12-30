@@ -28,10 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.link_Upload = new System.Windows.Forms.Button();
+            this.panel_Time = new System.Windows.Forms.Panel();
+            this.lab_Error = new System.Windows.Forms.Label();
+            this.txt_Barcode = new System.Windows.Forms.TextBox();
+            this.rb_Batch = new System.Windows.Forms.RadioButton();
+            this.rb_Time = new System.Windows.Forms.RadioButton();
             this.lab_Cnt = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lab_Sum = new System.Windows.Forms.Label();
@@ -52,16 +58,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txt_Operator = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.rb_Time = new System.Windows.Forms.RadioButton();
-            this.rb_Batch = new System.Windows.Forms.RadioButton();
-            this.panel_Time = new System.Windows.Forms.Panel();
-            this.txt_Barcode = new System.Windows.Forms.TextBox();
-            this.lab_Error = new System.Windows.Forms.Label();
-            this.link_Upload = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.panel_Time.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel_Time.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -85,6 +85,67 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "扫描成品信息";
+            // 
+            // link_Upload
+            // 
+            this.link_Upload.Location = new System.Drawing.Point(224, 23);
+            this.link_Upload.Name = "link_Upload";
+            this.link_Upload.Size = new System.Drawing.Size(51, 23);
+            this.link_Upload.TabIndex = 20;
+            this.link_Upload.Text = "上传";
+            this.link_Upload.UseVisualStyleBackColor = true;
+            this.link_Upload.Click += new System.EventHandler(this.link_Upload_Click);
+            // 
+            // panel_Time
+            // 
+            this.panel_Time.Controls.Add(this.lab_Error);
+            this.panel_Time.Controls.Add(this.txt_Barcode);
+            this.panel_Time.Location = new System.Drawing.Point(409, 14);
+            this.panel_Time.Name = "panel_Time";
+            this.panel_Time.Size = new System.Drawing.Size(367, 35);
+            this.panel_Time.TabIndex = 19;
+            this.panel_Time.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Time_Paint);
+            // 
+            // lab_Error
+            // 
+            this.lab_Error.AutoSize = true;
+            this.lab_Error.Location = new System.Drawing.Point(148, 12);
+            this.lab_Error.Name = "lab_Error";
+            this.lab_Error.Size = new System.Drawing.Size(0, 12);
+            this.lab_Error.TabIndex = 20;
+            // 
+            // txt_Barcode
+            // 
+            this.txt_Barcode.Location = new System.Drawing.Point(4, 8);
+            this.txt_Barcode.MaxLength = 15;
+            this.txt_Barcode.Name = "txt_Barcode";
+            this.txt_Barcode.Size = new System.Drawing.Size(138, 21);
+            this.txt_Barcode.TabIndex = 18;
+            this.txt_Barcode.TextChanged += new System.EventHandler(this.txt_Barcode_TextChanged);
+            // 
+            // rb_Batch
+            // 
+            this.rb_Batch.AutoSize = true;
+            this.rb_Batch.Location = new System.Drawing.Point(149, 27);
+            this.rb_Batch.Name = "rb_Batch";
+            this.rb_Batch.Size = new System.Drawing.Size(71, 16);
+            this.rb_Batch.TabIndex = 18;
+            this.rb_Batch.Text = "批量上传";
+            this.rb_Batch.UseVisualStyleBackColor = true;
+            this.rb_Batch.CheckedChanged += new System.EventHandler(this.rb_Batch_CheckedChanged);
+            // 
+            // rb_Time
+            // 
+            this.rb_Time.AutoSize = true;
+            this.rb_Time.Checked = true;
+            this.rb_Time.Location = new System.Drawing.Point(333, 26);
+            this.rb_Time.Name = "rb_Time";
+            this.rb_Time.Size = new System.Drawing.Size(71, 16);
+            this.rb_Time.TabIndex = 17;
+            this.rb_Time.TabStop = true;
+            this.rb_Time.Text = "即时扫描";
+            this.rb_Time.UseVisualStyleBackColor = true;
+            this.rb_Time.CheckedChanged += new System.EventHandler(this.rb_Time_CheckedChanged);
             // 
             // lab_Cnt
             // 
@@ -137,17 +198,18 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cBarcode,
@@ -156,14 +218,14 @@
             this.cInTime,
             this.cSumPrice,
             this.cDel});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Location = new System.Drawing.Point(3, 64);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
@@ -209,9 +271,9 @@
             // cSumPrice
             // 
             this.cSumPrice.DataPropertyName = "SumPrice";
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.cSumPrice.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.cSumPrice.DefaultCellStyle = dataGridViewCellStyle2;
             this.cSumPrice.HeaderText = "金额";
             this.cSumPrice.Name = "cSumPrice";
             this.cSumPrice.ReadOnly = true;
@@ -314,67 +376,6 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "操作员：";
             // 
-            // rb_Time
-            // 
-            this.rb_Time.AutoSize = true;
-            this.rb_Time.Checked = true;
-            this.rb_Time.Location = new System.Drawing.Point(333, 26);
-            this.rb_Time.Name = "rb_Time";
-            this.rb_Time.Size = new System.Drawing.Size(71, 16);
-            this.rb_Time.TabIndex = 17;
-            this.rb_Time.TabStop = true;
-            this.rb_Time.Text = "即时扫描";
-            this.rb_Time.UseVisualStyleBackColor = true;
-            this.rb_Time.CheckedChanged += new System.EventHandler(this.rb_Time_CheckedChanged);
-            // 
-            // rb_Batch
-            // 
-            this.rb_Batch.AutoSize = true;
-            this.rb_Batch.Location = new System.Drawing.Point(149, 27);
-            this.rb_Batch.Name = "rb_Batch";
-            this.rb_Batch.Size = new System.Drawing.Size(71, 16);
-            this.rb_Batch.TabIndex = 18;
-            this.rb_Batch.Text = "批量上传";
-            this.rb_Batch.UseVisualStyleBackColor = true;
-            this.rb_Batch.CheckedChanged += new System.EventHandler(this.rb_Batch_CheckedChanged);
-            // 
-            // panel_Time
-            // 
-            this.panel_Time.Controls.Add(this.lab_Error);
-            this.panel_Time.Controls.Add(this.txt_Barcode);
-            this.panel_Time.Location = new System.Drawing.Point(409, 14);
-            this.panel_Time.Name = "panel_Time";
-            this.panel_Time.Size = new System.Drawing.Size(367, 35);
-            this.panel_Time.TabIndex = 19;
-            this.panel_Time.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Time_Paint);
-            // 
-            // txt_Barcode
-            // 
-            this.txt_Barcode.Location = new System.Drawing.Point(4, 8);
-            this.txt_Barcode.MaxLength = 15;
-            this.txt_Barcode.Name = "txt_Barcode";
-            this.txt_Barcode.Size = new System.Drawing.Size(138, 21);
-            this.txt_Barcode.TabIndex = 18;
-            this.txt_Barcode.TextChanged += new System.EventHandler(this.txt_Barcode_TextChanged);
-            // 
-            // lab_Error
-            // 
-            this.lab_Error.AutoSize = true;
-            this.lab_Error.Location = new System.Drawing.Point(148, 12);
-            this.lab_Error.Name = "lab_Error";
-            this.lab_Error.Size = new System.Drawing.Size(0, 12);
-            this.lab_Error.TabIndex = 20;
-            // 
-            // link_Upload
-            // 
-            this.link_Upload.Location = new System.Drawing.Point(224, 23);
-            this.link_Upload.Name = "link_Upload";
-            this.link_Upload.Size = new System.Drawing.Size(51, 23);
-            this.link_Upload.TabIndex = 20;
-            this.link_Upload.Text = "上传";
-            this.link_Upload.UseVisualStyleBackColor = true;
-            this.link_Upload.Click += new System.EventHandler(this.link_Upload_Click);
-            // 
             // frmGoodsOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -388,11 +389,11 @@
             this.Load += new System.EventHandler(this.frmGoodsOut_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel_Time.ResumeLayout(false);
+            this.panel_Time.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel_Time.ResumeLayout(false);
-            this.panel_Time.PerformLayout();
             this.ResumeLayout(false);
 
         }
