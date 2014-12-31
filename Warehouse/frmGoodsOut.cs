@@ -96,7 +96,8 @@ namespace Warehouse
             int re = m.Add(list);
             if (re > 0)
             {
-                MessageBox.Show("生成供应单成功！");
+                //MessageBox.Show("生成供应单成功！");
+                _price = 0;
                 cbx_Agent.SelectedIndex = -1;
                 txt_Price.Text = "";
                 txt_Barcode.Text = "";
@@ -104,6 +105,7 @@ namespace Warehouse
                 BindDGV();
 
                 frmSupplyReport ff = new frmSupplyReport(m.SupplyID);
+                ff.Text = "生成供应单成功";
                 ff.ShowDialog();
             }
             else
@@ -211,6 +213,22 @@ namespace Warehouse
             if (txt_Barcode.Text.Trim().Length >= 14)
             {
                 string _barcode = txt_Barcode.Text.Trim();
+
+                bool _isContain = false;
+                foreach (InW i in allOut)
+                {
+                    if (i.Barcode == _barcode)
+                    {
+                        _isContain = true;
+                        break;
+                    }
+                }
+                if (_isContain)
+                {
+                    lab_Error.Text = "不能重复录入!";
+                    return;
+                }
+
                 if (!InWDetail.Exists(_barcode))
                 {
                     //MessageBox.Show("该条码不存在！");
