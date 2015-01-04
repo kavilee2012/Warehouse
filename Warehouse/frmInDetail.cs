@@ -53,12 +53,13 @@ namespace Warehouse
                     list.Add(dvgr.Cells["cBarcode"].Value.ToString());
                 }
             }
-            string ss = "";
+            //string ss = "";
             foreach (string s in list)
             {
-                ss += s + ",";
+                //ss += s + ",";
+                BarcodeService.TSC(s);
             }
-            MessageBox.Show(ss);
+            MessageBox.Show("打印完成！");
         }
 
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)

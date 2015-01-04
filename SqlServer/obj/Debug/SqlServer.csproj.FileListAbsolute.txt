@@ -18,3 +18,10 @@ E:\Test\LZC\Warehouse\Warehouse\SqlServer\bin\Debug\Interop.SQLDMO.dll
 E:\Test\LZC\Warehouse\Warehouse\SqlServer\obj\Debug\ResolveAssemblyReference.cache
 E:\Test\LZC\Warehouse\Warehouse\SqlServer\obj\Debug\SqlServer.dll
 E:\Test\LZC\Warehouse\Warehouse\SqlServer\obj\Debug\SqlServer.pdb
+E:\WorkFile\WHouse\SqlServer\bin\Debug\SqlServer.dll.config
+E:\WorkFile\WHouse\SqlServer\bin\Debug\SqlServer.dll
+E:\WorkFile\WHouse\SqlServer\bin\Debug\SqlServer.pdb
+E:\WorkFile\WHouse\SqlServer\bin\Debug\Interop.SQLDMO.dll
+E:\WorkFile\WHouse\SqlServer\obj\Debug\ResolveAssemblyReference.cache
+E:\WorkFile\WHouse\SqlServer\obj\Debug\SqlServer.dll
+E:\WorkFile\WHouse\SqlServer\obj\Debug\SqlServer.pdb

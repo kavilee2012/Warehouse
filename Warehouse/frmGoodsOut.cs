@@ -307,6 +307,47 @@ namespace Warehouse
         {
             frmBatchUpload f = new frmBatchUpload();
             f.ShowDialog();
+            if (f.batchList.Count > 0)
+            {
+                string _error = "";
+                foreach (string _barcode in f.batchList)
+                {
+                    bool _isContain = false;
+                    foreach (InW i in allOut)
+                    {
+                        if (i.Barcode == _barcode)
+                        {
+                            _isContain = true;
+                            break;
+                        }
+                    }
+                    if (_isContain)
+                    {
+                        _error += _barcode + "不能重复录入!\n";
+                        continue;
+                    }
+
+                    if (!InWDetail.Exists(_barcode))
+                    {
+                        _error += _barcode + "该条码不存在!\n";
+                        continue;
+                    }
+                    if (SupplyDetail.Exists(_barcode))
+                    {
+                        _error += _barcode + "该条码已出仓,不能重复出仓!\n";
+                        continue;
+                    }
+                    InW w = new InW().GetModelByBarcode(_barcode);
+                    allOut.Add(w);
+                }
+                if (!string.IsNullOrEmpty(_error))
+                {
+                    MessageBox.Show(_error);
+                }
+                BindDGV();
+                txt_Barcode.Text = "";
+                lab_Error.Text = "";
+            }
         }
     }
 }

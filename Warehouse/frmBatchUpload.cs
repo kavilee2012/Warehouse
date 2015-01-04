@@ -11,6 +11,7 @@ namespace Warehouse
 {
     public partial class frmBatchUpload : Form
     {
+        public List<string> batchList = new List<string>();
         public frmBatchUpload()
         {
             InitializeComponent();
@@ -30,8 +31,20 @@ namespace Warehouse
                 MessageBox.Show("包含非数字字符，请认真核对！");
                 return;
             }
+            //else if(txt))
+            //{
+            //    MessageBox.Show("内容为空！");
+            //    return;
+            //}
             else
             {
+                int x = txt.Length / 14;
+                for (int i = 0; i < x; i++)
+                {
+                    string s = txt.Substring(0,14);
+                    txt = txt.Remove(0, 14);
+                    batchList.Add(s);
+                }
                 this.Close();
             }
         }
