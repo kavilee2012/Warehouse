@@ -21,8 +21,8 @@ namespace Common
 
         public INIService()
         {
-            FileStream fs = File.Open(_path, FileMode.OpenOrCreate);
-            fs.Close();
+            //FileStream fs = File.Open(_path, FileMode.OpenOrCreate);
+            //fs.Close();
         }
 
 

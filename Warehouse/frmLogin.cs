@@ -23,6 +23,11 @@ namespace Warehouse
         {
             se = new Sunisoft.IrisSkin.SkinEngine();
             se.SkinFile = Application.StartupPath + @"\Skin\MP10.ssk";
+
+            //读取上次登录名
+            INIService ini = new INIService();
+            string _userName = ini.IniReadValue("LoginUser","UserName",Application.StartupPath+"\\LastLogin.ini");
+            txt_UserName.Text = _userName;
             txt_UserName.Focus();
         }
 
@@ -44,6 +49,11 @@ namespace Warehouse
                     Global.IsAdmin = true;
                 }
                 Global.userName = _name;
+
+                //写入上次登录名
+                INIService ini = new INIService();
+                ini.IniWriteValue("LoginUser", "UserName", _name, Application.StartupPath + "\\LastLogin.ini");
+
                 frmIndex f = new frmIndex();
                 this.Hide();
                 f.ShowDialog();
