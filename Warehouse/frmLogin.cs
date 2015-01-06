@@ -38,30 +38,38 @@ namespace Warehouse
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            string _name = txt_UserName.Text.Trim();
-            string _pwd = txt_UserPwd.Text.Trim();
-            User user = new User();
-            if (user.Login(_name, _pwd))
+            try
             {
-                user.GetModel(_name);
-                if (user.Position == "管理员" || user.Position == "系统管理员")
+                string _name = txt_UserName.Text.Trim();
+                string _pwd = txt_UserPwd.Text.Trim();
+                User user = new User();
+                if (user.Login(_name, _pwd))
                 {
-                    Global.IsAdmin = true;
+                    user.GetModel(_name);
+                    if (user.Position == "管理员" || user.Position == "系统管理员")
+                    {
+                        Global.IsAdmin = true;
+                    }
+                    Global.userName = _name;
+
+                    //写入上次登录名
+                    INIService ini = new INIService();
+                    ini.IniWriteValue("LoginUser", "UserName", _name, Application.StartupPath + "\\LastLogin.ini");
+
+                    frmIndex f = new frmIndex();
+                    this.Hide();
+                    f.ShowDialog();
                 }
-                Global.userName = _name;
-
-                //写入上次登录名
-                INIService ini = new INIService();
-                ini.IniWriteValue("LoginUser", "UserName", _name, Application.StartupPath + "\\LastLogin.ini");
-
-                frmIndex f = new frmIndex();
-                this.Hide();
-                f.ShowDialog();
+                else
+                {
+                    MessageBox.Show("登录失败，用户名或者密码错误!");
+                    return;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("登录失败，用户名或者密码错误!");
-                return;
+                MyLog.WriteLog(ex.Message);
+                MessageBox.Show("登录失败，请检查服务器是否正常运行！");
             }
         }
     }

@@ -88,3 +88,60 @@
    在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
    在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
    在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+2015-01-05 16:21:31 : System.Exception: 不能比较或排序 text、ntext 和 image 数据类型，除非使用 IS NULL 或 LIKE 运算符。
+   在 SqlServerDAL.DbHelperSQL.Query(String SQLString, SqlParameter[] cmdParms) 位置 E:\WorkFile\WHouse\SqlServer\DbHelperSQL.cs:行号 404
+   在 Warehouse.User.GetModel(String name) 位置 E:\Test\LZC\Warehouse\Warehouse\Warehouse\Service\User.cs:行号 223
+   在 Warehouse.frmLogin.btn_Login_Click(Object sender, EventArgs e) 位置 E:\Test\LZC\Warehouse\Warehouse\Warehouse\frmLogin.cs:行号 46
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+2015-01-05 16:21:42 : System.Exception: 不能比较或排序 text、ntext 和 image 数据类型，除非使用 IS NULL 或 LIKE 运算符。
+   在 SqlServerDAL.DbHelperSQL.Query(String SQLString, SqlParameter[] cmdParms) 位置 E:\WorkFile\WHouse\SqlServer\DbHelperSQL.cs:行号 404
+   在 Warehouse.User.GetModel(String name) 位置 E:\Test\LZC\Warehouse\Warehouse\Warehouse\Service\User.cs:行号 223
+   在 Warehouse.frmLogin.btn_Login_Click(Object sender, EventArgs e) 位置 E:\Test\LZC\Warehouse\Warehouse\Warehouse\frmLogin.cs:行号 46
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+2015-01-05 16:23:07 : System.Exception: 不能比较或排序 text、ntext 和 image 数据类型，除非使用 IS NULL 或 LIKE 运算符。
+   在 SqlServerDAL.DbHelperSQL.Query(String SQLString, SqlParameter[] cmdParms) 位置 E:\WorkFile\WHouse\SqlServer\DbHelperSQL.cs:行号 404
+   在 Warehouse.User.GetModel(String name) 位置 E:\Test\LZC\Warehouse\Warehouse\Warehouse\Service\User.cs:行号 223
+   在 Warehouse.frmLogin.btn_Login_Click(Object sender, EventArgs e) 位置 E:\Test\LZC\Warehouse\Warehouse\Warehouse\frmLogin.cs:行号 46
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+2015-01-05 16:33:11 : System.Exception: 不能比较或排序 text、ntext 和 image 数据类型，除非使用 IS NULL 或 LIKE 运算符。
+   在 SqlServerDAL.DbHelperSQL.Query(String SQLString, SqlParameter[] cmdParms) 位置 E:\WorkFile\WHouse\SqlServer\DbHelperSQL.cs:行号 404
+   在 Warehouse.User.GetModel(String name) 位置 E:\Test\LZC\Warehouse\Warehouse\Warehouse\Service\User.cs:行号 223
+   在 Warehouse.frmUpdatePwd.btn_Sure_Click(Object sender, EventArgs e) 位置 E:\Test\LZC\Warehouse\Warehouse\Warehouse\frmUpdatePwd.cs:行号 30
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+2015-01-05 18:20:44 : 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: 命名管道提供程序, error: 40 - 无法打开到 SQL Server 的连接)

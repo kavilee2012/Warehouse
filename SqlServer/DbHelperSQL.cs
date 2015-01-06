@@ -12,7 +12,7 @@ namespace SqlServerDAL
     {
         //数据库连接字符串(web.config来配置)
         //<add key="ConnectionString" value="server=127.0.0.1;database=DATABASE;uid=sa;pwd=" />		
-        protected static string connectionString = ConfigurationSettings.AppSettings["ConnectionString"];
+        protected static string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;//ConfigurationSettings.AppSettings["ConnectionString"];
         public DbHelperSQL()
         {
         }

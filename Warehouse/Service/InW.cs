@@ -118,10 +118,8 @@ namespace Warehouse
 			strSql.Append(" FROM [InW] ");
 			strSql.Append(" where Batch=@Batch and ID=@ID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@Batch", SqlDbType.VarChar,-1),
-					new SqlParameter("@ID", SqlDbType.Int,4)};
-			parameters[0].Value = Batch;
-			parameters[1].Value = ID;
+					new SqlParameter("@Batch", Batch),
+					new SqlParameter("@ID", ID)};
 
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
@@ -163,8 +161,7 @@ namespace Warehouse
 			strSql.Append(" where Batch=@Batch ");
 
 			SqlParameter[] parameters = {
-					new SqlParameter("@Batch", SqlDbType.VarChar,-1)};
-			parameters[0].Value = Batch;
+					new SqlParameter("@Batch", Batch)};
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
 		}
@@ -243,8 +240,7 @@ namespace Warehouse
 		public int Delete(string batch)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("@Batch", SqlDbType.VarChar,-1)};
-			parameters[0].Value = batch;
+					new SqlParameter("@Batch", batch)};
 
              List<string> sqlT = new List<string>();
              sqlT.Add("delete from [InW] where Batch=@Batch;");
@@ -273,8 +269,7 @@ namespace Warehouse
             strSql.Append(" FROM [InW]");
 			strSql.Append(" where Batch=@Batch ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@Batch", SqlDbType.VarChar,-1)};
-            parameters[0].Value = batch;
+					new SqlParameter("@Batch", batch)};
 
             return GetOneModel(strSql, parameters);
 		}
@@ -289,8 +284,7 @@ namespace Warehouse
             strSql.Append(" FROM [InW] A JOIN InWDetail B ON A.Batch=B.BatchID");
             strSql.Append(" where B.Barcode=@Barcode ");
             SqlParameter[] parameters = {
-					new SqlParameter("@Barcode", SqlDbType.VarChar,-1)};
-            parameters[0].Value = code;
+					new SqlParameter("@Barcode", code)};
 
            return GetOneModel(strSql, parameters);
         }

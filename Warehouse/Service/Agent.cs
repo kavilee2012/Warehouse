@@ -104,8 +104,7 @@ namespace Warehouse
             strSql.Append(" FROM [Agent] A JOIN Level B ON A.LevelName = B.LevelName ");
 			strSql.Append(" where Name=@Name ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@Name", SqlDbType.VarChar,-1)};
-			parameters[0].Value = Name;
+					new SqlParameter("@Name", Name)};
 
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
@@ -159,8 +158,7 @@ namespace Warehouse
 			strSql.Append(" where Name=@Name ");
 
 			SqlParameter[] parameters = {
-					new SqlParameter("@Name", SqlDbType.VarChar,-1)};
-			parameters[0].Value = Name;
+					new SqlParameter("@Name", Name)};
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
 		}
@@ -239,8 +237,7 @@ namespace Warehouse
 			strSql.Append("delete from [Agent] ");
 			strSql.Append(" where Name=@Name ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@Name", SqlDbType.VarChar,-1)};
-			parameters[0].Value = Name;
+					new SqlParameter("@Name", Name)};
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -264,8 +261,7 @@ namespace Warehouse
             strSql.Append(" FROM [Agent] A JOIN Level B ON A.LevelName = B.LevelName ");
 			strSql.Append(" where Name=@Name ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@Name", SqlDbType.VarChar,-1)};
-			parameters[0].Value = Name;
+					new SqlParameter("@Name", Name)};
 
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)

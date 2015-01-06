@@ -15,7 +15,7 @@ namespace SqlServer
     public abstract class SqlProvider
     {
         //定义数据库连接串 
-        public static readonly string CONN_STRING = ConfigurationSettings.AppSettings["ConnectionString"];//ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        public static readonly string CONN_STRING = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;//ConfigurationSettings.AppSettings["ConnectionString"];//
         public static readonly int ConnectTimeOutSeconds = 180;
 
         // 存贮Cache缓存的Hashtable集合

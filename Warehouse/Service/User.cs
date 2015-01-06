@@ -65,10 +65,8 @@ namespace Warehouse
 			strSql.Append(" FROM [User] ");
 			strSql.Append(" where UserName=@UserName and UserID=@UserID ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@UserName", SqlDbType.VarChar,-1),
-					new SqlParameter("@UserID", SqlDbType.Int,4)};
-			parameters[0].Value = UserName;
-			parameters[1].Value = UserID;
+					new SqlParameter("@UserName", UserName),
+					new SqlParameter("@UserID", UserID)};
 
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
@@ -102,8 +100,7 @@ namespace Warehouse
 			strSql.Append(" where UserName=@UserName");
 
 			SqlParameter[] parameters = {
-					new SqlParameter("@UserName", SqlDbType.VarChar,-1)};
-			parameters[0].Value = UserName;
+					new SqlParameter("@UserName", UserName)};
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
 		}
@@ -192,8 +189,7 @@ namespace Warehouse
 			strSql.Append("delete from [User] ");
 			strSql.Append(" where UserName=@UserName");
 			SqlParameter[] parameters = {
-					new SqlParameter("@UserName", SqlDbType.VarChar,-1)};
-			parameters[0].Value = UserName;
+					new SqlParameter("@UserName", UserName)};
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -217,8 +213,7 @@ namespace Warehouse
 			strSql.Append(" FROM [User] ");
 			strSql.Append(" where UserName=@UserName");
 			SqlParameter[] parameters = {
-					new SqlParameter("@UserName", SqlDbType.VarChar,-1)};
-			parameters[0].Value = name;
+					new SqlParameter("@UserName", name)};
 
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
