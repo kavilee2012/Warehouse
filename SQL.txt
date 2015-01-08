@@ -1,8 +1,0 @@
-CREATE TABLE [dbo].[Argument](
-	[ArgName] [varchar](50) COLLATE Chinese_PRC_CI_AS NOT NULL,
-	[ArgValue] [varchar](1000) COLLATE Chinese_PRC_CI_AS NULL,
- CONSTRAINT [PK_Argument] PRIMARY KEY CLUSTERED 
-(
-	[ArgName] ASC
-)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]

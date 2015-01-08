@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WHSetup", "WHSetup\WHSetup.vdproj", "{30369CDC-4CE4-42AD-BBA4-4D0C03C26780}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30369CDC-4CE4-42AD-BBA4-4D0C03C26780}.Debug|Default.ActiveCfg = Debug
+		{30369CDC-4CE4-42AD-BBA4-4D0C03C26780}.Debug|Default.Build.0 = Debug
+		{30369CDC-4CE4-42AD-BBA4-4D0C03C26780}.Release|Default.ActiveCfg = Release
+		{30369CDC-4CE4-42AD-BBA4-4D0C03C26780}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
