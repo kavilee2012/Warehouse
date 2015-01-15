@@ -24,6 +24,7 @@ namespace Warehouse
             //this.txt_AutoCode.Text = "自动生成";//DateTime.Now.ToString("yyyyMMdd" + "XXXX");
             //DataTable dt = GeneralDataTable();
             //dataGridView1.DataSource = dt;
+            txt_Length.Text = "100";
             BindCbx();
             BindNorm();
             txt_Operator.Text = Global.userName;
@@ -97,7 +98,7 @@ namespace Warehouse
         {
             for (int i = 0; i < 100; i++)
             {
-                cbx_Big.Items.Add(i);
+                //cbx_Big.Items.Add(i);
                 cbx_Cnt.Items.Add(i);
             }
         }
