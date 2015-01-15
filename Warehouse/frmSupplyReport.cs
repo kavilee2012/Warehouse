@@ -34,6 +34,7 @@ namespace Warehouse
                 MessageBox.Show("该供货单不存在!");
                 return;
             }
+            Agent _a = new Agent(s.AgentName);
 
             decimal _sum = 0;
             DataTable ds = GetGroupSupply(out _sum);
@@ -54,6 +55,7 @@ namespace Warehouse
 
             ReportParameter[] pas = new ReportParameter[]
             {
+             new ReportParameter("pam_GoodsName", CommonService.GetParamValue("GoodsName")),
              new ReportParameter("pam_Company", CommonService.GetParamValue("Name")),
              new ReportParameter("pam_Address", CommonService.GetParamValue("Address")),
              new ReportParameter("pam_Phone", CommonService.GetParamValue("Phone")),
@@ -62,6 +64,9 @@ namespace Warehouse
              new ReportParameter("pam_NO", s.SupplyID),
              new ReportParameter("pam_SumSmall", _sum.ToString("0.00")),
              new ReportParameter("pam_SumAmount", CommonService.MoneyToChinese(_sum.ToString("0.00"))),
+             new ReportParameter("pam_SupplyPhone", _a.Phone),
+             new ReportParameter("pam_SupplyTel", _a.Tel),
+             new ReportParameter("pam_SupplyAddress",_a.Address),
              new ReportParameter("pam_Supply", s.AgentName)
             };
             reportViewer1.LocalReport.SetParameters(pas);

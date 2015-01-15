@@ -33,9 +33,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lab_Batch = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cbx_All = new System.Windows.Forms.CheckBox();
             this.cSel = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.cBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbx_All = new System.Windows.Forms.CheckBox();
+            this.cCnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +77,8 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cSel,
-            this.cBarcode});
+            this.cBarcode,
+            this.cCnt});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -93,6 +95,17 @@
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             // 
+            // cbx_All
+            // 
+            this.cbx_All.AutoSize = true;
+            this.cbx_All.Location = new System.Drawing.Point(72, 67);
+            this.cbx_All.Name = "cbx_All";
+            this.cbx_All.Size = new System.Drawing.Size(48, 16);
+            this.cbx_All.TabIndex = 9;
+            this.cbx_All.Text = "全选";
+            this.cbx_All.UseVisualStyleBackColor = true;
+            this.cbx_All.CheckedChanged += new System.EventHandler(this.cbx_All_CheckedChanged);
+            // 
             // cSel
             // 
             this.cSel.Frozen = true;
@@ -108,16 +121,12 @@
             this.cBarcode.ReadOnly = true;
             this.cBarcode.Width = 300;
             // 
-            // cbx_All
+            // cCnt
             // 
-            this.cbx_All.AutoSize = true;
-            this.cbx_All.Location = new System.Drawing.Point(72, 67);
-            this.cbx_All.Name = "cbx_All";
-            this.cbx_All.Size = new System.Drawing.Size(48, 16);
-            this.cbx_All.TabIndex = 9;
-            this.cbx_All.Text = "全选";
-            this.cbx_All.UseVisualStyleBackColor = true;
-            this.cbx_All.CheckedChanged += new System.EventHandler(this.cbx_All_CheckedChanged);
+            this.cCnt.Frozen = true;
+            this.cCnt.HeaderText = "已打印次数";
+            this.cCnt.Name = "cCnt";
+            this.cCnt.ReadOnly = true;
             // 
             // frmInDetail
             // 
@@ -144,8 +153,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lab_Batch;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.CheckBox cbx_All;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cSel;
         private System.Windows.Forms.DataGridViewTextBoxColumn cBarcode;
-        private System.Windows.Forms.CheckBox cbx_All;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCnt;
     }
 }

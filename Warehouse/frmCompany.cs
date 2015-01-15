@@ -22,6 +22,7 @@ namespace Warehouse
             textBox1.Text = CommonService.GetParamValue("Name");
             textBox2.Text = CommonService.GetParamValue("Phone");
             textBox3.Text = CommonService.GetParamValue("Address");
+            txt_GoodsName.Text = CommonService.GetParamValue("GoodsName");
         }
 
         private void btn_Name_Click(object sender, EventArgs e)
@@ -53,6 +54,19 @@ namespace Warehouse
         private void btn_Address_Click(object sender, EventArgs e)
         {
             bool reName = CommonService.SetParamName("Address", textBox3.Text.Trim());
+            if (reName)
+            {
+                MessageBox.Show("设定成功!");
+            }
+            else
+            {
+                MessageBox.Show("设定失败!");
+            }
+        }
+
+        private void btn_GoodsName_Click(object sender, EventArgs e)
+        {
+            bool reName = CommonService.SetParamName("GoodsName", txt_GoodsName.Text.Trim());
             if (reName)
             {
                 MessageBox.Show("设定成功!");

@@ -165,7 +165,7 @@ namespace Common
             new SqlParameter("@paramname",name)
             };
             object rows = SqlHelper.ExecuteScalar(sql, pas);
-            if (rows != System.DBNull.Value)
+            if (rows != System.DBNull.Value && rows != null)
             {
                 return rows.ToString();
             }
