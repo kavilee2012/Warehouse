@@ -1,0 +1,13 @@
+2015-01-16 18:01:30 :    在 Common.TSCLIB_DLL.openport(String printername)
+   在 Common.BarcodeService.TSC(String barCode) 位置 E:\WorkFile\WHouse\Common\BarcodeService.cs:行号 57
+   在 Warehouse.frmInDetail.button1_Click(Object sender, EventArgs e) 位置 E:\Test\LZC\Warehouse\Warehouse\Warehouse\frmInDetail.cs:行号 67
+2015-01-16 18:01:49 :    在 Common.TSCLIB_DLL.openport(String printername)
+   在 Common.BarcodeService.TSC(String barCode) 位置 E:\WorkFile\WHouse\Common\BarcodeService.cs:行号 57
+   在 Warehouse.frmInDetail.button1_Click(Object sender, EventArgs e) 位置 E:\Test\LZC\Warehouse\Warehouse\Warehouse\frmInDetail.cs:行号 67
+2015-01-16 18:01:56 :    在 Common.TSCLIB_DLL.openport(String printername)
+   在 Common.BarcodeService.TSC(String barCode) 位置 E:\WorkFile\WHouse\Common\BarcodeService.cs:行号 57
+   在 Warehouse.frmInDetail.button1_Click(Object sender, EventArgs e) 位置 E:\Test\LZC\Warehouse\Warehouse\Warehouse\frmInDetail.cs:行号 67
+2015-01-16 18:08:10 : 无法加载 DLL“TSCLIB.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+2015-01-16 18:17:05 : 无法加载 DLL“TSCLIB.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+2015-01-16 18:18:16 : 无法加载 DLL“TSCLIB.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+2015-01-16 18:19:38 : 无法加载 DLL“TSCLIB.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。

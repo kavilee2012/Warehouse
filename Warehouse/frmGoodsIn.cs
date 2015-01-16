@@ -144,12 +144,20 @@ namespace Warehouse
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
+            string macStr = cbx_Machine.Text;
             string bigStr = cbx_Big.Text;
             string cntStr = cbx_Cnt.Text;
-            if (string.IsNullOrEmpty(cntStr)||string.IsNullOrEmpty(bigStr))
+            string lenStr = txt_Length.Text.Trim();
+            if (string.IsNullOrEmpty(cntStr)||string.IsNullOrEmpty(bigStr) || string.IsNullOrEmpty(macStr))
             {
                 MessageBox.Show("卷数或件数格式不正确!");
                 cbx_Cnt.Focus();
+                return;
+            }
+            if (!ValidateService.IsNumber(lenStr))
+            {
+                MessageBox.Show("米数不正确!");
+                txt_Length.Focus();
                 return;
             }
 
@@ -157,10 +165,12 @@ namespace Warehouse
             {
                 InW m = new InW();
                 m.NormName = cbx_Norm.SelectedValue.ToString();
+                m.Machine = int.Parse(macStr);
                 m.BigCnt = int.Parse(bigStr);
                 m.Cnt = int.Parse(cntStr);
+                m.Length = int.Parse(lenStr);
                 m.Batch = GenBatchNO();
-                List<string> barList = GenBarcode(m.Cnt,m.BigCnt);
+                List<string> barList = GenBarcode(m.Machine,m.BigCnt,m.Cnt);
                 m.Barcode = barList[0] + "~" + barList[barList.Count - 1];
                 m.Operator = Global.userName;
                 m.InTime = dtp_InTime.Value;
@@ -259,10 +269,10 @@ namespace Warehouse
         /// 生成条码(规格4+年月日5+大卷2+件数2)
         /// </summary>
         /// <returns></returns>
-        private List<string> GenBarcode(int cnt,int bigCnt)
+        private List<string> GenBarcode(int machine,int bigCnt,int cnt)
         {
             string _today = GetTodayNO(true);
-            string _front = _today + bigCnt.ToString("00");
+            string _front = _today + machine.ToString() + bigCnt.ToString();
 
             int _base = int.Parse(GetTopBarcode(_front));
             if ((_base + cnt)>99)

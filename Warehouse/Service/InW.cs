@@ -27,6 +27,20 @@ namespace Warehouse
         private DateTime _inTime;
         private decimal _sumPrice;
         private int _bigCnt;
+        private int _machine;
+        private int _length;
+
+        public int Length
+        {
+            get { return _length; }
+            set { _length = value; }
+        }
+
+        public int Machine
+        {
+            get { return _machine; }
+            set { _machine = value; }
+        }
 
         public int BigCnt
         {
@@ -148,6 +162,14 @@ namespace Warehouse
                 {
                     this.BigCnt = int.Parse(ds.Tables[0].Rows[0]["BigCnt"].ToString());
                 }
+                if (ds.Tables[0].Rows[0]["Machine"] != null && ds.Tables[0].Rows[0]["Machine"].ToString() != "")
+                {
+                    this.Machine = int.Parse(ds.Tables[0].Rows[0]["Machine"].ToString());
+                }
+                if (ds.Tables[0].Rows[0]["Length"] != null && ds.Tables[0].Rows[0]["Length"].ToString() != "")
+                {
+                    this.Length = int.Parse(ds.Tables[0].Rows[0]["Length"].ToString());
+                }
 			}
 		}
 
@@ -178,16 +200,18 @@ namespace Warehouse
 					new SqlParameter("@Barcode", Barcode),
 					new SqlParameter("@Cnt", Cnt),
                     new SqlParameter("@BigCnt", BigCnt),
+                    new SqlParameter("@Machine", Machine),
+                    new SqlParameter("@Length", Length),
                     new SqlParameter("@InTime", InTime),
                     new SqlParameter("@Operator", Operator)};
 
             List<string> sqlT = new List<string>();
-            sqlT.Add("insert into [InW] (Batch,NormName,Barcode,BigCnt,Cnt,Operator,InTime) values (@Batch,@NormName,@Barcode,@BigCnt,@Cnt,@Operator,@InTime);");
+            sqlT.Add("insert into [InW] (Batch,NormName,Barcode,BigCnt,Cnt,Operator,InTime,Machine,Length) values (@Batch,@NormName,@Barcode,@BigCnt,@Cnt,@Operator,@InTime,@Machine,@Length);");
             if (list.Count > 0)
             {
                 foreach (string s in list)
                 {
-                    sqlT.Add("INSERT INTO InWDetail(BatchID,Barcode,Normname,Cnt) VALUES(@Batch,'" + s + "',@NormName,1);");
+                    sqlT.Add("INSERT INTO InWDetail(BatchID,Barcode,Normname,Cnt,PrintCnt,Length) VALUES(@Batch,'" + s + "',@NormName,1,0,@Length);");
                 }
             }
             object obj = DbHelperSQL.NewExecTransaction(sqlT.ToArray(), parameters);
@@ -280,7 +304,7 @@ namespace Warehouse
         public InW GetModelByBarcode(string code)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select A.ID,A.Cnt,A.BigCnt,A.InTime,A.Operator,A.Batch,A.CreateTime,B.NormName,B.Barcode");
+            strSql.Append("select A.*,B.NormName,B.Barcode");
             strSql.Append(" FROM [InW] A JOIN InWDetail B ON A.Batch=B.BatchID");
             strSql.Append(" where B.Barcode=@Barcode ");
             SqlParameter[] parameters = {
@@ -315,6 +339,14 @@ namespace Warehouse
                 if (ds.Tables[0].Rows[0]["BigCnt"] != null && ds.Tables[0].Rows[0]["BigCnt"].ToString() != "")
                 {
                     model.BigCnt = int.Parse(ds.Tables[0].Rows[0]["BigCnt"].ToString());
+                }
+                if (ds.Tables[0].Rows[0]["Machine"] != null && ds.Tables[0].Rows[0]["Machine"].ToString() != "")
+                {
+                    model.Machine = int.Parse(ds.Tables[0].Rows[0]["Machine"].ToString());
+                }
+                if (ds.Tables[0].Rows[0]["Length"] != null && ds.Tables[0].Rows[0]["Length"].ToString() != "")
+                {
+                    model.Length = int.Parse(ds.Tables[0].Rows[0]["Length"].ToString());
                 }
                 if (ds.Tables[0].Rows[0]["Cnt"] != null && ds.Tables[0].Rows[0]["Cnt"].ToString() != "")
                 {

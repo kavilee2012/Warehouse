@@ -18,6 +18,21 @@ namespace Warehouse
 		private string _normname;
 		private int? _cnt;
 		private string _createtime;
+        private int _length;
+        private int _printCnt;
+
+        public int PrintCnt
+        {
+            get { return _printCnt; }
+            set { _printCnt = value; }
+        }
+
+        public int Length
+        {
+            get { return _length; }
+            set { _length = value; }
+        }
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -128,6 +143,8 @@ namespace Warehouse
 			DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 		}
 
+
+
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
@@ -184,6 +201,18 @@ namespace Warehouse
             strSql.Append(" order by barcode asc");
 			return DbHelperSQL.Query(strSql.ToString());
 		}
+
+
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public void UpdatePrintCnt(string barcode)
+        {
+            SqlParameter[] parameters = {
+					new SqlParameter("@Barcode", barcode)};
+            string strSql = "update InWDetail set PrintCnt=isnull(PrintCnt,0)+1 where Barcode=@Barcode";
+            DbHelperSQL.ExecuteSql(strSql, parameters);
+        }
 
 		#endregion  成员方法
 	}

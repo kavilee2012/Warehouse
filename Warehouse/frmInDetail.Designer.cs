@@ -36,7 +36,7 @@
             this.cbx_All = new System.Windows.Forms.CheckBox();
             this.cSel = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.cBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cCnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPrintCnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +78,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cSel,
             this.cBarcode,
-            this.cCnt});
+            this.cPrintCnt});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -121,12 +121,13 @@
             this.cBarcode.ReadOnly = true;
             this.cBarcode.Width = 300;
             // 
-            // cCnt
+            // cPrintCnt
             // 
-            this.cCnt.Frozen = true;
-            this.cCnt.HeaderText = "已打印次数";
-            this.cCnt.Name = "cCnt";
-            this.cCnt.ReadOnly = true;
+            this.cPrintCnt.DataPropertyName = "PrintCnt";
+            this.cPrintCnt.Frozen = true;
+            this.cPrintCnt.HeaderText = "已打印次数";
+            this.cPrintCnt.Name = "cPrintCnt";
+            this.cPrintCnt.ReadOnly = true;
             // 
             // frmInDetail
             // 
@@ -156,6 +157,6 @@
         private System.Windows.Forms.CheckBox cbx_All;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cSel;
         private System.Windows.Forms.DataGridViewTextBoxColumn cBarcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCnt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPrintCnt;
     }
 }

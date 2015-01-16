@@ -64,9 +64,9 @@ namespace Warehouse
              new ReportParameter("pam_NO", s.SupplyID),
              new ReportParameter("pam_SumSmall", _sum.ToString("0.00")),
              new ReportParameter("pam_SumAmount", CommonService.MoneyToChinese(_sum.ToString("0.00"))),
-             new ReportParameter("pam_SupplyPhone", _a.Phone),
-             new ReportParameter("pam_SupplyTel", _a.Tel),
-             new ReportParameter("pam_SupplyAddress",_a.Address),
+             new ReportParameter("pam_SupplyPhone",_a.Phone==null?"":_a.Phone),
+             new ReportParameter("pam_SupplyTel",_a.Tel==null?"":_a.Tel),
+             new ReportParameter("pam_SupplyAddress",_a.Address==null?"":_a.Address),
              new ReportParameter("pam_Supply", s.AgentName)
             };
             reportViewer1.LocalReport.SetParameters(pas);

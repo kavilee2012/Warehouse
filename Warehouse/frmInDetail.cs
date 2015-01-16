@@ -25,13 +25,18 @@ namespace Warehouse
         private void frmInDetail_Load(object sender, EventArgs e)
         {
             dataGridView1.AutoGenerateColumns = false;
-
             lab_Batch.Text = "入仓批号：" + _batchID;
 
+            LoadService();
+
+            cbx_All.Checked = true;
+        }
+
+        private void LoadService()
+        {
             InWDetail m = new InWDetail();
-           DataSet ds =  m.GetList(" BatchID = '" + _batchID + "'");
-           dataGridView1.DataSource = ds.Tables[0];
-           cbx_All.Checked = true;
+            DataSet ds = m.GetList(" BatchID = '" + _batchID + "'");
+            dataGridView1.DataSource = ds.Tables[0];
         }
 
         private void cbx_All_CheckedChanged(object sender, EventArgs e)
@@ -46,20 +51,52 @@ namespace Warehouse
         {
             dataGridView1.EndEdit();
             List<string> list = new List<string>();
+            bool _isTooBig = false;
             foreach (DataGridViewRow dvgr in dataGridView1.Rows)
             {
-                if ((bool)dvgr.Cells["cSel"].Value)
+                if (dvgr.Cells["cSel"].Value!=null && (bool)dvgr.Cells["cSel"].Value)
                 {
                     list.Add(dvgr.Cells["cBarcode"].Value.ToString());
+                    int _cnt = int.Parse(dvgr.Cells["cPrintCnt"].Value.ToString());
+                    if (_cnt > 0)
+                    {
+                        _isTooBig = true;
+                    }
                 }
             }
-            //string ss = "";
-            foreach (string s in list)
+
+            if (list.Count <= 0)
             {
-                //ss += s + ",";
-                BarcodeService.TSC(s);
+                MessageBox.Show("请勾选要打印的条码！");
+                return;
             }
-            MessageBox.Show("打印完成！");
+
+            //如果超过1次，不是管理员就报错
+            if (_isTooBig && !Global.IsAdmin)
+            {
+
+                MessageBox.Show("勾选的条码已超过打印次数，请联系管理员！");
+                return;
+
+            }
+
+            InWDetail iw = new InWDetail();
+            try
+            {
+                foreach (string s in list)
+                {
+                    BarcodeService.TSC(s);
+                    iw.UpdatePrintCnt(s);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("打印失败！原因：" + ex.Message);
+                MyLog.WriteLog(ex.Message);
+            }
+            MessageBox.Show("打印结束！");
+            LoadService();
+            cbx_All_CheckedChanged(null, null);
         }
 
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
