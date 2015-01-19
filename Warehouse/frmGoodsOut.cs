@@ -83,6 +83,7 @@ namespace Warehouse
                 s.Barcode = i.Barcode;
                 s.NormName = i.NormName;
                 s.SumMoney = i.SumPrice;
+                s.Length = i.Length;
                 list.Add(s);
             }
 
@@ -92,6 +93,7 @@ namespace Warehouse
             m.Price = _price;
             m.Operator = Global.userName;
             m.SumPrice = decimal.Parse(lab_Sum.Text.Replace("元","").Trim());
+            
 
             int re = m.Add(list);
             if (re > 0)
@@ -134,20 +136,13 @@ namespace Warehouse
             return supplyID;
         }
 
-
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            btn_GenNo.Visible = false;
-            frmStartScan f = new frmStartScan();
-            f.ShowDialog();
-            btn_GenNo.Visible = true;
-        }
+        //private void button3_Click(object sender, EventArgs e)
+        //{
+        //    btn_GenNo.Visible = false;
+        //    frmStartScan f = new frmStartScan();
+        //    f.ShowDialog();
+        //    btn_GenNo.Visible = true;
+        //}
 
         public void AddDGV(string barcode)
         {
@@ -164,13 +159,15 @@ namespace Warehouse
             decimal sumMoney = 0;
             foreach (InW w in allOut)
             {
-                w.SumPrice =decimal.Parse(w.NormName) * 100 * _price;
+                w.Price = _price;
+                w.SumPrice =decimal.Parse(w.NormName) * decimal.Parse(w.Length.ToString()) * _price;
                 sumMoney += w.SumPrice;
             }
             lab_Cnt.Text = allOut.Count.ToString();
             lab_Sum.Text = sumMoney.ToString("0.00")+"元";
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = allOut;
+           // if (dataGridView1.Rows.Count > 0) { dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[1]; }
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

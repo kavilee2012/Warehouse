@@ -21,6 +21,13 @@ namespace Warehouse
 		private string _operator;
 		private DateTime _createtime;
 		private decimal _sumprice;
+        private int _length;
+
+        public int Length
+        {
+            get { return _length; }
+            set { _length = value; }
+        }
 
 		/// <summary>
 		/// 
@@ -150,16 +157,11 @@ namespace Warehouse
         public int Add(List<SupplyDetail> list)
 		{
 			SqlParameter[] parameters = {
-					new SqlParameter("@SupplyID", SqlDbType.VarChar,50),
-					new SqlParameter("@AgentName", SqlDbType.VarChar,50),
-					new SqlParameter("@Price", SqlDbType.Money,8),
-					new SqlParameter("@Operator", SqlDbType.VarChar,50),
-					new SqlParameter("@SumPrice", SqlDbType.Money,8)};
-			parameters[0].Value = SupplyID;
-			parameters[1].Value = AgentName;
-			parameters[2].Value = Price;
-			parameters[3].Value = Operator;
-			parameters[4].Value = SumPrice;
+					new SqlParameter("@SupplyID", SupplyID),
+					new SqlParameter("@AgentName", AgentName),
+					new SqlParameter("@Price", Price),
+					new SqlParameter("@Operator", Operator),
+					new SqlParameter("@SumPrice", SumPrice)};
 
             List<string> sqlT = new List<string>();
             sqlT.Add("insert into [Supply](SupplyID,AgentName,Price,Operator,SumPrice) values (@SupplyID,@AgentName,@Price,@Operator,@SumPrice);");
@@ -167,7 +169,7 @@ namespace Warehouse
             {
                 foreach (SupplyDetail s in list)
                 {
-                    sqlT.Add("INSERT INTO SupplyDetail(SupplyID,Barcode,Normname,Price,SumMoney,Cnt) VALUES(@SupplyID,'" + s.Barcode + "','" + s.NormName + "',@Price," + s.SumMoney + ",1);");
+                    sqlT.Add("INSERT INTO SupplyDetail(SupplyID,Barcode,Normname,Price,SumMoney,Cnt,Length) VALUES(@SupplyID,'" + s.Barcode + "','" + s.NormName + "',@Price," + s.SumMoney + ",1," + s.Length + ");");
                 }
             }
             object obj = DbHelperSQL.NewExecTransaction(sqlT.ToArray(), parameters);

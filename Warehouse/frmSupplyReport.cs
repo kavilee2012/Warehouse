@@ -112,14 +112,14 @@ namespace Warehouse
         private DataTable GetGroupSupply(out decimal sum)
         {
             decimal _s = 0;
-            string sql = "SELECT LEFT(Barcode,4)as 规格,COUNT(Barcode) as 数量,Sum(SumMoney) as 金额,MAX(Price) as 单价,'件' as 单位 FROM SupplyDetail WHERE SupplyID='" + _supplyID + "' GROUP BY LEFT(Barcode,4)";
+            string sql = "SELECT LEFT(Barcode,4)as 规格,COUNT(Barcode) as 件数,Sum(SumMoney) as 金额,MAX(Price) as 单价,SUM(Length) as 总米数 FROM SupplyDetail WHERE SupplyID='" + _supplyID + "' GROUP BY LEFT(Barcode,4)";
             DataTable dt = SqlHelper.ExecuteDataTable(sql);
             if (dt != null && dt.Rows.Count>0)
             {
                 foreach (DataRow dr in dt.Rows)
                 {
                     float tem = float.Parse(dr["规格"].ToString()) / 1000;
-                    dr["规格"] = tem.ToString("0.0") + "米";
+                    dr["规格"] = tem.ToString("0.000") + "米";
                     _s += decimal.Parse(dr["金额"].ToString());
                     dr["单价"] = decimal.Parse(dr["单价"].ToString()).ToString("0.00");
                     dr["金额"] = decimal.Parse(dr["金额"].ToString()).ToString("0.00");

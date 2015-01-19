@@ -29,6 +29,13 @@ namespace Warehouse
         private int _bigCnt;
         private int _machine;
         private int _length;
+        private decimal _price;
+
+        public decimal Price
+        {
+            get { return _price; }
+            set { _price = value; }
+        }
 
         public int Length
         {
@@ -122,56 +129,56 @@ namespace Warehouse
 
 		#region  Method
 
-		/// <summary>
-		/// 得到一个对象实体
-		/// </summary>
-		public InW(int ID)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select * ");
-			strSql.Append(" FROM [InW] ");
-			strSql.Append(" where Batch=@Batch and ID=@ID ");
-			SqlParameter[] parameters = {
-					new SqlParameter("@Batch", Batch),
-					new SqlParameter("@ID", ID)};
+        ///// <summary>
+        ///// 得到一个对象实体
+        ///// </summary>
+        //public InW(int ID)
+        //{
+        //    StringBuilder strSql=new StringBuilder();
+        //    strSql.Append("select * ");
+        //    strSql.Append(" FROM [InW] ");
+        //    strSql.Append(" where Batch=@Batch and ID=@ID ");
+        //    SqlParameter[] parameters = {
+        //            new SqlParameter("@Batch", Batch),
+        //            new SqlParameter("@ID", ID)};
 
-			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
-			if(ds.Tables[0].Rows.Count>0)
-			{
-				if(ds.Tables[0].Rows[0]["ID"]!=null && ds.Tables[0].Rows[0]["ID"].ToString()!="")
-				{
-					this.ID=int.Parse(ds.Tables[0].Rows[0]["ID"].ToString());
-				}
-				if(ds.Tables[0].Rows[0]["Batch"]!=null)
-				{
-					this.Batch=ds.Tables[0].Rows[0]["Batch"].ToString();
-				}
-                if (ds.Tables[0].Rows[0]["NormName"] != null && ds.Tables[0].Rows[0]["NormName"].ToString() != "")
-				{
-                    this.NormName = ds.Tables[0].Rows[0]["NormName"].ToString();
-				}
-				if(ds.Tables[0].Rows[0]["Barcode"]!=null)
-				{
-					this.Barcode=ds.Tables[0].Rows[0]["Barcode"].ToString();
-				}
-				if(ds.Tables[0].Rows[0]["Cnt"]!=null && ds.Tables[0].Rows[0]["Cnt"].ToString()!="")
-				{
-					this.Cnt=int.Parse(ds.Tables[0].Rows[0]["Cnt"].ToString());
-				}
-                if (ds.Tables[0].Rows[0]["BigCnt"] != null && ds.Tables[0].Rows[0]["BigCnt"].ToString() != "")
-                {
-                    this.BigCnt = int.Parse(ds.Tables[0].Rows[0]["BigCnt"].ToString());
-                }
-                if (ds.Tables[0].Rows[0]["Machine"] != null && ds.Tables[0].Rows[0]["Machine"].ToString() != "")
-                {
-                    this.Machine = int.Parse(ds.Tables[0].Rows[0]["Machine"].ToString());
-                }
-                if (ds.Tables[0].Rows[0]["Length"] != null && ds.Tables[0].Rows[0]["Length"].ToString() != "")
-                {
-                    this.Length = int.Parse(ds.Tables[0].Rows[0]["Length"].ToString());
-                }
-			}
-		}
+        //    DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
+        //    if(ds.Tables[0].Rows.Count>0)
+        //    {
+        //        if(ds.Tables[0].Rows[0]["ID"]!=null && ds.Tables[0].Rows[0]["ID"].ToString()!="")
+        //        {
+        //            this.ID=int.Parse(ds.Tables[0].Rows[0]["ID"].ToString());
+        //        }
+        //        if(ds.Tables[0].Rows[0]["Batch"]!=null)
+        //        {
+        //            this.Batch=ds.Tables[0].Rows[0]["Batch"].ToString();
+        //        }
+        //        if (ds.Tables[0].Rows[0]["NormName"] != null && ds.Tables[0].Rows[0]["NormName"].ToString() != "")
+        //        {
+        //            this.NormName = ds.Tables[0].Rows[0]["NormName"].ToString();
+        //        }
+        //        if(ds.Tables[0].Rows[0]["Barcode"]!=null)
+        //        {
+        //            this.Barcode=ds.Tables[0].Rows[0]["Barcode"].ToString();
+        //        }
+        //        if(ds.Tables[0].Rows[0]["Cnt"]!=null && ds.Tables[0].Rows[0]["Cnt"].ToString()!="")
+        //        {
+        //            this.Cnt=int.Parse(ds.Tables[0].Rows[0]["Cnt"].ToString());
+        //        }
+        //        if (ds.Tables[0].Rows[0]["BigCnt"] != null && ds.Tables[0].Rows[0]["BigCnt"].ToString() != "")
+        //        {
+        //            this.BigCnt = int.Parse(ds.Tables[0].Rows[0]["BigCnt"].ToString());
+        //        }
+        //        if (ds.Tables[0].Rows[0]["Machine"] != null && ds.Tables[0].Rows[0]["Machine"].ToString() != "")
+        //        {
+        //            this.Machine = int.Parse(ds.Tables[0].Rows[0]["Machine"].ToString());
+        //        }
+        //        if (ds.Tables[0].Rows[0]["Length"] != null && ds.Tables[0].Rows[0]["Length"].ToString() != "")
+        //        {
+        //            this.Length = int.Parse(ds.Tables[0].Rows[0]["Length"].ToString());
+        //        }
+        //    }
+        //}
 
 		/// <summary>
 		/// 是否存在该记录
@@ -283,20 +290,20 @@ namespace Warehouse
 		}
 
 
-		/// <summary>
-		/// 得到一个对象实体
-		/// </summary>
-		public InW GetModelByBatch(string batch)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select * ");
-            strSql.Append(" FROM [InW]");
-			strSql.Append(" where Batch=@Batch ");
-			SqlParameter[] parameters = {
-					new SqlParameter("@Batch", batch)};
+        ///// <summary>
+        ///// 得到一个对象实体
+        ///// </summary>
+        //public InW GetModelByBatch(string batch)
+        //{
+        //    StringBuilder strSql=new StringBuilder();
+        //    strSql.Append("select * ");
+        //    strSql.Append(" FROM [InW]");
+        //    strSql.Append(" where Batch=@Batch ");
+        //    SqlParameter[] parameters = {
+        //            new SqlParameter("@Batch", batch)};
 
-            return GetOneModel(strSql, parameters);
-		}
+        //    return GetOneModel(strSql, parameters);
+        //}
 
         /// <summary>
         /// 得到一个对象实体
@@ -304,9 +311,8 @@ namespace Warehouse
         public InW GetModelByBarcode(string code)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select A.*,B.NormName,B.Barcode");
-            strSql.Append(" FROM [InW] A JOIN InWDetail B ON A.Batch=B.BatchID");
-            strSql.Append(" where B.Barcode=@Barcode ");
+            strSql.Append("select * FROM InWDetail");// strSql.Append(" FROM [InW] A JOIN InWDetail B ON A.Batch=B.BatchID");
+            strSql.Append(" where Barcode=@Barcode ");
             SqlParameter[] parameters = {
 					new SqlParameter("@Barcode", code)};
 
@@ -320,13 +326,13 @@ namespace Warehouse
             if (ds.Tables[0].Rows.Count > 0)
             {
                 InW model = new InW();
-                if (ds.Tables[0].Rows[0]["ID"] != null && ds.Tables[0].Rows[0]["ID"].ToString() != "")
+                //if (ds.Tables[0].Rows[0]["ID"] != null && ds.Tables[0].Rows[0]["ID"].ToString() != "")
+                //{
+                //    model.ID = int.Parse(ds.Tables[0].Rows[0]["ID"].ToString());
+                //}
+                if (ds.Tables[0].Rows[0]["BatchID"] != null)
                 {
-                    model.ID = int.Parse(ds.Tables[0].Rows[0]["ID"].ToString());
-                }
-                if (ds.Tables[0].Rows[0]["Batch"] != null)
-                {
-                    model.Batch = ds.Tables[0].Rows[0]["Batch"].ToString();
+                    model.Batch = ds.Tables[0].Rows[0]["BatchID"].ToString();
                 }
                 //if (ds.Tables[0].Rows[0]["NormID"] != null && ds.Tables[0].Rows[0]["NormID"].ToString() != "")
                 //{
@@ -336,14 +342,14 @@ namespace Warehouse
                 {
                     model.Barcode = ds.Tables[0].Rows[0]["Barcode"].ToString();
                 }
-                if (ds.Tables[0].Rows[0]["BigCnt"] != null && ds.Tables[0].Rows[0]["BigCnt"].ToString() != "")
-                {
-                    model.BigCnt = int.Parse(ds.Tables[0].Rows[0]["BigCnt"].ToString());
-                }
-                if (ds.Tables[0].Rows[0]["Machine"] != null && ds.Tables[0].Rows[0]["Machine"].ToString() != "")
-                {
-                    model.Machine = int.Parse(ds.Tables[0].Rows[0]["Machine"].ToString());
-                }
+                //if (ds.Tables[0].Rows[0]["BigCnt"] != null && ds.Tables[0].Rows[0]["BigCnt"].ToString() != "")
+                //{
+                //    model.BigCnt = int.Parse(ds.Tables[0].Rows[0]["BigCnt"].ToString());
+                //}
+                //if (ds.Tables[0].Rows[0]["Machine"] != null && ds.Tables[0].Rows[0]["Machine"].ToString() != "")
+                //{
+                //    model.Machine = int.Parse(ds.Tables[0].Rows[0]["Machine"].ToString());
+                //}
                 if (ds.Tables[0].Rows[0]["Length"] != null && ds.Tables[0].Rows[0]["Length"].ToString() != "")
                 {
                     model.Length = int.Parse(ds.Tables[0].Rows[0]["Length"].ToString());
@@ -360,34 +366,34 @@ namespace Warehouse
                 {
                     model.NormName = ds.Tables[0].Rows[0]["NormName"].ToString();
                 }
-                if (ds.Tables[0].Rows[0]["Operator"] != null && ds.Tables[0].Rows[0]["Operator"].ToString() != "")
-                {
-                    model.Operator = ds.Tables[0].Rows[0]["Operator"].ToString();
-                }
-                if (ds.Tables[0].Rows[0]["InTime"] != null && ds.Tables[0].Rows[0]["InTime"].ToString() != "")
-                {
-                    model.InTime = DateTime.Parse(ds.Tables[0].Rows[0]["InTime"].ToString());
-                }
+                //if (ds.Tables[0].Rows[0]["Operator"] != null && ds.Tables[0].Rows[0]["Operator"].ToString() != "")
+                //{
+                //    model.Operator = ds.Tables[0].Rows[0]["Operator"].ToString();
+                //}
+                //if (ds.Tables[0].Rows[0]["InTime"] != null && ds.Tables[0].Rows[0]["InTime"].ToString() != "")
+                //{
+                //    model.InTime = DateTime.Parse(ds.Tables[0].Rows[0]["InTime"].ToString());
+                //}
                 return model;
             }
             return null;
         }
 
-		/// <summary>
-		/// 获得数据列表
-		/// </summary>
-		public DataSet GetList(string strWhere)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select * ");
-			strSql.Append(" FROM [InW]");
-			if(strWhere.Trim()!="")
-			{
-				strSql.Append(" where "+strWhere);
-			}
-            strSql.Append(" order by id desc");
-			return DbHelperSQL.Query(strSql.ToString());
-		}
+        ///// <summary>
+        ///// 获得数据列表
+        ///// </summary>
+        //public DataSet GetList(string strWhere)
+        //{
+        //    StringBuilder strSql=new StringBuilder();
+        //    strSql.Append("select * ");
+        //    strSql.Append(" FROM [InW]");
+        //    if(strWhere.Trim()!="")
+        //    {
+        //        strSql.Append(" where "+strWhere);
+        //    }
+        //    strSql.Append(" order by id desc");
+        //    return DbHelperSQL.Query(strSql.ToString());
+        //}
 
 
         /// <summary>

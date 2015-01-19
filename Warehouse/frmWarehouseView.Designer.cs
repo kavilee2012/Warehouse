@@ -34,6 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cNorm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cRemark = new System.Windows.Forms.DataGridViewLinkColumn();
             this.cNowTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cDel = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -57,6 +59,8 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cNorm,
             this.cCnt,
+            this.cLength,
+            this.cRemark,
             this.cNowTime,
             this.cDel});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -71,9 +75,10 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(809, 513);
+            this.dataGridView1.Size = new System.Drawing.Size(835, 513);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label1
             // 
@@ -92,16 +97,33 @@
             this.cNorm.Name = "cNorm";
             this.cNorm.ReadOnly = true;
             this.cNorm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.cNorm.Width = 200;
+            this.cNorm.Width = 150;
             // 
             // cCnt
             // 
-            this.cCnt.DataPropertyName = "StoreCnt";
-            this.cCnt.HeaderText = "当前库存";
+            this.cCnt.DataPropertyName = "SumCnt";
+            this.cCnt.HeaderText = "剩余件数";
             this.cCnt.Name = "cCnt";
             this.cCnt.ReadOnly = true;
             this.cCnt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.cCnt.Width = 200;
+            this.cCnt.Width = 150;
+            // 
+            // cLength
+            // 
+            this.cLength.DataPropertyName = "SumLength";
+            this.cLength.HeaderText = "剩余总米数";
+            this.cLength.Name = "cLength";
+            this.cLength.ReadOnly = true;
+            this.cLength.Width = 150;
+            // 
+            // cRemark
+            // 
+            this.cRemark.HeaderText = "";
+            this.cRemark.Name = "cRemark";
+            this.cRemark.ReadOnly = true;
+            this.cRemark.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cRemark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cRemark.Width = 80;
             // 
             // cNowTime
             // 
@@ -126,7 +148,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 578);
+            this.ClientSize = new System.Drawing.Size(845, 578);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "frmWarehouseView";
@@ -144,6 +166,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNorm;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCnt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cLength;
+        private System.Windows.Forms.DataGridViewLinkColumn cRemark;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNowTime;
         private System.Windows.Forms.DataGridViewLinkColumn cDel;
     }

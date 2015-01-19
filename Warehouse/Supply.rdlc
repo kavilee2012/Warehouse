@@ -2,10 +2,10 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <DataSources>
     <DataSource Name="DummyDataSource">
-      <rd:DataSourceID>0eb15356-a6ba-4962-8c87-b37a36dc45ea</rd:DataSourceID>
+      <rd:DataSourceID>7ffb3c41-b2a8-49ac-b60e-91429f6d11bd</rd:DataSourceID>
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
-        <ConnectString />
+        <ConnectString>server=127.0.0.1;database=warehouse;uid=sa;pwd=sa;</ConnectString>
       </ConnectionProperties>
     </DataSource>
   </DataSources>
@@ -87,32 +87,20 @@
   <DataSets>
     <DataSet Name="DataSet1_DataTable1">
       <Fields>
-        <Field Name="name">
-          <DataField>name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="income">
-          <DataField>income</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="dept">
-          <DataField>dept</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="规格">
           <DataField>规格</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="单位">
-          <DataField>单位</DataField>
+        <Field Name="件数">
+          <DataField>件数</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="总米数">
+          <DataField>总米数</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="单价">
           <DataField>单价</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="数量">
-          <DataField>数量</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="金额">
@@ -262,7 +250,7 @@
         <ZIndex>3</ZIndex>
         <DataSetName>DataSet1_DataTable1</DataSetName>
         <Top>7cm</Top>
-        <Width>19.05291cm</Width>
+        <Width>18.55291cm</Width>
         <Details>
           <TableRows>
             <TableRow>
@@ -272,24 +260,9 @@
                     <Textbox Name="规格">
                       <rd:DefaultName>规格</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Left>Black</Left>
-                          <Right>Black</Right>
-                          <Top>Black</Top>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
                         <BorderStyle>
-                          <Left>Solid</Left>
-                          <Right>Solid</Right>
-                          <Top>Solid</Top>
-                          <Bottom>Solid</Bottom>
+                          <Default>Solid</Default>
                         </BorderStyle>
-                        <BorderWidth>
-                          <Left>1pt</Left>
-                          <Right>1pt</Right>
-                          <Top>1pt</Top>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -297,7 +270,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>4</ZIndex>
+                      <ZIndex>5</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>=Fields!规格.Value</Value>
                     </Textbox>
@@ -308,24 +281,30 @@
                     <Textbox Name="单位">
                       <rd:DefaultName>单位</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Left>Black</Left>
-                          <Right>Black</Right>
-                          <Top>Black</Top>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
                         <BorderStyle>
-                          <Left>Solid</Left>
-                          <Right>Solid</Right>
-                          <Top>Solid</Top>
-                          <Bottom>Solid</Bottom>
+                          <Default>Solid</Default>
                         </BorderStyle>
-                        <BorderWidth>
-                          <Left>1pt</Left>
-                          <Right>1pt</Right>
-                          <Top>1pt</Top>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
+                        <FontFamily>宋体</FontFamily>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>4</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!件数.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="数量">
+                      <rd:DefaultName>数量</rd:DefaultName>
+                      <Style>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
                         <FontFamily>宋体</FontFamily>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -335,43 +314,7 @@
                       </Style>
                       <ZIndex>3</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!单位.Value</Value>
-                    </Textbox>
-                  </ReportItems>
-                </TableCell>
-                <TableCell>
-                  <ReportItems>
-                    <Textbox Name="数量">
-                      <rd:DefaultName>数量</rd:DefaultName>
-                      <Style>
-                        <BorderColor>
-                          <Left>Black</Left>
-                          <Right>Black</Right>
-                          <Top>Black</Top>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
-                        <BorderStyle>
-                          <Left>Solid</Left>
-                          <Right>Solid</Right>
-                          <Top>Solid</Top>
-                          <Bottom>Solid</Bottom>
-                        </BorderStyle>
-                        <BorderWidth>
-                          <Left>1pt</Left>
-                          <Right>1pt</Right>
-                          <Top>1pt</Top>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
-                        <FontFamily>宋体</FontFamily>
-                        <TextAlign>Center</TextAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                      <ZIndex>2</ZIndex>
-                      <CanGrow>true</CanGrow>
-                      <Value>=Fields!数量.Value</Value>
+                      <Value>=Fields!总米数.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -390,7 +333,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>1</ZIndex>
+                      <ZIndex>2</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>=Fields!单价.Value</Value>
                     </Textbox>
@@ -401,24 +344,9 @@
                     <Textbox Name="金额">
                       <rd:DefaultName>金额</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Left>Black</Left>
-                          <Right>Black</Right>
-                          <Top>Black</Top>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
                         <BorderStyle>
-                          <Left>Solid</Left>
-                          <Right>Solid</Right>
-                          <Top>Solid</Top>
-                          <Bottom>Solid</Bottom>
+                          <Default>Solid</Default>
                         </BorderStyle>
-                        <BorderWidth>
-                          <Left>1pt</Left>
-                          <Right>1pt</Right>
-                          <Top>1pt</Top>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -426,6 +354,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
+                      <ZIndex>1</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>=Fields!金额.Value</Value>
                     </Textbox>
@@ -436,24 +365,9 @@
                     <Textbox Name="textbox16">
                       <rd:DefaultName>textbox16</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Left>Black</Left>
-                          <Right>Black</Right>
-                          <Top>Black</Top>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
                         <BorderStyle>
-                          <Left>Solid</Left>
-                          <Right>Solid</Right>
-                          <Top>Solid</Top>
-                          <Bottom>Solid</Bottom>
+                          <Default>Solid</Default>
                         </BorderStyle>
-                        <BorderWidth>
-                          <Left>1pt</Left>
-                          <Right>1pt</Right>
-                          <Top>1pt</Top>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -483,24 +397,9 @@
                     <Textbox Name="textbox5">
                       <rd:DefaultName>textbox5</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Left>Black</Left>
-                          <Right>Black</Right>
-                          <Top>Black</Top>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
                         <BorderStyle>
-                          <Left>Solid</Left>
-                          <Right>Solid</Right>
-                          <Top>Solid</Top>
-                          <Bottom>Solid</Bottom>
+                          <Default>Solid</Default>
                         </BorderStyle>
-                        <BorderWidth>
-                          <Left>1pt</Left>
-                          <Right>1pt</Right>
-                          <Top>1pt</Top>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -508,7 +407,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>21</ZIndex>
+                      <ZIndex>31</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>规格</Value>
                     </Textbox>
@@ -519,24 +418,9 @@
                     <Textbox Name="textbox6">
                       <rd:DefaultName>textbox6</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Left>Black</Left>
-                          <Right>Black</Right>
-                          <Top>Black</Top>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
                         <BorderStyle>
-                          <Left>Solid</Left>
-                          <Right>Solid</Right>
-                          <Top>Solid</Top>
-                          <Bottom>Solid</Bottom>
+                          <Default>Solid</Default>
                         </BorderStyle>
-                        <BorderWidth>
-                          <Left>1pt</Left>
-                          <Right>1pt</Right>
-                          <Top>1pt</Top>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -544,7 +428,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>20</ZIndex>
+                      <ZIndex>30</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>件数</Value>
                     </Textbox>
@@ -555,24 +439,9 @@
                     <Textbox Name="textbox7">
                       <rd:DefaultName>textbox7</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Left>Black</Left>
-                          <Right>Black</Right>
-                          <Top>Black</Top>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
                         <BorderStyle>
-                          <Left>Solid</Left>
-                          <Right>Solid</Right>
-                          <Top>Solid</Top>
-                          <Bottom>Solid</Bottom>
+                          <Default>Solid</Default>
                         </BorderStyle>
-                        <BorderWidth>
-                          <Left>1pt</Left>
-                          <Right>1pt</Right>
-                          <Top>1pt</Top>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -580,9 +449,9 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>19</ZIndex>
+                      <ZIndex>29</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>米数</Value>
+                      <Value>总米数</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -601,7 +470,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>18</ZIndex>
+                      <ZIndex>28</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>单价（元）</Value>
                     </Textbox>
@@ -612,24 +481,9 @@
                     <Textbox Name="textbox17">
                       <rd:DefaultName>textbox17</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Left>Black</Left>
-                          <Right>Black</Right>
-                          <Top>Black</Top>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
                         <BorderStyle>
-                          <Left>Solid</Left>
-                          <Right>Solid</Right>
-                          <Top>Solid</Top>
-                          <Bottom>Solid</Bottom>
+                          <Default>Solid</Default>
                         </BorderStyle>
-                        <BorderWidth>
-                          <Left>1pt</Left>
-                          <Right>1pt</Right>
-                          <Top>1pt</Top>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -637,7 +491,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>17</ZIndex>
+                      <ZIndex>27</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>金额（元）</Value>
                     </Textbox>
@@ -648,24 +502,9 @@
                     <Textbox Name="textbox9">
                       <rd:DefaultName>textbox9</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Left>Black</Left>
-                          <Right>Black</Right>
-                          <Top>Black</Top>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
                         <BorderStyle>
-                          <Left>Solid</Left>
-                          <Right>Solid</Right>
-                          <Top>Solid</Top>
-                          <Bottom>Solid</Bottom>
+                          <Default>Solid</Default>
                         </BorderStyle>
-                        <BorderWidth>
-                          <Left>1pt</Left>
-                          <Right>1pt</Right>
-                          <Top>1pt</Top>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -673,6 +512,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
+                      <ZIndex>26</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>备注</Value>
                     </Textbox>
@@ -691,10 +531,10 @@
             <Width>2.30291cm</Width>
           </TableColumn>
           <TableColumn>
-            <Width>2.25cm</Width>
+            <Width>2.5cm</Width>
           </TableColumn>
           <TableColumn>
-            <Width>3.25cm</Width>
+            <Width>2.5cm</Width>
           </TableColumn>
           <TableColumn>
             <Width>3.25cm</Width>
@@ -703,7 +543,7 @@
             <Width>5cm</Width>
           </TableColumn>
         </TableColumns>
-        <Height>5.15476cm</Height>
+        <Height>6.03968cm</Height>
         <Footer>
           <TableRows>
             <TableRow>
@@ -713,24 +553,9 @@
                     <Textbox Name="textbox25">
                       <rd:DefaultName>textbox25</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Left>Black</Left>
-                          <Right>Black</Right>
-                          <Top>Black</Top>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
                         <BorderStyle>
-                          <Left>Solid</Left>
-                          <Right>Solid</Right>
-                          <Top>Solid</Top>
-                          <Bottom>Solid</Bottom>
+                          <Default>Solid</Default>
                         </BorderStyle>
-                        <BorderWidth>
-                          <Left>1pt</Left>
-                          <Right>1pt</Right>
-                          <Top>1pt</Top>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <TextAlign>Right</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -738,7 +563,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>8</ZIndex>
+                      <ZIndex>10</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>合计(大写)：</Value>
                     </Textbox>
@@ -750,24 +575,9 @@
                     <Textbox Name="textbox26">
                       <rd:DefaultName>textbox26</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Left>Black</Left>
-                          <Right>Black</Right>
-                          <Top>Black</Top>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
                         <BorderStyle>
-                          <Left>Solid</Left>
-                          <Right>Solid</Right>
-                          <Top>Solid</Top>
-                          <Bottom>Solid</Bottom>
+                          <Default>Solid</Default>
                         </BorderStyle>
-                        <BorderWidth>
-                          <Left>1pt</Left>
-                          <Right>1pt</Right>
-                          <Top>1pt</Top>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <FontWeight>700</FontWeight>
                         <TextAlign>Center</TextAlign>
@@ -776,7 +586,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>7</ZIndex>
+                      <ZIndex>9</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>=Parameters!pam_SumAmount.Value</Value>
                     </Textbox>
@@ -787,24 +597,9 @@
                     <Textbox Name="textbox12">
                       <rd:DefaultName>textbox12</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Left>Black</Left>
-                          <Right>Black</Right>
-                          <Top>Black</Top>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
                         <BorderStyle>
-                          <Left>Solid</Left>
-                          <Right>Solid</Right>
-                          <Top>Solid</Top>
-                          <Bottom>Solid</Bottom>
+                          <Default>Solid</Default>
                         </BorderStyle>
-                        <BorderWidth>
-                          <Left>1pt</Left>
-                          <Right>1pt</Right>
-                          <Top>1pt</Top>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <TextAlign>Right</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -812,7 +607,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>6</ZIndex>
+                      <ZIndex>8</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>小写：</Value>
                     </Textbox>
@@ -823,24 +618,9 @@
                     <Textbox Name="textbox13">
                       <rd:DefaultName>textbox13</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Left>Black</Left>
-                          <Right>Black</Right>
-                          <Top>Black</Top>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
                         <BorderStyle>
-                          <Left>Solid</Left>
-                          <Right>Solid</Right>
-                          <Top>Solid</Top>
-                          <Bottom>Solid</Bottom>
+                          <Default>Solid</Default>
                         </BorderStyle>
-                        <BorderWidth>
-                          <Left>1pt</Left>
-                          <Right>1pt</Right>
-                          <Top>1pt</Top>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <FontWeight>700</FontWeight>
                         <TextAlign>Center</TextAlign>
@@ -849,7 +629,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>5</ZIndex>
+                      <ZIndex>7</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>=Parameters!pam_SumSmall.Value</Value>
                     </Textbox>
@@ -860,24 +640,9 @@
                     <Textbox Name="textbox18">
                       <rd:DefaultName>textbox18</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Left>Black</Left>
-                          <Right>Black</Right>
-                          <Top>Black</Top>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
                         <BorderStyle>
-                          <Left>Solid</Left>
-                          <Right>Solid</Right>
-                          <Top>Solid</Top>
-                          <Bottom>Solid</Bottom>
+                          <Default>Solid</Default>
                         </BorderStyle>
-                        <BorderWidth>
-                          <Left>1pt</Left>
-                          <Right>1pt</Right>
-                          <Top>1pt</Top>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <FontWeight>700</FontWeight>
                         <TextAlign>Center</TextAlign>
@@ -886,6 +651,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
+                      <ZIndex>6</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value />
                     </Textbox>
@@ -911,7 +677,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>10</ZIndex>
+                      <ZIndex>12</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>条      码：</Value>
                     </Textbox>
@@ -923,24 +689,9 @@
                     <Textbox Name="textbox32">
                       <rd:DefaultName>textbox32</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Left>Black</Left>
-                          <Right>Black</Right>
-                          <Top>Black</Top>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
                         <BorderStyle>
-                          <Left>Solid</Left>
-                          <Right>Solid</Right>
-                          <Top>Solid</Top>
-                          <Bottom>Solid</Bottom>
+                          <Default>Solid</Default>
                         </BorderStyle>
-                        <BorderWidth>
-                          <Left>1pt</Left>
-                          <Right>1pt</Right>
-                          <Top>1pt</Top>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <TextAlign>Left</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -948,7 +699,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>9</ZIndex>
+                      <ZIndex>11</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>=Parameters!pam_Remark.Value</Value>
                     </Textbox>
@@ -965,15 +716,24 @@
                     <Textbox Name="textbox22">
                       <rd:DefaultName>textbox22</rd:DefaultName>
                       <Style>
+                        <BorderColor>
+                          <Top>Black</Top>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Top>Solid</Top>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Top>1pt</Top>
+                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>11</ZIndex>
+                      <ZIndex>14</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value />
+                      <Value>注：金额 = 规格 x 总米数 x 单价</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -982,19 +742,136 @@
                     <Textbox Name="textbox20">
                       <rd:DefaultName>textbox20</rd:DefaultName>
                       <Style>
+                        <BorderColor>
+                          <Top>Black</Top>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Top>Solid</Top>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Top>1pt</Top>
+                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
+                      <ZIndex>13</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value />
                     </Textbox>
                   </ReportItems>
                 </TableCell>
               </TableCells>
-              <Height>0.5cm</Height>
+              <Height>0.75cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox19">
+                      <rd:DefaultName>textbox19</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>20</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox34">
+                      <rd:DefaultName>textbox34</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>19</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox35">
+                      <rd:DefaultName>textbox35</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>18</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox36">
+                      <rd:DefaultName>textbox36</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>17</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox37">
+                      <rd:DefaultName>textbox37</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>16</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox38">
+                      <rd:DefaultName>textbox38</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>15</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
             </TableRow>
             <TableRow>
               <TableCells>
@@ -1009,7 +886,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>16</ZIndex>
+                      <ZIndex>25</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>收货人（签名）:</Value>
                     </Textbox>
@@ -1026,7 +903,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>15</ZIndex>
+                      <ZIndex>24</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value />
                     </Textbox>
@@ -1043,13 +920,14 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>14</ZIndex>
+                      <ZIndex>23</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value />
                     </Textbox>
                   </ReportItems>
                 </TableCell>
                 <TableCell>
+                  <ColSpan>2</ColSpan>
                   <ReportItems>
                     <Textbox Name="textbox29">
                       <rd:DefaultName>textbox29</rd:DefaultName>
@@ -1060,26 +938,9 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>13</ZIndex>
+                      <ZIndex>22</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>送货人（签名）:</Value>
-                    </Textbox>
-                  </ReportItems>
-                </TableCell>
-                <TableCell>
-                  <ReportItems>
-                    <Textbox Name="textbox30">
-                      <rd:DefaultName>textbox30</rd:DefaultName>
-                      <Style>
-                        <FontFamily>宋体</FontFamily>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                      <ZIndex>12</ZIndex>
-                      <CanGrow>true</CanGrow>
-                      <Value />
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -1094,6 +955,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
+                      <ZIndex>21</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value />
                     </Textbox>

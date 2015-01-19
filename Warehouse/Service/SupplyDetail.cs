@@ -19,6 +19,13 @@ namespace Warehouse
 		private decimal? _price;
 		private decimal? _summoney;
 		private int? _cnt;
+        private int _length;
+
+        public int Length
+        {
+            get { return _length; }
+            set { _length = value; }
+        }
 		/// <summary>
 		/// 
 		/// </summary>

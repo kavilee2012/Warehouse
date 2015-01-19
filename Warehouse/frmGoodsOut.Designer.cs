@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.link_Upload = new System.Windows.Forms.Button();
             this.panel_Time = new System.Windows.Forms.Panel();
@@ -43,12 +44,6 @@
             this.lab_Sum = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNorm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cBatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cInTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cSumPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cDel = new System.Windows.Forms.DataGridViewLinkColumn();
             this.btn_GenNo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cbx_Agent = new System.Windows.Forms.ComboBox();
@@ -58,6 +53,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txt_Operator = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.cBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNorm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cSumPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cInTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cDel = new System.Windows.Forms.DataGridViewLinkColumn();
             this.groupBox1.SuspendLayout();
             this.panel_Time.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -214,18 +216,19 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cBarcode,
             this.cNorm,
-            this.cBatch,
-            this.cInTime,
+            this.cLength,
+            this.cPrice,
             this.cSumPrice,
+            this.cInTime,
             this.cDel});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Location = new System.Drawing.Point(3, 64);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
@@ -235,57 +238,6 @@
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // cBarcode
-            // 
-            this.cBarcode.DataPropertyName = "Barcode";
-            this.cBarcode.HeaderText = "条形码";
-            this.cBarcode.Name = "cBarcode";
-            this.cBarcode.ReadOnly = true;
-            this.cBarcode.Width = 150;
-            // 
-            // cNorm
-            // 
-            this.cNorm.DataPropertyName = "NormName";
-            this.cNorm.HeaderText = "规格(单位:米)";
-            this.cNorm.Name = "cNorm";
-            this.cNorm.ReadOnly = true;
-            this.cNorm.Width = 120;
-            // 
-            // cBatch
-            // 
-            this.cBatch.DataPropertyName = "Batch";
-            this.cBatch.HeaderText = "入仓批号";
-            this.cBatch.Name = "cBatch";
-            this.cBatch.ReadOnly = true;
-            this.cBatch.Width = 150;
-            // 
-            // cInTime
-            // 
-            this.cInTime.DataPropertyName = "InTime";
-            this.cInTime.HeaderText = "入仓时间";
-            this.cInTime.Name = "cInTime";
-            this.cInTime.ReadOnly = true;
-            this.cInTime.Width = 120;
-            // 
-            // cSumPrice
-            // 
-            this.cSumPrice.DataPropertyName = "SumPrice";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.cSumPrice.DefaultCellStyle = dataGridViewCellStyle2;
-            this.cSumPrice.HeaderText = "金额";
-            this.cSumPrice.Name = "cSumPrice";
-            this.cSumPrice.ReadOnly = true;
-            // 
-            // cDel
-            // 
-            this.cDel.ActiveLinkColor = System.Drawing.Color.Blue;
-            this.cDel.HeaderText = "";
-            this.cDel.Name = "cDel";
-            this.cDel.ReadOnly = true;
-            this.cDel.VisitedLinkColor = System.Drawing.Color.Blue;
-            this.cDel.Width = 60;
             // 
             // btn_GenNo
             // 
@@ -376,6 +328,68 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "操作员：";
             // 
+            // cBarcode
+            // 
+            this.cBarcode.DataPropertyName = "Barcode";
+            this.cBarcode.HeaderText = "条形码";
+            this.cBarcode.Name = "cBarcode";
+            this.cBarcode.ReadOnly = true;
+            this.cBarcode.Width = 150;
+            // 
+            // cNorm
+            // 
+            this.cNorm.DataPropertyName = "NormName";
+            this.cNorm.HeaderText = "规格(单位:米)";
+            this.cNorm.Name = "cNorm";
+            this.cNorm.ReadOnly = true;
+            this.cNorm.Width = 120;
+            // 
+            // cLength
+            // 
+            this.cLength.DataPropertyName = "Length";
+            this.cLength.HeaderText = "米数";
+            this.cLength.Name = "cLength";
+            this.cLength.ReadOnly = true;
+            this.cLength.Width = 150;
+            // 
+            // cPrice
+            // 
+            this.cPrice.DataPropertyName = "Price";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.cPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            this.cPrice.HeaderText = "单价";
+            this.cPrice.Name = "cPrice";
+            this.cPrice.ReadOnly = true;
+            // 
+            // cSumPrice
+            // 
+            this.cSumPrice.DataPropertyName = "SumPrice";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.cSumPrice.DefaultCellStyle = dataGridViewCellStyle3;
+            this.cSumPrice.HeaderText = "金额";
+            this.cSumPrice.Name = "cSumPrice";
+            this.cSumPrice.ReadOnly = true;
+            // 
+            // cInTime
+            // 
+            this.cInTime.DataPropertyName = "InTime";
+            this.cInTime.HeaderText = "入仓时间";
+            this.cInTime.Name = "cInTime";
+            this.cInTime.ReadOnly = true;
+            this.cInTime.Visible = false;
+            this.cInTime.Width = 120;
+            // 
+            // cDel
+            // 
+            this.cDel.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.cDel.HeaderText = "";
+            this.cDel.Name = "cDel";
+            this.cDel.ReadOnly = true;
+            this.cDel.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.cDel.Width = 60;
+            // 
             // frmGoodsOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -415,18 +429,19 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lab_Cnt;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cBarcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cNorm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cBatch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cInTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cSumPrice;
-        private System.Windows.Forms.DataGridViewLinkColumn cDel;
         private System.Windows.Forms.Panel panel_Time;
         private System.Windows.Forms.TextBox txt_Barcode;
         private System.Windows.Forms.RadioButton rb_Batch;
         private System.Windows.Forms.RadioButton rb_Time;
         private System.Windows.Forms.Label lab_Error;
         private System.Windows.Forms.Button link_Upload;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cBarcode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNorm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cLength;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cSumPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cInTime;
+        private System.Windows.Forms.DataGridViewLinkColumn cDel;
 
     }
 }

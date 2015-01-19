@@ -188,6 +188,12 @@
     <Compile Include="frmUserUpdate.Designer.cs">
       <DependentUpon>frmUserUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmViewDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewDetail.Designer.cs">
+      <DependentUpon>frmViewDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmWarehouseView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +288,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmUserUpdate.resx">
       <DependentUpon>frmUserUpdate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewDetail.resx">
+      <DependentUpon>frmViewDetail.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmWarehouseView.resx">
