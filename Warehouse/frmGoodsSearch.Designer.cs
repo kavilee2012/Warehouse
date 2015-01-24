@@ -39,14 +39,6 @@
             this.lab_Sum = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cSupplyID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cAgent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cOperator = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cOutTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPrint = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.cDetail = new System.Windows.Forms.DataGridViewLinkColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_Search = new System.Windows.Forms.Button();
             this.txt_Barcode = new System.Windows.Forms.TextBox();
@@ -55,6 +47,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.cSupplyID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cAgent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cOperator = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cOutTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cDetail = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.cDel = new System.Windows.Forms.DataGridViewLinkColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -160,8 +160,8 @@
             this.cSum,
             this.cOperator,
             this.cOutTime,
-            this.cPrint,
-            this.cDetail});
+            this.cDetail,
+            this.cDel});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -179,76 +179,6 @@
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // cSupplyID
-            // 
-            this.cSupplyID.DataPropertyName = "SupplyID";
-            this.cSupplyID.HeaderText = "供货单号";
-            this.cSupplyID.Name = "cSupplyID";
-            this.cSupplyID.ReadOnly = true;
-            this.cSupplyID.Width = 150;
-            // 
-            // cAgent
-            // 
-            this.cAgent.DataPropertyName = "AgentName";
-            this.cAgent.HeaderText = "客户名称";
-            this.cAgent.Name = "cAgent";
-            this.cAgent.ReadOnly = true;
-            this.cAgent.Width = 80;
-            // 
-            // cPrice
-            // 
-            this.cPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.cPrice.DefaultCellStyle = dataGridViewCellStyle2;
-            this.cPrice.HeaderText = "每平米价格";
-            this.cPrice.Name = "cPrice";
-            this.cPrice.ReadOnly = true;
-            // 
-            // cSum
-            // 
-            this.cSum.DataPropertyName = "SumPrice";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.cSum.DefaultCellStyle = dataGridViewCellStyle3;
-            this.cSum.HeaderText = "金额";
-            this.cSum.Name = "cSum";
-            this.cSum.ReadOnly = true;
-            this.cSum.Width = 80;
-            // 
-            // cOperator
-            // 
-            this.cOperator.DataPropertyName = "Operator";
-            this.cOperator.HeaderText = "操作员";
-            this.cOperator.Name = "cOperator";
-            this.cOperator.ReadOnly = true;
-            // 
-            // cOutTime
-            // 
-            this.cOutTime.DataPropertyName = "CreateTime";
-            this.cOutTime.HeaderText = "出单时间";
-            this.cOutTime.Name = "cOutTime";
-            this.cOutTime.ReadOnly = true;
-            // 
-            // cPrint
-            // 
-            this.cPrint.ActiveLinkColor = System.Drawing.Color.Blue;
-            this.cPrint.DataPropertyName = "D";
-            this.cPrint.HeaderText = "";
-            this.cPrint.Name = "cPrint";
-            this.cPrint.ReadOnly = true;
-            this.cPrint.Visible = false;
-            this.cPrint.VisitedLinkColor = System.Drawing.Color.Blue;
-            // 
-            // cDetail
-            // 
-            this.cDetail.ActiveLinkColor = System.Drawing.Color.Blue;
-            this.cDetail.HeaderText = "";
-            this.cDetail.Name = "cDetail";
-            this.cDetail.ReadOnly = true;
-            this.cDetail.VisitedLinkColor = System.Drawing.Color.Blue;
-            this.cDetail.Width = 60;
             // 
             // groupBox1
             // 
@@ -332,6 +262,75 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "条形码：";
             // 
+            // cSupplyID
+            // 
+            this.cSupplyID.DataPropertyName = "SupplyID";
+            this.cSupplyID.HeaderText = "供货单号";
+            this.cSupplyID.Name = "cSupplyID";
+            this.cSupplyID.ReadOnly = true;
+            this.cSupplyID.Width = 150;
+            // 
+            // cAgent
+            // 
+            this.cAgent.DataPropertyName = "AgentName";
+            this.cAgent.HeaderText = "客户名称";
+            this.cAgent.Name = "cAgent";
+            this.cAgent.ReadOnly = true;
+            this.cAgent.Width = 80;
+            // 
+            // cPrice
+            // 
+            this.cPrice.DataPropertyName = "Price";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.cPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            this.cPrice.HeaderText = "每平米价格";
+            this.cPrice.Name = "cPrice";
+            this.cPrice.ReadOnly = true;
+            // 
+            // cSum
+            // 
+            this.cSum.DataPropertyName = "SumPrice";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.cSum.DefaultCellStyle = dataGridViewCellStyle3;
+            this.cSum.HeaderText = "金额";
+            this.cSum.Name = "cSum";
+            this.cSum.ReadOnly = true;
+            this.cSum.Width = 80;
+            // 
+            // cOperator
+            // 
+            this.cOperator.DataPropertyName = "Operator";
+            this.cOperator.HeaderText = "操作员";
+            this.cOperator.Name = "cOperator";
+            this.cOperator.ReadOnly = true;
+            // 
+            // cOutTime
+            // 
+            this.cOutTime.DataPropertyName = "CreateTime";
+            this.cOutTime.HeaderText = "出单时间";
+            this.cOutTime.Name = "cOutTime";
+            this.cOutTime.ReadOnly = true;
+            // 
+            // cDetail
+            // 
+            this.cDetail.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.cDetail.HeaderText = "";
+            this.cDetail.Name = "cDetail";
+            this.cDetail.ReadOnly = true;
+            this.cDetail.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.cDetail.Width = 60;
+            // 
+            // cDel
+            // 
+            this.cDel.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.cDel.HeaderText = "";
+            this.cDel.Name = "cDel";
+            this.cDel.ReadOnly = true;
+            this.cDel.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.cDel.Width = 90;
+            // 
             // frmGoodsSearch
             // 
             this.AcceptButton = this.btn_Search;
@@ -368,14 +367,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lab_Sum;
         private System.Windows.Forms.Label label7;
+        private WinFormPager.PagerControl pagerControl1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cSupplyID;
         private System.Windows.Forms.DataGridViewTextBoxColumn cAgent;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn cSum;
         private System.Windows.Forms.DataGridViewTextBoxColumn cOperator;
         private System.Windows.Forms.DataGridViewTextBoxColumn cOutTime;
-        private System.Windows.Forms.DataGridViewLinkColumn cPrint;
         private System.Windows.Forms.DataGridViewLinkColumn cDetail;
-        private WinFormPager.PagerControl pagerControl1;
+        private System.Windows.Forms.DataGridViewLinkColumn cDel;
     }
 }

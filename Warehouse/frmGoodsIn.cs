@@ -32,7 +32,7 @@ namespace Warehouse
 
 
             dtp_InTime.Value = CommonService.GetServerTime();
-            if (Global.userName!="admin")
+            if (!Global.IsAdmin)
             {
                 //dataGridView1.Columns["cModity"].Visible = false;
                 dataGridView1.Columns["cDel"].Visible = false;

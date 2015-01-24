@@ -44,6 +44,13 @@
             this.lab_Sum = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNorm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cSumPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cInTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cDel = new System.Windows.Forms.DataGridViewLinkColumn();
             this.btn_GenNo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cbx_Agent = new System.Windows.Forms.ComboBox();
@@ -53,13 +60,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txt_Operator = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNorm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cSumPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cInTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cDel = new System.Windows.Forms.DataGridViewLinkColumn();
             this.groupBox1.SuspendLayout();
             this.panel_Time.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -239,6 +239,68 @@
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // cBarcode
+            // 
+            this.cBarcode.DataPropertyName = "Barcode";
+            this.cBarcode.HeaderText = "条形码";
+            this.cBarcode.Name = "cBarcode";
+            this.cBarcode.ReadOnly = true;
+            this.cBarcode.Width = 150;
+            // 
+            // cNorm
+            // 
+            this.cNorm.DataPropertyName = "NormName";
+            this.cNorm.HeaderText = "规格(单位:米)";
+            this.cNorm.Name = "cNorm";
+            this.cNorm.ReadOnly = true;
+            this.cNorm.Width = 120;
+            // 
+            // cLength
+            // 
+            this.cLength.DataPropertyName = "Length";
+            this.cLength.HeaderText = "米数";
+            this.cLength.Name = "cLength";
+            this.cLength.ReadOnly = true;
+            this.cLength.Width = 150;
+            // 
+            // cPrice
+            // 
+            this.cPrice.DataPropertyName = "Price";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.cPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            this.cPrice.HeaderText = "单价";
+            this.cPrice.Name = "cPrice";
+            this.cPrice.ReadOnly = true;
+            // 
+            // cSumPrice
+            // 
+            this.cSumPrice.DataPropertyName = "SumPrice";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.cSumPrice.DefaultCellStyle = dataGridViewCellStyle3;
+            this.cSumPrice.HeaderText = "金额";
+            this.cSumPrice.Name = "cSumPrice";
+            this.cSumPrice.ReadOnly = true;
+            // 
+            // cInTime
+            // 
+            this.cInTime.DataPropertyName = "InTime";
+            this.cInTime.HeaderText = "入仓时间";
+            this.cInTime.Name = "cInTime";
+            this.cInTime.ReadOnly = true;
+            this.cInTime.Visible = false;
+            this.cInTime.Width = 120;
+            // 
+            // cDel
+            // 
+            this.cDel.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.cDel.HeaderText = "";
+            this.cDel.Name = "cDel";
+            this.cDel.ReadOnly = true;
+            this.cDel.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.cDel.Width = 60;
+            // 
             // btn_GenNo
             // 
             this.btn_GenNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -327,68 +389,6 @@
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 15;
             this.label3.Text = "操作员：";
-            // 
-            // cBarcode
-            // 
-            this.cBarcode.DataPropertyName = "Barcode";
-            this.cBarcode.HeaderText = "条形码";
-            this.cBarcode.Name = "cBarcode";
-            this.cBarcode.ReadOnly = true;
-            this.cBarcode.Width = 150;
-            // 
-            // cNorm
-            // 
-            this.cNorm.DataPropertyName = "NormName";
-            this.cNorm.HeaderText = "规格(单位:米)";
-            this.cNorm.Name = "cNorm";
-            this.cNorm.ReadOnly = true;
-            this.cNorm.Width = 120;
-            // 
-            // cLength
-            // 
-            this.cLength.DataPropertyName = "Length";
-            this.cLength.HeaderText = "米数";
-            this.cLength.Name = "cLength";
-            this.cLength.ReadOnly = true;
-            this.cLength.Width = 150;
-            // 
-            // cPrice
-            // 
-            this.cPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.cPrice.DefaultCellStyle = dataGridViewCellStyle2;
-            this.cPrice.HeaderText = "单价";
-            this.cPrice.Name = "cPrice";
-            this.cPrice.ReadOnly = true;
-            // 
-            // cSumPrice
-            // 
-            this.cSumPrice.DataPropertyName = "SumPrice";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.cSumPrice.DefaultCellStyle = dataGridViewCellStyle3;
-            this.cSumPrice.HeaderText = "金额";
-            this.cSumPrice.Name = "cSumPrice";
-            this.cSumPrice.ReadOnly = true;
-            // 
-            // cInTime
-            // 
-            this.cInTime.DataPropertyName = "InTime";
-            this.cInTime.HeaderText = "入仓时间";
-            this.cInTime.Name = "cInTime";
-            this.cInTime.ReadOnly = true;
-            this.cInTime.Visible = false;
-            this.cInTime.Width = 120;
-            // 
-            // cDel
-            // 
-            this.cDel.ActiveLinkColor = System.Drawing.Color.Blue;
-            this.cDel.HeaderText = "";
-            this.cDel.Name = "cDel";
-            this.cDel.ReadOnly = true;
-            this.cDel.VisitedLinkColor = System.Drawing.Color.Blue;
-            this.cDel.Width = 60;
             // 
             // frmGoodsOut
             // 

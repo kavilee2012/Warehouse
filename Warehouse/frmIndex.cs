@@ -30,6 +30,7 @@ namespace Warehouse
             if (!Global.IsAdmin)
             {
                 统计查询ToolStripMenuItem1.Visible = false;
+                客户管理ToolStripMenuItem.Visible = false;
             }
             //ShowFrom(new frmWarehouseView());
         }

@@ -217,18 +217,24 @@ namespace Warehouse
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public void Delete(string SupplyID,int ID)
+		public int Delete(string SupplyID)
 		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from Supply ");
-			strSql.Append(" where SupplyID=@SupplyID and ID=@ID ");
-			SqlParameter[] parameters = {
-					new SqlParameter("@SupplyID", SqlDbType.VarChar,50),
-					new SqlParameter("@ID", SqlDbType.Int,4)};
-			parameters[0].Value = SupplyID;
-			parameters[1].Value = ID;
+            SqlParameter[] parameters = {
+					new SqlParameter("@SupplyID", SupplyID)};
 
-			DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+            List<string> sqlT = new List<string>();
+            sqlT.Add("delete from [Supply] where SupplyID=@SupplyID;");
+            sqlT.Add("delete from [SupplyDetail] WHERE SupplyID=@SupplyID");
+
+            object obj = DbHelperSQL.NewExecTransaction(sqlT.ToArray(), parameters);
+            if (obj == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
 		}
 
 

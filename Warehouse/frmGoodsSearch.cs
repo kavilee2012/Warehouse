@@ -28,7 +28,10 @@ namespace Warehouse
             pagerControl1.OnPageChanged += new EventHandler(pagerControl1_OnPageChanged);
             BindDGV();
 
-            //btn_Search.PerformClick();
+            if (!Global.IsAdmin)
+            {
+                dataGridView1.Columns["cDel"].Visible = false;
+            }
         }
 
         void pagerControl1_OnPageChanged(object sender, EventArgs e)
@@ -125,6 +128,10 @@ namespace Warehouse
             {
                 e.Value = " 详细";
             }
+            if (e.ColumnIndex == dataGridView1.Columns["cDel"].Index)
+            {
+                e.Value = " 删除";
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -141,6 +148,27 @@ namespace Warehouse
                     f.ShowDialog();
                 }
 
+            }
+            else if (e.ColumnIndex == dataGridView1.Columns["cDel"].Index)
+            {
+                if (MessageBox.Show(this, "删除后数据不能恢复，是否继续删除?", "警告", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    object v = dataGridView1.Rows[e.RowIndex].Cells["cSupplyID"].Value;
+                    if (v != null)
+                    {
+                        Supply no = new Supply();
+                        int re = no.Delete(v.ToString());
+                        if (re > 0)
+                        {
+                            MessageBox.Show("删除成功!");
+                            BindDGV();
+                        }
+                        else
+                        {
+                            MessageBox.Show("删除失败!");
+                        }
+                    }
+                }
             }
         }
 
