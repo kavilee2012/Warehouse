@@ -55,9 +55,9 @@ namespace Common
 
             //TSCLIB_DLL.about();                                                                 //Show the DLL version
             TSCLIB_DLL.openport("TSC TTP-244 Plus");                                           //Open specified printer driver
-            TSCLIB_DLL.setup("54", "36", "4", "12", "0", "2", "0");                           //Setup the media size and sensor type info
+            TSCLIB_DLL.setup("40", "30", "4", "12", "0", "2", "0");                           //Setup the media size and sensor type info
             TSCLIB_DLL.clearbuffer();                                                           //Clear image buffer
-            TSCLIB_DLL.barcode("100", "80", "128", "100", "1", "0", "2", "2", barCode); //Drawing barcode
+            TSCLIB_DLL.barcode("50", "50", "128", "100", "1", "0", "2", "2", barCode); //Drawing barcode
             //TSCLIB_DLL.printerfont("100", "250", "3", "0", "1", "1", "Print Font Test");        //Drawing printer font
             //TSCLIB_DLL.windowsfont(100, 300, 24, 0, 0, 0, "ARIAL", "Windows Arial Font Test");  //Draw windows font
             //TSCLIB_DLL.downloadpcx("UL.PCX", "UL.PCX");                                         //Download PCX file into printer

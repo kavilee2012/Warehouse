@@ -142,3 +142,4 @@ E:\WorkFile\WHouse\Warehouse\obj\Debug\RdlCompile.compiled
 E:\WorkFile\WHouse\Warehouse\obj\Debug\Warehouse.frmBatchUpload.resources
 E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.frmBatchUpload.resources
 E:\Test\LZC\Warehouse\Warehouse\Warehouse\obj\Debug\Warehouse.frmViewDetail.resources
+E:\WorkFile\WHouse\Warehouse\obj\Debug\Warehouse.frmViewDetail.resources
