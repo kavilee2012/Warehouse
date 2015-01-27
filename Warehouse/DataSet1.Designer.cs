@@ -264,11 +264,11 @@ namespace Warehouse {
             
             private global::System.Data.DataColumn column规格;
             
-            private global::System.Data.DataColumn column件数;
+            private global::System.Data.DataColumn column数量;
             
-            private global::System.Data.DataColumn column总米数;
+            private global::System.Data.DataColumn column长度;
             
-            private global::System.Data.DataColumn column单价;
+            private global::System.Data.DataColumn column每卷价格;
             
             private global::System.Data.DataColumn column金额;
             
@@ -310,23 +310,23 @@ namespace Warehouse {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn 件数Column {
+            public global::System.Data.DataColumn 数量Column {
                 get {
-                    return this.column件数;
+                    return this.column数量;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn 总米数Column {
+            public global::System.Data.DataColumn 长度Column {
                 get {
-                    return this.column总米数;
+                    return this.column长度;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn 单价Column {
+            public global::System.Data.DataColumn 每卷价格Column {
                 get {
-                    return this.column单价;
+                    return this.column每卷价格;
                 }
             }
             
@@ -366,13 +366,13 @@ namespace Warehouse {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public DataTable1Row AddDataTable1Row(string 规格, string 件数, string 总米数, string 单价, string 金额) {
+            public DataTable1Row AddDataTable1Row(string 规格, string 数量, string 长度, string 每卷价格, string 金额) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         规格,
-                        件数,
-                        总米数,
-                        单价,
+                        数量,
+                        长度,
+                        每卷价格,
                         金额};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
@@ -399,9 +399,9 @@ namespace Warehouse {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal void InitVars() {
                 this.column规格 = base.Columns["规格"];
-                this.column件数 = base.Columns["件数"];
-                this.column总米数 = base.Columns["总米数"];
-                this.column单价 = base.Columns["单价"];
+                this.column数量 = base.Columns["数量"];
+                this.column长度 = base.Columns["长度"];
+                this.column每卷价格 = base.Columns["每卷价格"];
                 this.column金额 = base.Columns["金额"];
             }
             
@@ -409,12 +409,12 @@ namespace Warehouse {
             private void InitClass() {
                 this.column规格 = new global::System.Data.DataColumn("规格", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column规格);
-                this.column件数 = new global::System.Data.DataColumn("件数", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column件数);
-                this.column总米数 = new global::System.Data.DataColumn("总米数", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column总米数);
-                this.column单价 = new global::System.Data.DataColumn("单价", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column单价);
+                this.column数量 = new global::System.Data.DataColumn("数量", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column数量);
+                this.column长度 = new global::System.Data.DataColumn("长度", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column长度);
+                this.column每卷价格 = new global::System.Data.DataColumn("每卷价格", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column每卷价格);
                 this.column金额 = new global::System.Data.DataColumn("金额", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column金额);
             }
@@ -564,47 +564,47 @@ namespace Warehouse {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string 件数 {
+            public string 数量 {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.件数Column]));
+                        return ((string)(this[this.tableDataTable1.数量Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“DataTable1”中列“件数”的值为 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("表“DataTable1”中列“数量”的值为 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.件数Column] = value;
+                    this[this.tableDataTable1.数量Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string 总米数 {
+            public string 长度 {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.总米数Column]));
+                        return ((string)(this[this.tableDataTable1.长度Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“DataTable1”中列“总米数”的值为 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("表“DataTable1”中列“长度”的值为 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.总米数Column] = value;
+                    this[this.tableDataTable1.长度Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string 单价 {
+            public string 每卷价格 {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.单价Column]));
+                        return ((string)(this[this.tableDataTable1.每卷价格Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“DataTable1”中列“单价”的值为 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("表“DataTable1”中列“每卷价格”的值为 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.单价Column] = value;
+                    this[this.tableDataTable1.每卷价格Column] = value;
                 }
             }
             
@@ -634,33 +634,33 @@ namespace Warehouse {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Is件数Null() {
-                return this.IsNull(this.tableDataTable1.件数Column);
+            public bool Is数量Null() {
+                return this.IsNull(this.tableDataTable1.数量Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Set件数Null() {
-                this[this.tableDataTable1.件数Column] = global::System.Convert.DBNull;
+            public void Set数量Null() {
+                this[this.tableDataTable1.数量Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Is总米数Null() {
-                return this.IsNull(this.tableDataTable1.总米数Column);
+            public bool Is长度Null() {
+                return this.IsNull(this.tableDataTable1.长度Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Set总米数Null() {
-                this[this.tableDataTable1.总米数Column] = global::System.Convert.DBNull;
+            public void Set长度Null() {
+                this[this.tableDataTable1.长度Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Is单价Null() {
-                return this.IsNull(this.tableDataTable1.单价Column);
+            public bool Is每卷价格Null() {
+                return this.IsNull(this.tableDataTable1.每卷价格Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Set单价Null() {
-                this[this.tableDataTable1.单价Column] = global::System.Convert.DBNull;
+            public void Set每卷价格Null() {
+                this[this.tableDataTable1.每卷价格Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

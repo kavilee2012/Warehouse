@@ -24,7 +24,7 @@ namespace Warehouse
             lab_Error.Tag = "9999";
             lab_Error.ForeColor = Color.Red;
 
-            //dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.AutoGenerateColumns = false;
             txt_Operator.Text = Global.userName;
             BindCBX();
             cbx_Agent.SelectedIndex = -1;
@@ -165,10 +165,12 @@ namespace Warehouse
             }
             lab_Cnt.Text = allOut.Count.ToString();
             lab_Sum.Text = sumMoney.ToString("0.00")+"元";
-            dataGridView1.AutoGenerateColumns = false;
+
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = allOut;
-           // if (dataGridView1.Rows.Count > 0) { dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[1]; }
+            if (allOut.Count > 0)
+            {
+                dataGridView1.DataSource = allOut;
+            }
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

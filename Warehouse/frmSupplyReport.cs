@@ -112,17 +112,15 @@ namespace Warehouse
         private DataTable GetGroupSupply(out decimal sum)
         {
             decimal _s = 0;
-            string sql = "SELECT LEFT(Barcode,4)as 规格,COUNT(Barcode) as 件数,Sum(SumMoney) as 金额,MAX(Price) as 单价,SUM(Length) as 总米数 FROM SupplyDetail WHERE SupplyID='" + _supplyID + "' GROUP BY LEFT(Barcode,4)";
+            string sql = "SELECT (NormName + '米') as 规格,(cast(Length as Varchar) + '米') as 长度,(CAST(COUNT(Barcode) as Varchar)+'卷') as 数量,Cast(Max(SumMoney) as decimal(10,2)) as 每卷价格,Cast(Sum(SumMoney) as decimal(10,2)) as 金额 FROM SupplyDetail WHERE SupplyID='" + _supplyID + "' GROUP BY NormName,Length  ORDER By NormName ASC";
             DataTable dt = SqlHelper.ExecuteDataTable(sql);
             if (dt != null && dt.Rows.Count>0)
             {
                 foreach (DataRow dr in dt.Rows)
                 {
-                    float tem = float.Parse(dr["规格"].ToString()) / 1000;
-                    dr["规格"] = tem.ToString("0.000") + "米";
+                    //float tem = float.Parse(dr["规格"].ToString());
+                    //dr["规格"] = tem.ToString("0.000") + "米";
                     _s += decimal.Parse(dr["金额"].ToString());
-                    dr["单价"] = decimal.Parse(dr["单价"].ToString()).ToString("0.00");
-                    dr["金额"] = decimal.Parse(dr["金额"].ToString()).ToString("0.00");
                 }
             }
             sum = _s;

@@ -2,7 +2,7 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <DataSources>
     <DataSource Name="DummyDataSource">
-      <rd:DataSourceID>7ffb3c41-b2a8-49ac-b60e-91429f6d11bd</rd:DataSourceID>
+      <rd:DataSourceID>df8665ae-fe1d-4361-9e96-f729e6f371e0</rd:DataSourceID>
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
         <ConnectString>server=127.0.0.1;database=warehouse;uid=sa;pwd=sa;</ConnectString>
@@ -91,16 +91,16 @@
           <DataField>规格</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="件数">
-          <DataField>件数</DataField>
+        <Field Name="数量">
+          <DataField>数量</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="总米数">
-          <DataField>总米数</DataField>
+        <Field Name="长度">
+          <DataField>长度</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="单价">
-          <DataField>单价</DataField>
+        <Field Name="每卷价格">
+          <DataField>每卷价格</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="金额">
@@ -250,7 +250,7 @@
         <ZIndex>3</ZIndex>
         <DataSetName>DataSet1_DataTable1</DataSetName>
         <Top>7cm</Top>
-        <Width>18.55291cm</Width>
+        <Width>18.75cm</Width>
         <Details>
           <TableRows>
             <TableRow>
@@ -278,8 +278,8 @@
                 </TableCell>
                 <TableCell>
                   <ReportItems>
-                    <Textbox Name="单位">
-                      <rd:DefaultName>单位</rd:DefaultName>
+                    <Textbox Name="textbox30">
+                      <rd:DefaultName>textbox30</rd:DefaultName>
                       <Style>
                         <BorderStyle>
                           <Default>Solid</Default>
@@ -293,14 +293,14 @@
                       </Style>
                       <ZIndex>4</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!件数.Value</Value>
+                      <Value>=Fields!长度.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
                 <TableCell>
                   <ReportItems>
-                    <Textbox Name="数量">
-                      <rd:DefaultName>数量</rd:DefaultName>
+                    <Textbox Name="textbox39">
+                      <rd:DefaultName>textbox39</rd:DefaultName>
                       <Style>
                         <BorderStyle>
                           <Default>Solid</Default>
@@ -314,7 +314,7 @@
                       </Style>
                       <ZIndex>3</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!总米数.Value</Value>
+                      <Value>=Fields!数量.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -335,7 +335,7 @@
                       </Style>
                       <ZIndex>2</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!单价.Value</Value>
+                      <Value>=Fields!每卷价格.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -430,7 +430,7 @@
                       </Style>
                       <ZIndex>30</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>件数</Value>
+                      <Value>长度</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -451,7 +451,7 @@
                       </Style>
                       <ZIndex>29</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>总米数</Value>
+                      <Value>数量</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -472,7 +472,7 @@
                       </Style>
                       <ZIndex>28</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>单价（元）</Value>
+                      <Value>每卷价格（元）</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -528,19 +528,19 @@
             <Width>3cm</Width>
           </TableColumn>
           <TableColumn>
-            <Width>2.30291cm</Width>
+            <Width>3cm</Width>
           </TableColumn>
           <TableColumn>
-            <Width>2.5cm</Width>
+            <Width>2.75cm</Width>
           </TableColumn>
           <TableColumn>
-            <Width>2.5cm</Width>
+            <Width>3cm</Width>
           </TableColumn>
           <TableColumn>
             <Width>3.25cm</Width>
           </TableColumn>
           <TableColumn>
-            <Width>5cm</Width>
+            <Width>3.75cm</Width>
           </TableColumn>
         </TableColumns>
         <Height>6.03968cm</Height>
@@ -733,7 +733,7 @@
                       </Style>
                       <ZIndex>14</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>注：金额 = 规格 x 总米数 x 单价</Value>
+                      <Value>注：金额 = 数量 x 每卷价格</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>

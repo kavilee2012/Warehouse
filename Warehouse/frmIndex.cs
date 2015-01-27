@@ -149,6 +149,14 @@ namespace Warehouse
             ShowFrom(new frmCustomer());
         }
 
+        private void 锁定ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmLock fl = new frmLock();
+            fl.Owner = this;
+            fl.ShowDialog();
+        }
+
 
 
 
