@@ -35,12 +35,13 @@
             this.txt_UserName = new System.Windows.Forms.TextBox();
             this.txt_UserPwd = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lab_Version = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Login
             // 
-            this.btn_Login.Location = new System.Drawing.Point(103, 196);
+            this.btn_Login.Location = new System.Drawing.Point(106, 185);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(75, 23);
             this.btn_Login.TabIndex = 3;
@@ -51,7 +52,7 @@
             // btn_Cancel
             // 
             this.btn_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_Cancel.Location = new System.Drawing.Point(195, 196);
+            this.btn_Cancel.Location = new System.Drawing.Point(198, 185);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(75, 23);
             this.btn_Cancel.TabIndex = 4;
@@ -105,6 +106,15 @@
             this.panel1.Size = new System.Drawing.Size(288, 152);
             this.panel1.TabIndex = 6;
             // 
+            // lab_Version
+            // 
+            this.lab_Version.AutoSize = true;
+            this.lab_Version.Location = new System.Drawing.Point(255, 229);
+            this.lab_Version.Name = "lab_Version";
+            this.lab_Version.Size = new System.Drawing.Size(107, 12);
+            this.lab_Version.TabIndex = 7;
+            this.lab_Version.Text = "版本号：V20150306";
+            // 
             // frmLogin
             // 
             this.AcceptButton = this.btn_Login;
@@ -112,6 +122,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_Cancel;
             this.ClientSize = new System.Drawing.Size(374, 250);
+            this.Controls.Add(this.lab_Version);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_Login);
@@ -122,6 +133,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -134,6 +146,7 @@
         private System.Windows.Forms.TextBox txt_UserName;
         private System.Windows.Forms.TextBox txt_UserPwd;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lab_Version;
 
     }
 }
