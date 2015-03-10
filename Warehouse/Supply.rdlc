@@ -2,7 +2,7 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <DataSources>
     <DataSource Name="DummyDataSource">
-      <rd:DataSourceID>df8665ae-fe1d-4361-9e96-f729e6f371e0</rd:DataSourceID>
+      <rd:DataSourceID>9142d68a-8cd6-4fe5-bb4f-838b8bef2517</rd:DataSourceID>
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
         <ConnectString>server=127.0.0.1;database=warehouse;uid=sa;pwd=sa;</ConnectString>
@@ -105,6 +105,10 @@
         </Field>
         <Field Name="金额">
           <DataField>金额</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="型号">
+          <DataField>型号</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -272,7 +276,7 @@
                       </Style>
                       <ZIndex>5</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!规格.Value</Value>
+                      <Value>=Fields!型号.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -293,7 +297,7 @@
                       </Style>
                       <ZIndex>4</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!长度.Value</Value>
+                      <Value>=Fields!规格.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -314,7 +318,7 @@
                       </Style>
                       <ZIndex>3</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!数量.Value</Value>
+                      <Value>=Fields!长度.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -335,7 +339,7 @@
                       </Style>
                       <ZIndex>2</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!每卷价格.Value</Value>
+                      <Value>=Fields!数量.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -356,7 +360,7 @@
                       </Style>
                       <ZIndex>1</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!金额.Value</Value>
+                      <Value>=Fields!每卷价格.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -376,7 +380,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                       <CanGrow>true</CanGrow>
-                      <Value />
+                      <Value>=Fields!金额.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -407,9 +411,9 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>32</ZIndex>
+                      <ZIndex>31</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>规格</Value>
+                      <Value>型号</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -428,9 +432,9 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>31</ZIndex>
+                      <ZIndex>30</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>长度</Value>
+                      <Value>规格</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -449,9 +453,9 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>30</ZIndex>
+                      <ZIndex>29</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>数量</Value>
+                      <Value>长度</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -470,9 +474,9 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>29</ZIndex>
+                      <ZIndex>28</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>每卷价格（元）</Value>
+                      <Value>数量</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -491,9 +495,9 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>28</ZIndex>
+                      <ZIndex>27</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>金额（元）</Value>
+                      <Value>每卷价格（元）</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -512,9 +516,9 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>27</ZIndex>
+                      <ZIndex>26</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>备注</Value>
+                      <Value>金额（元）</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -563,14 +567,14 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>10</ZIndex>
+                      <ZIndex>9</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>合计(大写)：</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
                 <TableCell>
-                  <ColSpan>2</ColSpan>
+                  <ColSpan>3</ColSpan>
                   <ReportItems>
                     <Textbox Name="textbox26">
                       <rd:DefaultName>textbox26</rd:DefaultName>
@@ -586,30 +590,9 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>9</ZIndex>
-                      <CanGrow>true</CanGrow>
-                      <Value>=Parameters!pam_SumAmount.Value</Value>
-                    </Textbox>
-                  </ReportItems>
-                </TableCell>
-                <TableCell>
-                  <ReportItems>
-                    <Textbox Name="textbox12">
-                      <rd:DefaultName>textbox12</rd:DefaultName>
-                      <Style>
-                        <BorderStyle>
-                          <Default>Solid</Default>
-                        </BorderStyle>
-                        <FontFamily>宋体</FontFamily>
-                        <TextAlign>Right</TextAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
                       <ZIndex>8</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>小写：</Value>
+                      <Value>=Parameters!pam_SumAmount.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -622,7 +605,6 @@
                           <Default>Solid</Default>
                         </BorderStyle>
                         <FontFamily>宋体</FontFamily>
-                        <FontWeight>700</FontWeight>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -631,7 +613,7 @@
                       </Style>
                       <ZIndex>7</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>=Parameters!pam_SumSmall.Value</Value>
+                      <Value>小写：</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -653,7 +635,7 @@
                       </Style>
                       <ZIndex>6</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value />
+                      <Value>=Parameters!pam_SumSmall.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -677,7 +659,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>12</ZIndex>
+                      <ZIndex>11</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>条      码：</Value>
                     </Textbox>
@@ -699,7 +681,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>11</ZIndex>
+                      <ZIndex>10</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>=Parameters!pam_Remark.Value</Value>
                     </Textbox>
@@ -731,7 +713,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>14</ZIndex>
+                      <ZIndex>13</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>注：金额 = 数量 x 每卷价格</Value>
                     </Textbox>
@@ -757,7 +739,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>13</ZIndex>
+                      <ZIndex>12</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value />
                     </Textbox>
@@ -779,7 +761,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>20</ZIndex>
+                      <ZIndex>19</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value />
                     </Textbox>
@@ -796,7 +778,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>19</ZIndex>
+                      <ZIndex>18</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value />
                     </Textbox>
@@ -813,7 +795,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>18</ZIndex>
+                      <ZIndex>17</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value />
                     </Textbox>
@@ -830,7 +812,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>17</ZIndex>
+                      <ZIndex>16</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value />
                     </Textbox>
@@ -847,7 +829,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>16</ZIndex>
+                      <ZIndex>15</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value />
                     </Textbox>
@@ -864,7 +846,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>15</ZIndex>
+                      <ZIndex>14</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value />
                     </Textbox>
@@ -886,7 +868,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>26</ZIndex>
+                      <ZIndex>25</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value>制单员(签名):</Value>
                     </Textbox>
@@ -903,7 +885,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>25</ZIndex>
+                      <ZIndex>24</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value />
                     </Textbox>
@@ -920,9 +902,9 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>24</ZIndex>
+                      <ZIndex>23</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>收货人(签名):</Value>
+                      <Value>送货人(签名):</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -937,7 +919,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>23</ZIndex>
+                      <ZIndex>22</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value />
                     </Textbox>
@@ -954,9 +936,9 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>22</ZIndex>
+                      <ZIndex>21</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>送货人(签名):</Value>
+                      <Value>收货人(签名):</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -971,7 +953,7 @@
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
-                      <ZIndex>21</ZIndex>
+                      <ZIndex>20</ZIndex>
                       <CanGrow>true</CanGrow>
                       <Value />
                     </Textbox>

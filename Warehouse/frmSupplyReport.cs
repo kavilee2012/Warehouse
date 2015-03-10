@@ -43,13 +43,24 @@ namespace Warehouse
             reportViewer1.LocalReport.DataSources.Add(rds);
 
             string _barStr = "";
-            string sql="SELECT Barcode FROM SupplyDetail WHERE SupplyID='"+_supplyID+"'";
+            string sql = "SELECT Model,Barcode FROM SupplyDetail WHERE SupplyID='" + _supplyID + "' ORDER BY Model,Barcode ASC";
             DataTable dt = SqlHelper.ExecuteDataTable(sql);
             if (dt != null&& dt.Rows.Count>0)
             {
+                string _modelNow = "";
                 foreach (DataRow dr in dt.Rows)
                 {
+                    string _m = dr["Model"].ToString();
+                     if (_modelNow != _m)
+                    {
+                        _modelNow = _m;
+                        _barStr += "\n" + _modelNow + " 型号：\n";
+                    }
                     _barStr += dr["Barcode"].ToString()+"、";
+                }
+                if (_barStr.Substring(0, 1) == "\n")
+                {
+                   _barStr = _barStr.Substring(1);
                 }
             }
 
@@ -112,7 +123,7 @@ namespace Warehouse
         private DataTable GetGroupSupply(out decimal sum)
         {
             decimal _s = 0;
-            string sql = "SELECT (NormName + '米') as 规格,(cast(Length as Varchar) + '米') as 长度,(CAST(COUNT(Barcode) as Varchar)+'卷') as 数量,Cast(Max(SumMoney) as decimal(10,2)) as 每卷价格,Cast(Sum(SumMoney) as decimal(10,2)) as 金额 FROM SupplyDetail WHERE SupplyID='" + _supplyID + "' GROUP BY NormName,Length  ORDER By NormName ASC";
+            string sql = "SELECT Model as 型号,(NormName + '米') as 规格,(cast(Length as Varchar) + '米') as 长度,(CAST(COUNT(Barcode) as Varchar)+'卷') as 数量,Cast(Max(SumMoney) as decimal(10,2)) as 每卷价格,Cast(Sum(SumMoney) as decimal(10,2)) as 金额 FROM SupplyDetail WHERE SupplyID='" + _supplyID + "' GROUP BY Model,NormName,Length  ORDER By Model,NormName ASC";
             DataTable dt = SqlHelper.ExecuteDataTable(sql);
             if (dt != null && dt.Rows.Count>0)
             {

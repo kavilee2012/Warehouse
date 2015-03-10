@@ -7,3 +7,16 @@ V4.0 修改功能如下：
 
 V20150306修改如下：
 送货单最下面加制单员字段。
+
+V20150309
+升级SQL：
+｛
+alter table InW add Model varchar(50)
+alter table InWDetail add Model varchar(50)
+alter table SupplyDetail add Model varchar(50)
+
+update InW set Model = '未知'
+update InWDetail set Model = '未知'
+update SupplyDetail set Model = '未知'
+｝
+

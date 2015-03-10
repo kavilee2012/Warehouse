@@ -169,7 +169,7 @@ namespace Warehouse
             {
                 foreach (SupplyDetail s in list)
                 {
-                    sqlT.Add("INSERT INTO SupplyDetail(SupplyID,Barcode,Normname,Price,SumMoney,Cnt,Length) VALUES(@SupplyID,'" + s.Barcode + "','" + s.NormName + "',@Price," + s.SumMoney + ",1," + s.Length + ");");
+                    sqlT.Add("INSERT INTO SupplyDetail(SupplyID,Barcode,Normname,Price,SumMoney,Cnt,Length,Model) VALUES(@SupplyID,'" + s.Barcode + "','" + s.NormName + "',@Price," + s.SumMoney + ",1," + s.Length + ",'" + s.Model + "');");
                 }
             }
             object obj = DbHelperSQL.NewExecTransaction(sqlT.ToArray(), parameters);

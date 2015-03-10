@@ -27,7 +27,9 @@ namespace Warehouse
             dataGridView1.AutoGenerateColumns = false;
             txt_Operator.Text = Global.userName;
             BindCBX();
+            BindCbxLevel();
             cbx_Agent.SelectedIndex = -1;
+            cbx_Level.SelectedIndex = -1;
             panel_Time.Visible = true;
             rb_Time.Checked = true;
             link_Upload.Visible = false;
@@ -56,12 +58,73 @@ namespace Warehouse
             }
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if (cbx_Agent.SelectedValue != null)
+            //{
+            //    string _name = cbx_Agent.SelectedValue.ToString();
+            //    Agent m = new Agent(_name);
+            //    if (!string.IsNullOrEmpty(m.LevelName))
+            //    {
+            //        _price = m.Price;
+            //        txt_Price.Text = m.Price.ToString("0.00");
+            //        BindDGV();
+            //    }
+            //}
+        }
+
+
+        private void BindCbxLevel()
+        {
+
+            DataSet ds = new Level().GetList("");
+            DataTable dt = ds.Tables[0];
+            if (dt.Rows.Count > 0)
+            {
+                //DataRow dr = dt.NewRow();
+                //dr["Name"] = "请选择";
+                //dt.Rows.InsertAt(dr,0);
+                cbx_Level.DataSource = dt;
+                cbx_Level.DisplayMember = "LevelName";
+                cbx_Level.ValueMember = "LevelName";
+            }
+            else
+            {
+                MessageBox.Show("请先添加级别资料！");
+
+                return;
+            }
+        }
+
+        private void cbx_Level_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbx_Level.SelectedValue != null)
+            {
+                string _name = cbx_Level.SelectedValue.ToString();
+                Level m = new Level();
+                m.GetModel(_name);
+                if (!string.IsNullOrEmpty(m.LevelName))
+                {
+                    _price = m.Price;
+                    txt_Price.Text = m.Price.ToString("0.00");
+                    BindDGV();
+                }
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (cbx_Agent.SelectedValue == null)
             {
                 MessageBox.Show("请先选择客户！");
                 cbx_Agent.Focus();
+                return;
+            }
+
+            if (cbx_Level.SelectedValue == null)
+            {
+                MessageBox.Show("请先选择级别！");
+                cbx_Level.Focus();
                 return;
             }
 
@@ -84,6 +147,7 @@ namespace Warehouse
                 s.NormName = i.NormName;
                 s.SumMoney = i.SumPrice;
                 s.Length = i.Length;
+                s.Model = i.Model;
                 list.Add(s);
             }
 
@@ -101,6 +165,7 @@ namespace Warehouse
                 //MessageBox.Show("生成供应单成功！");
                 _price = 0;
                 cbx_Agent.SelectedIndex = -1;
+                cbx_Level.SelectedIndex = -1;
                 txt_Price.Text = "";
                 txt_Barcode.Text = "";
                 allOut=new List<InW>();
@@ -181,20 +246,7 @@ namespace Warehouse
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbx_Agent.SelectedValue != null)
-            {
-                string _name = cbx_Agent.SelectedValue.ToString();
-                Agent m = new Agent(_name);
-                if (!string.IsNullOrEmpty(m.LevelName))
-                {
-                    _price = m.Price;
-                    txt_Price.Text = m.Price.ToString("0.00");
-                    BindDGV();
-                }
-            }
-        }
+
 
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
@@ -349,5 +401,7 @@ namespace Warehouse
                 lab_Error.Text = "";
             }
         }
+
+
     }
 }

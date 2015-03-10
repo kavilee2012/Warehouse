@@ -35,11 +35,11 @@ namespace Warehouse
 
         private void BindDGV(string start, string end)
         {
-            string sql = "SELECT NormName," +
-               " (SELECT ISNULL(SUM(I.Cnt),0) FROM InWDetail I WHERE NormName=N.NormName AND I.CreateTime BETWEEN '" + start + "' AND '" + end + "') AS InCnt," +
-" (SELECT ISNULL(SUM(O.Cnt),0) FROM SupplyDetail O WHERE NormName=N.NormName AND O.CreateTime BETWEEN '" + start + "' AND '" + end + "') AS OutCnt," +
-" (SELECT ISNULL(SUM(X.SumMoney),0) FROM SupplyDetail X WHERE NormName=N.NormName AND X.CreateTime BETWEEN '" + start + "' AND '" + end + "') AS OutMoney," +
-" GETDATE() AS NowTime FROM Norm N ORDER BY NormName ASC";
+            string sql = "SELECT Model,NormName," +
+               " (SELECT ISNULL(SUM(I.Cnt),0) FROM InWDetail I WHERE Model=N.Model AND NormName=N.NormName AND I.CreateTime BETWEEN '" + start + "' AND '" + end + "') AS InCnt," +
+" (SELECT ISNULL(SUM(O.Cnt),0) FROM SupplyDetail O WHERE Model=N.Model AND NormName=N.NormName AND O.CreateTime BETWEEN '" + start + "' AND '" + end + "') AS OutCnt," +
+" (SELECT ISNULL(SUM(X.SumMoney),0) FROM SupplyDetail X WHERE Model=N.Model AND NormName=N.NormName AND X.CreateTime BETWEEN '" + start + "' AND '" + end + "') AS OutMoney," +
+" GETDATE() AS NowTime FROM InWDetail N Group BY Model,NormName ORDER BY Model ASC";
             DataSet ds = DbHelperSQL.Query(sql);
             DataTable dt = ds.Tables[0];
 

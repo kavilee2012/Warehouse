@@ -272,6 +272,8 @@ namespace Warehouse {
             
             private global::System.Data.DataColumn column金额;
             
+            private global::System.Data.DataColumn column型号;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public DataTable1DataTable() {
                 this.TableName = "DataTable1";
@@ -338,6 +340,13 @@ namespace Warehouse {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn 型号Column {
+                get {
+                    return this.column型号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -366,14 +375,15 @@ namespace Warehouse {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public DataTable1Row AddDataTable1Row(string 规格, string 数量, string 长度, string 每卷价格, string 金额) {
+            public DataTable1Row AddDataTable1Row(string 规格, string 数量, string 长度, string 每卷价格, string 金额, string 型号) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         规格,
                         数量,
                         长度,
                         每卷价格,
-                        金额};
+                        金额,
+                        型号};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -403,6 +413,7 @@ namespace Warehouse {
                 this.column长度 = base.Columns["长度"];
                 this.column每卷价格 = base.Columns["每卷价格"];
                 this.column金额 = base.Columns["金额"];
+                this.column型号 = base.Columns["型号"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -417,6 +428,8 @@ namespace Warehouse {
                 base.Columns.Add(this.column每卷价格);
                 this.column金额 = new global::System.Data.DataColumn("金额", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column金额);
+                this.column型号 = new global::System.Data.DataColumn("型号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column型号);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -624,6 +637,21 @@ namespace Warehouse {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string 型号 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.型号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“DataTable1”中列“型号”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.型号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool Is规格Null() {
                 return this.IsNull(this.tableDataTable1.规格Column);
             }
@@ -671,6 +699,16 @@ namespace Warehouse {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void Set金额Null() {
                 this[this.tableDataTable1.金额Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool Is型号Null() {
+                return this.IsNull(this.tableDataTable1.型号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Set型号Null() {
+                this[this.tableDataTable1.型号Column] = global::System.Convert.DBNull;
             }
         }
         

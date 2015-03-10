@@ -144,6 +144,7 @@ namespace Warehouse
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
+            string modelStr = txt_Model.Text.Trim();
             string macStr = cbx_Machine.Text;
             string bigStr = cbx_Big.Text;
             string cntStr = cbx_Cnt.Text;
@@ -152,6 +153,12 @@ namespace Warehouse
             {
                 MessageBox.Show("卷数或件数格式不正确!");
                 cbx_Cnt.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(modelStr))
+            {
+                MessageBox.Show("请输入成品型号!");
+                txt_Model.Focus();
                 return;
             }
             if (!ValidateService.IsNumber(lenStr))
@@ -164,6 +171,7 @@ namespace Warehouse
             try
             {
                 InW m = new InW();
+                m.Model = modelStr;
                 m.NormName = cbx_Norm.SelectedValue.ToString();
                 m.Machine = int.Parse(macStr);
                 m.BigCnt = int.Parse(bigStr);

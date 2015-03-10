@@ -30,6 +30,13 @@ namespace Warehouse
         private int _machine;
         private int _length;
         private decimal _price;
+        private string _model;
+
+        public string Model
+        {
+            get { return _model; }
+            set { _model = value; }
+        }
 
         public decimal Price
         {
@@ -203,6 +210,7 @@ namespace Warehouse
 		{
 			SqlParameter[] parameters = {
 					new SqlParameter("@Batch", Batch),
+                    new SqlParameter("@Model", Model),
 					new SqlParameter("@NormName", NormName),
 					new SqlParameter("@Barcode", Barcode),
 					new SqlParameter("@Cnt", Cnt),
@@ -213,12 +221,12 @@ namespace Warehouse
                     new SqlParameter("@Operator", Operator)};
 
             List<string> sqlT = new List<string>();
-            sqlT.Add("insert into [InW] (Batch,NormName,Barcode,BigCnt,Cnt,Operator,InTime,Machine,Length) values (@Batch,@NormName,@Barcode,@BigCnt,@Cnt,@Operator,@InTime,@Machine,@Length);");
+            sqlT.Add("insert into [InW] (Batch,NormName,Barcode,BigCnt,Cnt,Operator,InTime,Machine,Length,Model) values (@Batch,@NormName,@Barcode,@BigCnt,@Cnt,@Operator,@InTime,@Machine,@Length,@Model);");
             if (list.Count > 0)
             {
                 foreach (string s in list)
                 {
-                    sqlT.Add("INSERT INTO InWDetail(BatchID,Barcode,Normname,Cnt,PrintCnt,Length) VALUES(@Batch,'" + s + "',@NormName,1,0,@Length);");
+                    sqlT.Add("INSERT INTO InWDetail(BatchID,Barcode,Normname,Cnt,PrintCnt,Length,Model) VALUES(@Batch,'" + s + "',@NormName,1,0,@Length,@Model);");
                 }
             }
             object obj = DbHelperSQL.NewExecTransaction(sqlT.ToArray(), parameters);
@@ -366,10 +374,10 @@ namespace Warehouse
                 {
                     model.NormName = ds.Tables[0].Rows[0]["NormName"].ToString();
                 }
-                //if (ds.Tables[0].Rows[0]["Operator"] != null && ds.Tables[0].Rows[0]["Operator"].ToString() != "")
-                //{
-                //    model.Operator = ds.Tables[0].Rows[0]["Operator"].ToString();
-                //}
+                if (ds.Tables[0].Rows[0]["Model"] != null && ds.Tables[0].Rows[0]["Model"].ToString() != "")
+                {
+                    model.Model = ds.Tables[0].Rows[0]["Model"].ToString();
+                }
                 //if (ds.Tables[0].Rows[0]["InTime"] != null && ds.Tables[0].Rows[0]["InTime"].ToString() != "")
                 //{
                 //    model.InTime = DateTime.Parse(ds.Tables[0].Rows[0]["InTime"].ToString());

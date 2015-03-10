@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNorm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +55,7 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cModel,
             this.cNorm,
             this.cBarcode,
             this.cLength,
@@ -70,9 +72,17 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(791, 587);
+            this.dataGridView1.Size = new System.Drawing.Size(821, 587);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
+            // 
+            // cModel
+            // 
+            this.cModel.DataPropertyName = "Model";
+            this.cModel.HeaderText = "型号";
+            this.cModel.Name = "cModel";
+            this.cModel.ReadOnly = true;
+            this.cModel.Width = 150;
             // 
             // cNorm
             // 
@@ -112,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 588);
+            this.ClientSize = new System.Drawing.Size(822, 588);
             this.Controls.Add(this.dataGridView1);
             this.Name = "frmViewDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -126,6 +136,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cModel;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNorm;
         private System.Windows.Forms.DataGridViewTextBoxColumn cBarcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn cLength;

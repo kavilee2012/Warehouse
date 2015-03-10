@@ -15,11 +15,12 @@
         <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="规格" msprop:Generator_UserColumnName="规格" msprop:Generator_ColumnVarNameInTable="column规格" msprop:Generator_ColumnPropNameInRow="规格" msprop:Generator_ColumnPropNameInTable="规格Column" type="xs:string" minOccurs="0" />
-              <xs:element name="数量" msprop:Generator_UserColumnName="数量" msprop:Generator_ColumnVarNameInTable="column数量" msprop:Generator_ColumnPropNameInRow="数量" msprop:Generator_ColumnPropNameInTable="数量Column" type="xs:string" minOccurs="0" />
-              <xs:element name="长度" msprop:Generator_UserColumnName="长度" msprop:Generator_ColumnVarNameInTable="column长度" msprop:Generator_ColumnPropNameInRow="长度" msprop:Generator_ColumnPropNameInTable="长度Column" type="xs:string" minOccurs="0" />
-              <xs:element name="每卷价格" msprop:Generator_UserColumnName="每卷价格" msprop:Generator_ColumnPropNameInRow="每卷价格" msprop:Generator_ColumnVarNameInTable="column每卷价格" msprop:Generator_ColumnPropNameInTable="每卷价格Column" type="xs:string" minOccurs="0" />
-              <xs:element name="金额" msprop:Generator_UserColumnName="金额" msprop:Generator_ColumnPropNameInRow="金额" msprop:Generator_ColumnVarNameInTable="column金额" msprop:Generator_ColumnPropNameInTable="金额Column" type="xs:string" minOccurs="0" />
+              <xs:element name="规格" msprop:Generator_UserColumnName="规格" msprop:Generator_ColumnPropNameInRow="规格" msprop:Generator_ColumnVarNameInTable="column规格" msprop:Generator_ColumnPropNameInTable="规格Column" type="xs:string" minOccurs="0" />
+              <xs:element name="数量" msprop:Generator_UserColumnName="数量" msprop:Generator_ColumnPropNameInRow="数量" msprop:Generator_ColumnVarNameInTable="column数量" msprop:Generator_ColumnPropNameInTable="数量Column" type="xs:string" minOccurs="0" />
+              <xs:element name="长度" msprop:Generator_UserColumnName="长度" msprop:Generator_ColumnPropNameInRow="长度" msprop:Generator_ColumnVarNameInTable="column长度" msprop:Generator_ColumnPropNameInTable="长度Column" type="xs:string" minOccurs="0" />
+              <xs:element name="每卷价格" msprop:Generator_UserColumnName="每卷价格" msprop:Generator_ColumnVarNameInTable="column每卷价格" msprop:Generator_ColumnPropNameInRow="每卷价格" msprop:Generator_ColumnPropNameInTable="每卷价格Column" type="xs:string" minOccurs="0" />
+              <xs:element name="金额" msprop:Generator_UserColumnName="金额" msprop:Generator_ColumnVarNameInTable="column金额" msprop:Generator_ColumnPropNameInRow="金额" msprop:Generator_ColumnPropNameInTable="金额Column" type="xs:string" minOccurs="0" />
+              <xs:element name="型号" msprop:Generator_UserColumnName="型号" msprop:Generator_ColumnPropNameInRow="型号" msprop:Generator_ColumnVarNameInTable="column型号" msprop:Generator_ColumnPropNameInTable="型号Column" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

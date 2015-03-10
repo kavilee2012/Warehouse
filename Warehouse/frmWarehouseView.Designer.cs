@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.cModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNorm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +58,7 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cModel,
             this.cNorm,
             this.cCnt,
             this.cLength,
@@ -75,7 +77,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(835, 513);
+            this.dataGridView1.Size = new System.Drawing.Size(902, 513);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -90,10 +92,18 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "当前库存信息";
             // 
+            // cModel
+            // 
+            this.cModel.DataPropertyName = "Model";
+            this.cModel.HeaderText = "型号";
+            this.cModel.Name = "cModel";
+            this.cModel.ReadOnly = true;
+            this.cModel.Width = 150;
+            // 
             // cNorm
             // 
             this.cNorm.DataPropertyName = "NormName";
-            this.cNorm.HeaderText = "成品规格(单位:米)";
+            this.cNorm.HeaderText = "规格(单位:米)";
             this.cNorm.Name = "cNorm";
             this.cNorm.ReadOnly = true;
             this.cNorm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -148,7 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 578);
+            this.ClientSize = new System.Drawing.Size(912, 578);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "frmWarehouseView";
@@ -164,6 +174,7 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cModel;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNorm;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCnt;
         private System.Windows.Forms.DataGridViewTextBoxColumn cLength;

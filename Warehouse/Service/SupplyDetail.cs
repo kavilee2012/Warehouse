@@ -20,6 +20,13 @@ namespace Warehouse
 		private decimal? _summoney;
 		private int? _cnt;
         private int _length;
+        private string _model;
+
+        public string Model
+        {
+            get { return _model; }
+            set { _model = value; }
+        }
 
         public int Length
         {
