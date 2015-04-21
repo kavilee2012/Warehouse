@@ -113,7 +113,7 @@
             this.lab_Version.Name = "lab_Version";
             this.lab_Version.Size = new System.Drawing.Size(107, 12);
             this.lab_Version.TabIndex = 7;
-            this.lab_Version.Text = "版本号：V20150306";
+            this.lab_Version.Text = "版本号：V20150601";
             // 
             // frmLogin
             // 
