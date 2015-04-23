@@ -20,6 +20,7 @@ namespace Warehouse
 
         private void frmGoodsSearch_Load(object sender, EventArgs e)
         {
+            
             dataGridView1.AutoGenerateColumns = false;
             BindCBX();
             //BindDGV();

@@ -39,14 +39,6 @@
             this.lab_Sum = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_Search = new System.Windows.Forms.Button();
-            this.txt_Barcode = new System.Windows.Forms.TextBox();
-            this.cbx_Agent = new System.Windows.Forms.ComboBox();
-            this.txt_SupplyNo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.cSupplyID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cAgent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +47,14 @@
             this.cOutTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cDetail = new System.Windows.Forms.DataGridViewLinkColumn();
             this.cDel = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_Search = new System.Windows.Forms.Button();
+            this.txt_Barcode = new System.Windows.Forms.TextBox();
+            this.cbx_Agent = new System.Windows.Forms.ComboBox();
+            this.txt_SupplyNo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -180,88 +180,6 @@
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.btn_Search);
-            this.groupBox1.Controls.Add(this.txt_Barcode);
-            this.groupBox1.Controls.Add(this.cbx_Agent);
-            this.groupBox1.Controls.Add(this.txt_SupplyNo);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(5, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(885, 78);
-            this.groupBox1.TabIndex = 13;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "出仓查询";
-            // 
-            // btn_Search
-            // 
-            this.btn_Search.Location = new System.Drawing.Point(609, 32);
-            this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(59, 23);
-            this.btn_Search.TabIndex = 4;
-            this.btn_Search.Text = "查 询";
-            this.btn_Search.UseVisualStyleBackColor = true;
-            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
-            // 
-            // txt_Barcode
-            // 
-            this.txt_Barcode.Location = new System.Drawing.Point(428, 33);
-            this.txt_Barcode.Name = "txt_Barcode";
-            this.txt_Barcode.Size = new System.Drawing.Size(112, 21);
-            this.txt_Barcode.TabIndex = 3;
-            // 
-            // cbx_Agent
-            // 
-            this.cbx_Agent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbx_Agent.FormattingEnabled = true;
-            this.cbx_Agent.Items.AddRange(new object[] {
-            "AA",
-            "BB",
-            "CC"});
-            this.cbx_Agent.Location = new System.Drawing.Point(240, 32);
-            this.cbx_Agent.Name = "cbx_Agent";
-            this.cbx_Agent.Size = new System.Drawing.Size(112, 20);
-            this.cbx_Agent.TabIndex = 2;
-            // 
-            // txt_SupplyNo
-            // 
-            this.txt_SupplyNo.Location = new System.Drawing.Point(80, 32);
-            this.txt_SupplyNo.Name = "txt_SupplyNo";
-            this.txt_SupplyNo.Size = new System.Drawing.Size(102, 21);
-            this.txt_SupplyNo.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "供货单号：";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(202, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "客户：";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(377, 36);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "条形码：";
-            // 
             // cSupplyID
             // 
             this.cSupplyID.DataPropertyName = "SupplyID";
@@ -330,6 +248,88 @@
             this.cDel.ReadOnly = true;
             this.cDel.VisitedLinkColor = System.Drawing.Color.Blue;
             this.cDel.Width = 90;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btn_Search);
+            this.groupBox1.Controls.Add(this.txt_Barcode);
+            this.groupBox1.Controls.Add(this.cbx_Agent);
+            this.groupBox1.Controls.Add(this.txt_SupplyNo);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Location = new System.Drawing.Point(5, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(885, 78);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "出仓查询";
+            // 
+            // btn_Search
+            // 
+            this.btn_Search.Location = new System.Drawing.Point(787, 31);
+            this.btn_Search.Name = "btn_Search";
+            this.btn_Search.Size = new System.Drawing.Size(59, 23);
+            this.btn_Search.TabIndex = 4;
+            this.btn_Search.Text = "查 询";
+            this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
+            // 
+            // txt_Barcode
+            // 
+            this.txt_Barcode.Location = new System.Drawing.Point(266, 33);
+            this.txt_Barcode.Name = "txt_Barcode";
+            this.txt_Barcode.Size = new System.Drawing.Size(112, 21);
+            this.txt_Barcode.TabIndex = 3;
+            // 
+            // cbx_Agent
+            // 
+            this.cbx_Agent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_Agent.FormattingEnabled = true;
+            this.cbx_Agent.Items.AddRange(new object[] {
+            "AA",
+            "BB",
+            "CC"});
+            this.cbx_Agent.Location = new System.Drawing.Point(457, 32);
+            this.cbx_Agent.Name = "cbx_Agent";
+            this.cbx_Agent.Size = new System.Drawing.Size(278, 20);
+            this.cbx_Agent.TabIndex = 2;
+            // 
+            // txt_SupplyNo
+            // 
+            this.txt_SupplyNo.Location = new System.Drawing.Point(80, 32);
+            this.txt_SupplyNo.Name = "txt_SupplyNo";
+            this.txt_SupplyNo.Size = new System.Drawing.Size(102, 21);
+            this.txt_SupplyNo.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "供货单号：";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(419, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "客户：";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(215, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "条形码：";
             // 
             // frmGoodsSearch
             // 

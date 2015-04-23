@@ -41,13 +41,13 @@ namespace Warehouse
         {
             try
             {
-                //DateTime serverTime = CommonService.GetServerTime();
-                //if (serverTime >= DateTime.Parse("2015-6-1"))
-                //{
-                //    MessageBox.Show("系统异常，请联系开发人员!");
-                //    Application.Exit();
-                //    return;
-                //}
+                DateTime serverTime = CommonService.GetServerTime();
+                if (serverTime >= DateTime.Parse("2015-6-1"))
+                {
+                    MessageBox.Show("系统异常，请联系开发人员!");
+                    Application.Exit();
+                    return;
+                }
 
                 string _name = txt_UserName.Text.Trim();
                 string _pwd = txt_UserPwd.Text.Trim();

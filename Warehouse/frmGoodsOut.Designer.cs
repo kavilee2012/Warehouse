@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.link_Upload = new System.Windows.Forms.Button();
             this.panel_Time = new System.Windows.Forms.Panel();
@@ -44,15 +44,6 @@
             this.lab_Sum = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btn_GenNo = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbx_Agent = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txt_Price = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txt_Operator = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.cBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNorm = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,8 +52,17 @@
             this.cSumPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cInTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cDel = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.btn_GenNo = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbx_Agent = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.cbx_Level = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_Price = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_Operator = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel_Time.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -207,14 +207,14 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cBarcode,
@@ -225,14 +225,14 @@
             this.cSumPrice,
             this.cInTime,
             this.cDel});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Location = new System.Drawing.Point(3, 64);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
@@ -242,97 +242,6 @@
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // btn_GenNo
-            // 
-            this.btn_GenNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_GenNo.Location = new System.Drawing.Point(551, 407);
-            this.btn_GenNo.Name = "btn_GenNo";
-            this.btn_GenNo.Size = new System.Drawing.Size(132, 40);
-            this.btn_GenNo.TabIndex = 8;
-            this.btn_GenNo.Text = "生成供货单";
-            this.btn_GenNo.UseVisualStyleBackColor = true;
-            this.btn_GenNo.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(212, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "选择客户：";
-            // 
-            // cbx_Agent
-            // 
-            this.cbx_Agent.FormattingEnabled = true;
-            this.cbx_Agent.Location = new System.Drawing.Point(282, 26);
-            this.cbx_Agent.Name = "cbx_Agent";
-            this.cbx_Agent.Size = new System.Drawing.Size(70, 20);
-            this.cbx_Agent.TabIndex = 3;
-            this.cbx_Agent.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.cbx_Level);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txt_Price);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.txt_Operator);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.cbx_Agent);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(885, 73);
-            this.panel1.TabIndex = 13;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(705, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 12);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "元";
-            // 
-            // txt_Price
-            // 
-            this.txt_Price.Location = new System.Drawing.Point(649, 26);
-            this.txt_Price.Name = "txt_Price";
-            this.txt_Price.ReadOnly = true;
-            this.txt_Price.Size = new System.Drawing.Size(52, 21);
-            this.txt_Price.TabIndex = 18;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(575, 29);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 12);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "每平米价格：";
-            // 
-            // txt_Operator
-            // 
-            this.txt_Operator.Location = new System.Drawing.Point(82, 25);
-            this.txt_Operator.Name = "txt_Operator";
-            this.txt_Operator.ReadOnly = true;
-            this.txt_Operator.Size = new System.Drawing.Size(100, 21);
-            this.txt_Operator.TabIndex = 16;
-            this.txt_Operator.Text = "自动生成";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "操作员：";
             // 
             // cBarcode
             // 
@@ -369,9 +278,9 @@
             // cPrice
             // 
             this.cPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.cPrice.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.cPrice.DefaultCellStyle = dataGridViewCellStyle2;
             this.cPrice.HeaderText = "单价";
             this.cPrice.Name = "cPrice";
             this.cPrice.ReadOnly = true;
@@ -379,9 +288,9 @@
             // cSumPrice
             // 
             this.cSumPrice.DataPropertyName = "SumPrice";
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.cSumPrice.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.cSumPrice.DefaultCellStyle = dataGridViewCellStyle3;
             this.cSumPrice.HeaderText = "金额";
             this.cSumPrice.Name = "cSumPrice";
             this.cSumPrice.ReadOnly = true;
@@ -404,10 +313,57 @@
             this.cDel.VisitedLinkColor = System.Drawing.Color.Blue;
             this.cDel.Width = 60;
             // 
+            // btn_GenNo
+            // 
+            this.btn_GenNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_GenNo.Location = new System.Drawing.Point(551, 407);
+            this.btn_GenNo.Name = "btn_GenNo";
+            this.btn_GenNo.Size = new System.Drawing.Size(132, 40);
+            this.btn_GenNo.TabIndex = 8;
+            this.btn_GenNo.Text = "生成供货单";
+            this.btn_GenNo.UseVisualStyleBackColor = true;
+            this.btn_GenNo.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(219, 44);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "选择客户：";
+            // 
+            // cbx_Agent
+            // 
+            this.cbx_Agent.FormattingEnabled = true;
+            this.cbx_Agent.Location = new System.Drawing.Point(289, 41);
+            this.cbx_Agent.Name = "cbx_Agent";
+            this.cbx_Agent.Size = new System.Drawing.Size(369, 20);
+            this.cbx_Agent.TabIndex = 3;
+            this.cbx_Agent.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.cbx_Level);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.txt_Price);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.txt_Operator);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.cbx_Agent);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(885, 73);
+            this.panel1.TabIndex = 13;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(391, 29);
+            this.label1.Location = new System.Drawing.Point(220, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 20;
@@ -416,11 +372,55 @@
             // cbx_Level
             // 
             this.cbx_Level.FormattingEnabled = true;
-            this.cbx_Level.Location = new System.Drawing.Point(461, 26);
+            this.cbx_Level.Location = new System.Drawing.Point(290, 10);
             this.cbx_Level.Name = "cbx_Level";
             this.cbx_Level.Size = new System.Drawing.Size(70, 20);
             this.cbx_Level.TabIndex = 21;
             this.cbx_Level.SelectedIndexChanged += new System.EventHandler(this.cbx_Level_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(541, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(17, 12);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "元";
+            // 
+            // txt_Price
+            // 
+            this.txt_Price.Location = new System.Drawing.Point(485, 11);
+            this.txt_Price.Name = "txt_Price";
+            this.txt_Price.ReadOnly = true;
+            this.txt_Price.Size = new System.Drawing.Size(52, 21);
+            this.txt_Price.TabIndex = 18;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(411, 14);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 12);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "每平米价格：";
+            // 
+            // txt_Operator
+            // 
+            this.txt_Operator.Location = new System.Drawing.Point(82, 8);
+            this.txt_Operator.Name = "txt_Operator";
+            this.txt_Operator.ReadOnly = true;
+            this.txt_Operator.Size = new System.Drawing.Size(100, 21);
+            this.txt_Operator.TabIndex = 16;
+            this.txt_Operator.Text = "自动生成";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(27, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "操作员：";
             // 
             // frmGoodsOut
             // 
