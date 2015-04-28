@@ -20,3 +20,7 @@ update InWDetail set Model = '未知'
 update SupplyDetail set Model = '未知'
 ｝
 
+
+V20150501
+下拉客户框拉长
+
